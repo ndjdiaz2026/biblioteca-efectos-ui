@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Party Boat | Exclusive Punta Cana Celebrations</title>
+    <meta name="description" content="An emotional, premium private boat experience in Punta Cana. For the memory-makers, the rule-breakers, and the sunset chasers.">
+    
+    <!-- Google Fonts: Poppins (Modern) & Playfair Display (Luxury/Editorial) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#050B14', // Deeper than navy, almost black water
+                        deepsea: '#0A192F',
+                        sunset: '#FF5A5F', // Vibrant emotional core
+                        coral: '#FF8A66',
+                        lagoon: '#00F2FE', // Glowing Caribbean accent
+                        sand: '#F7F4F0',
+                        gold: '#D4AF37'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Resets & Custom Cursor */
+        body {
+            background-color: #050B14;
+            color: #F7F4F0;
+            overflow-x: hidden;
+            cursor: none; /* Custom cursor fallback */
+        }
+        
+        /* Custom Cursor styling */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot {
+            width: 8px; height: 8px;
+            background-color: #FF5A5F;
+        }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid rgba(255, 90, 95, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        body:hover .cursor-dot { opacity: 1; }
+        body:hover .cursor-outline { opacity: 1; }
+
+        /* Typography & Blend Modes */
+        .mix-blend-exclusion { mix-blend-mode: exclusion; }
+        .mix-blend-overlay { mix-blend-mode: overlay; }
+        
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(247, 244, 240, 0.2);
+        }
+        
+        .text-outline-hover:hover {
+            color: #F7F4F0;
+            -webkit-text-stroke: 0px transparent;
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+
+        /* Organic Shapes & Masking */
+        .shape-blob {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        
+        @keyframes morph {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+        }
+
+        /* Expanding Accordion Gallery (The creative replacement for standard cards) */
+        .accordion-gallery {
+            display: flex;
+            height: 70vh;
+            min-height: 500px;
+            gap: 1rem;
+            width: 100%;
+        }
+        
+        .accordion-item {
+            flex: 1;
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: none;
+        }
+        
+        .accordion-item:hover {
+            flex: 4;
+        }
+
+        .accordion-content {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(5,11,20,0.9), transparent);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.2s;
+        }
+        
+        .accordion-item:hover .accordion-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .accordion-title {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            position: absolute;
+            top: 2rem; left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .accordion-item:hover .accordion-title {
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .accordion-gallery {
+                flex-direction: column;
+                height: 120vh;
+            }
+            .accordion-title {
+                writing-mode: horizontal-tb;
+                transform: none;
+                top: auto; bottom: 2rem; left: 2rem;
+            }
+            .accordion-item:hover .accordion-title { opacity: 1; }
+            .accordion-content { opacity: 1; transform: translateY(0); padding-bottom: 5rem;}
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Scroll Reveal (Fade up & Parallax) */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .reveal-up.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Rotating Circular Text */
+        .circular-text-container {
+            animation: spin 20s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* Noise Overlay for texture */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-sunset selection:text-white">
+
+    <!-- Texture Overlay -->
+    <div class="noise-overlay bg-noise"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+
+    <nav id="navbar" class="fixed w-full z-40 top-0 transition-all duration-700 py-6 px-6 md:px-12 mix-blend-difference">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <a href="#" class="text-white font-serif text-2xl italic font-bold tracking-wider group">
+                Black<span class="font-sans not-italic font-light tracking-[0.2em] ml-2 text-sm uppercase">Boat</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-12 text-white/80 font-sans text-xs tracking-[0.2em] uppercase">
+                <a href="#vibe" class="hover:text-sunset transition-colors duration-300">The Vibe</a>
+                <a href="#collection" class="hover:text-sunset transition-colors duration-300">Collection</a>
+                <a href="#taste" class="hover:text-sunset transition-colors duration-300">Taste</a>
+            </div>
+
+            <a href="#book" class="hidden md:flex items-center gap-3 text-white group">
+                <span class="text-xs font-sans tracking-widest uppercase group-hover:text-lagoon transition-colors">Begin Story</span>
+                <div class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:border-lagoon group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+            </a>
+
+            <!-- Mobile Menu -->
+            <button class="md:hidden text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <header class="relative h-screen min-h-[700px] w-full overflow-hidden flex items-center justify-center bg-obsidian">
+        
+        <!-- Video/Image Background -->
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2070&auto=format&fit=crop" alt="Punta Cana Ocean View" class="w-full h-full object-cover opacity-60 scale-105 transform origin-center animate-[pulse-glow_10s_ease-in-out_infinite]"/>
+            <div class="absolute inset-0 bg-gradient-to-b from-obsidian/40 via-transparent to-obsidian"></div>
+        </div>
+
+        <!-- Abstract Glowing Orb -->
+        <div class="absolute top-1/4 -right-20 w-96 h-96 bg-sunset rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-pulse"></div>
+        <div class="absolute bottom-1/4 -left-20 w-96 h-96 bg-lagoon rounded-full mix-blend-screen filter blur-[120px] opacity-30 shape-blob"></div>
+
+        <!-- Hero Content (Editorial style) -->
+        <div class="relative z-10 w-full max-w-[1400px] px-6 mx-auto flex flex-col justify-center items-center text-center mt-20">
+            <p class="font-sans text-lagoon uppercase tracking-[0.4em] text-xs md:text-sm mb-6 reveal-up">Punta Cana, Dominican Republic</p>
+            
+            <h1 class="font-serif italic text-6xl md:text-8xl lg:text-[10rem] leading-[0.8] text-sand font-bold mb-8 reveal-up" style="transition-delay: 0.1s;">
+                Escape <br>
+                <span class="font-sans not-italic text-outline text-7xl md:text-9xl lg:text-[11rem] tracking-tighter uppercase ml-12 md:ml-32">The Ordinary</span>
+            </h1>
+            
+            <p class="font-sans font-light text-sand/80 max-w-xl text-lg md:text-xl reveal-up" style="transition-delay: 0.2s;">
+                We engineer core memories on the Caribbean Sea. Exclusively for those who refuse to celebrate quietly.
+            </p>
+        </div>
+
+        <!-- Scroll Indicator (Vertical Line) -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20">
+            <span class="font-sans text-[10px] uppercase tracking-[0.3em] text-white/50 writing-vertical transform -rotate-180">Dive In</span>
+            <div class="w-px h-24 bg-gradient-to-b from-white/50 to-transparent"></div>
+        </div>
+    </header>
+
+    <section id="vibe" class="relative py-32 bg-obsidian text-sand">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Editorial Text -->
+                <div class="lg:col-span-5 lg:col-start-2 z-10 reveal-up">
+                    <h2 class="font-serif italic text-5xl md:text-6xl text-sunset mb-8">Not a tour.<br><span class="text-sand">A Triumph.</span></h2>
+                    <div class="space-y-6 font-sans font-light text-sand/70 text-lg">
+                        <p>
+                            Forget crowded catamarans and generic playlists. You are here to curate a moment in time that belongs entirely to you and your people.
+                        </p>
+                        <p>
+                            Whether it's a milestone birthday, a final single celebration, or reuniting souls across the globe, the Black Boat serves as your private canvas, painted with golden sunsets and salt-kissed air.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center gap-6">
+                        <div class="w-16 h-px bg-lagoon"></div>
+                        <span class="font-sans uppercase tracking-[0.2em] text-xs font-semibold text-lagoon">By Hispaniola Aquatic</span>
+                    </div>
+                </div>
+
+                <!-- Right: Overlapping 'Scrapbook' Grid -->
+                <div class="lg:col-span-6 relative h-[600px] w-full reveal-up" style="transition-delay: 0.2s;">
+                    <!-- Image 1 (Back, offset) -->
+                    <div class="absolute top-0 right-10 w-2/3 h-[400px] rounded-[3rem] overflow-hidden transform rotate-3 shadow-2xl z-10 border border-white/10 hover:rotate-0 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover filter contrast-125" alt="Sunset Party">
+                    </div>
+                    <!-- Image 2 (Front, overlapping) -->
+                    <div class="absolute bottom-10 left-0 w-3/4 h-[350px] rounded-[3rem] overflow-hidden transform -rotate-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 border border-white/10 hover:-rotate-1 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1971&auto=format&fit=crop" class="w-full h-full object-cover" alt="Luxury Boat Deck">
+                    </div>
+                    <!-- Emotional Badge -->
+                    <div class="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 z-30 bg-sunset text-obsidian rounded-full w-32 h-32 flex items-center justify-center text-center p-4 shadow-xl transform hover:scale-110 transition-transform cursor-pointer">
+                        <span class="font-serif italic font-bold leading-tight">100%<br>Private</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="collection" class="py-24 bg-[#081221] relative overflow-hidden">
+        
+        <!-- Background Marquee Typography -->
+        <div class="absolute top-10 left-0 w-full opacity-5 pointer-events-none marquee-container">
+            <div class="marquee-content font-sans font-bold text-[15rem] leading-none uppercase text-white whitespace-nowrap">
+                THE COLLECTION • THE COLLECTION • THE COLLECTION • 
+            </div>
+            <div class="marquee-content font-sans font-bold text-[15rem] leading-none uppercase text-white whitespace-nowrap">
+                THE COLLECTION • THE COLLECTION • THE COLLECTION • 
+            </div>
+        </div>
+
+        <div class="max-w-[1600px] mx-auto px-6 relative z-10">
+            
+            <div class="mb-16 md:flex justify-between items-end reveal-up">
+                <div>
+                    <span class="font-sans text-lagoon uppercase tracking-[0.3em] text-xs mb-4 block">Curated Journeys</span>
+                    <h2 class="font-serif italic text-4xl md:text-6xl text-sand">Select Your Story</h2>
+                </div>
+                <p class="font-sans text-sand/60 max-w-sm mt-6 md:mt-0 text-sm">Three distinct atmospheres. One unwavering standard of premium Caribbean hospitality.</p>
+            </div>
+
+            <!-- Custom Accordion Gallery -->
+            <div class="accordion-gallery reveal-up" style="transition-delay: 0.2s;">
+                
+                <!-- Experience 1 -->
+                <div class="accordion-item relative group" style="background-image: url('https://images.unsplash.com/photo-1559825481-12a05cc00344?q=80&w=1965&auto=format&fit=crop'); background-position: center;">
+                    <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors duration-500"></div>
+                    
+                    <h3 class="accordion-title font-serif italic text-3xl md:text-5xl text-sand group-hover:opacity-0">The Golden Hour</h3>
+                    
+                    <div class="accordion-content">
+                        <span class="inline-block px-3 py-1 bg-sunset text-obsidian text-[10px] uppercase tracking-widest font-bold rounded-full mb-4">Most Popular</span>
+                        <h4 class="font-serif italic text-4xl text-sand mb-2">Sunset Celebration</h4>
+                        <p class="font-sans text-sand/80 text-sm max-w-md mb-6 line-clamp-2 md:line-clamp-none">Sail into the evening as the sky catches fire. Premium cocktails, a curated soundtrack, and the ultimate backdrop for romance or milestone revelry.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-lagoon font-sans text-xs uppercase tracking-widest hover:text-white transition-colors">
+                            Discover More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="accordion-item relative group" style="background-image: url('https://images.unsplash.com/photo-1540324155970-146607e1fa62?q=80&w=2000&auto=format&fit=crop'); background-position: center;">
+                    <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors duration-500"></div>
+                    
+                    <h3 class="accordion-title font-serif italic text-3xl md:text-5xl text-sand group-hover:opacity-0">The Wild Blue</h3>
+                    
+                    <div class="accordion-content">
+                        <span class="inline-block px-3 py-1 bg-lagoon text-obsidian text-[10px] uppercase tracking-widest font-bold rounded-full mb-4">Daytime Energy</span>
+                        <h4 class="font-serif italic text-4xl text-sand mb-2">Private Charter</h4>
+                        <p class="font-sans text-sand/80 text-sm max-w-md mb-6 line-clamp-2 md:line-clamp-none">Total exclusivity under the Caribbean sun. Anchor at natural pools, dive into crystal waters, and let the bass dictate the rhythm of your afternoon.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-lagoon font-sans text-xs uppercase tracking-widest hover:text-white transition-colors">
+                            Discover More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="accordion-item relative group" style="background-image: url('https://images.unsplash.com/photo-1569974578134-19253456a1b0?q=80&w=1931&auto=format&fit=crop'); background-position: center;">
+                    <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors duration-500"></div>
+                    
+                    <h3 class="accordion-title font-serif italic text-3xl md:text-5xl text-sand group-hover:opacity-0">The Syndicate</h3>
+                    
+                    <div class="accordion-content">
+                        <span class="inline-block px-3 py-1 bg-sand text-obsidian text-[10px] uppercase tracking-widest font-bold rounded-full mb-4">Large Groups</span>
+                        <h4 class="font-serif italic text-4xl text-sand mb-2">VIP Execution</h4>
+                        <p class="font-sans text-sand/80 text-sm max-w-md mb-6 line-clamp-2 md:line-clamp-none">Flawless logistics for corporate retreats, massive bachelorettes, and wedding parties. We scale the luxury without losing the intimacy.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-lagoon font-sans text-xs uppercase tracking-widest hover:text-white transition-colors">
+                            Discover More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="taste" class="py-32 bg-sand text-obsidian relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-20">
+                
+                <!-- Circular Image Composition with Rotating Text -->
+                <div class="lg:w-1/2 relative flex justify-center reveal-up">
+                    <div class="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
+                        <!-- Image -->
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop" alt="Chef preparing food" class="w-full h-full object-cover rounded-full shadow-2xl relative z-10 filter sepia-[0.1]">
+                        
+                        <!-- Rotating Text SVG Ring -->
+                        <div class="absolute -inset-8 md:-inset-12 z-20 circular-text-container pointer-events-none">
+                            <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
+                                <path id="curve" d="M 50, 50 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" fill="transparent" />
+                                <text class="font-sans font-bold uppercase tracking-[0.2em] text-[8px]" fill="#FF5A5F">
+                                    <textPath href="#curve" startOffset="0%">
+                                        • FRESH ONBOARD • CARIBBEAN FLAVOR • PREMIUM OPEN BAR • CHEF PREPARED 
+                                    </textPath>
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sensual Copywriting -->
+                <div class="lg:w-1/2 reveal-up" style="transition-delay: 0.2s;">
+                    <span class="font-sans text-sunset uppercase tracking-[0.3em] text-xs font-bold mb-4 block">The Signature Difference</span>
+                    <h2 class="font-serif italic text-5xl md:text-7xl leading-none mb-8">Taste the <br> <span class="font-sans not-italic text-outline-hover transition-all duration-300 text-deepsea">Ocean.</span></h2>
+                    
+                    <p class="font-sans text-obsidian/70 text-lg md:text-xl font-light mb-6">
+                        Pre-packaged snacks are for tourist traps. We built a fully operational floating kitchen to deliver a culinary experience that matches the view.
+                    </p>
+                    <p class="font-sans text-obsidian/70 text-lg md:text-xl font-light mb-10">
+                        Watch our chef prepare vibrant Caribbean ceviche, flame-grilled skewers, and bespoke appetizers while you sip top-shelf spirits poured by your dedicated mixologist.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-8 border-t border-obsidian/10 pt-8">
+                        <div>
+                            <h4 class="font-serif italic text-xl mb-2">The Bar</h4>
+                            <p class="font-sans text-xs text-obsidian/60 uppercase tracking-wider">Top-Shelf Liquors<br>Custom Cocktails<br>Endless Flow</p>
+                        </div>
+                        <div>
+                            <h4 class="font-serif italic text-xl mb-2">The Galley</h4>
+                            <p class="font-sans text-xs text-obsidian/60 uppercase tracking-wider">Local Catch<br>Dietary Respect<br>Freshly Fired</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="flex flex-col md:flex-row min-h-screen">
+        
+        <!-- B2C Side (Emotional, Vibrant) -->
+        <div class="w-full md:w-1/2 bg-sunset text-sand p-12 md:p-24 flex flex-col justify-center relative overflow-hidden group cursor-pointer reveal-up">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1520483601560-389dff434fdf?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-20 group-hover:scale-105 transition-transform duration-1000"></div>
+            
+            <div class="relative z-10 max-w-lg mx-auto md:ml-auto md:mr-12 text-center md:text-right">
+                <span class="font-sans text-[10px] uppercase tracking-[0.3em] font-bold mb-6 block border border-sand/30 inline-block px-4 py-2 rounded-full">For The Travelers</span>
+                <h2 class="font-serif italic text-5xl md:text-7xl mb-6">Gather Your People.</h2>
+                <p class="font-sans text-lg font-light mb-10 text-sand/90">Birthdays. Bachelorettes. Reconnecting. Hand us the logistics, you take the credit for the greatest day of their lives.</p>
+                
+                <a href="#" class="inline-flex items-center justify-center md:justify-end gap-4 font-sans text-sm uppercase tracking-widest font-bold group/btn">
+                    Plan Your Party 
+                    <span class="w-12 h-12 rounded-full bg-sand text-sunset flex items-center justify-center group-hover/btn:translate-x-2 transition-transform">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <!-- B2B Side (Professional, Deep, Structured) -->
+        <div class="w-full md:w-1/2 bg-deepsea text-sand p-12 md:p-24 flex flex-col justify-center relative overflow-hidden group cursor-pointer reveal-up">
+            <!-- Subtle Geometric Pattern -->
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-lagoon via-transparent to-transparent"></div>
+            
+            <div class="relative z-10 max-w-lg mx-auto md:mr-auto md:ml-12 text-center md:text-left">
+                <span class="font-sans text-[10px] uppercase tracking-[0.3em] font-bold mb-6 block border border-sand/30 inline-block px-4 py-2 rounded-full">For Planners & Pros</span>
+                <h2 class="font-serif italic text-5xl md:text-7xl mb-6 text-lagoon">Elevate The Itinerary.</h2>
+                <p class="font-sans text-lg font-light mb-10 text-sand/70">Corporate retreats, destination weddings, and VIP group tours require flawless execution. Partner with the benchmark of Punta Cana luxury.</p>
+                
+                <a href="#" class="inline-flex flex-row-reverse md:flex-row items-center justify-center md:justify-start gap-4 font-sans text-sm uppercase tracking-widest font-bold group/btn">
+                    <span class="w-12 h-12 rounded-full border-2 border-lagoon text-lagoon flex items-center justify-center group-hover/btn:-translate-x-2 md:group-hover/btn:translate-x-2 transition-transform">
+                        <svg class="w-5 h-5 md:rotate-0 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                    Request Dossier
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="bg-obsidian pt-32 pb-12 text-center relative overflow-hidden">
+        
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <h2 class="font-sans font-bold text-[15vw] md:text-[8rem] leading-none text-outline-hover text-transparent uppercase tracking-tighter cursor-pointer transition-colors duration-500 mb-12">
+                SAIL?
+            </h2>
+            
+            <a href="#" class="inline-block bg-sand text-obsidian font-sans uppercase tracking-[0.2em] text-sm font-bold py-5 px-10 rounded-full hover:bg-sunset hover:text-white transition-all duration-300 transform hover:scale-105 shadow-[0_0_30px_rgba(255,90,95,0.2)]">
+                Claim Your Date
+            </a>
+
+            <div class="mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-sand/40 font-sans text-xs uppercase tracking-widest">
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-sunset transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-sunset transition-colors">Facebook</a>
+                    <a href="#" class="hover:text-sunset transition-colors">Contact</a>
+                </div>
+                <p>&copy; 2026 Hispaniola Aquatic. Art of the Ocean.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Custom Cursor Logic
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            
+            // Only execute if not on a touch device
+            if (window.matchMedia("(pointer: fine)").matches) {
+                window.addEventListener('mousemove', (e) => {
+                    const posX = e.clientX;
+                    const posY = e.clientY;
+                    
+                    // Instant follow for dot
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
+                    
+                    // Slight delay for outline (using animate for smooth interpolation)
+                    cursorOutline.animate({
+                        left: `${posX}px`,
+                        top: `${posY}px`
+                    }, { duration: 150, fill: "forwards" });
+                });
+
+                // Hover effects for links/buttons
+                const interactables = document.querySelectorAll('a, button, .accordion-item');
+                interactables.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                        cursorOutline.style.backgroundColor = 'rgba(255, 90, 95, 0.1)';
+                        cursorDot.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursorOutline.style.backgroundColor = 'transparent';
+                        cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+                    });
+                });
+            }
+
+            // 2. Scroll Reveal Observer (Intersection Observer)
+            const revealElements = document.querySelectorAll('.reveal-up');
+            
+            const revealOptions = {
+                root: null,
+                rootMargin: '0px 0px -100px 0px', // Trigger slightly before element comes into view
+                threshold: 0.1
+            };
+
+            const revealCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target); // Run once
+                    }
+                });
+            };
+
+            const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // 3. Navbar Mix-Blend adjustment on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('py-4');
+                    navbar.classList.remove('py-6');
+                } else {
+                    navbar.classList.add('py-6');
+                    navbar.classList.remove('py-4');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

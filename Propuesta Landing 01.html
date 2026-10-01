@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Party Boat | The Premium Caribbean Escape</title>
+    <meta name="description" content="Leave the ordinary on the shore. Exclusive, premium party boat experiences in Punta Cana for memories that outlast the tan.">
+    
+    <!-- Google Fonts: Poppins used creatively -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,800;0,900;1,100;1,300&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            obsidian: '#020813',
+                            navy: '#061325',
+                            turquoise: '#00f2fe',
+                            coral: '#ff512f',
+                            sand: '#f4f1eb',
+                            gold: '#d4af37'
+                        }
+                    },
+                    fontSize: {
+                        'giant': 'clamp(4rem, 12vw, 12rem)',
+                        'huge': 'clamp(3rem, 8vw, 8rem)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CSS Variables for Dynamic Scroll Colors */
+        :root {
+            --bg-color: #020813;
+            --text-color: #f4f1eb;
+            --accent-color: #00f2fe;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 1s cubic-bezier(0.25, 1, 0.5, 1), color 1s ease;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hide Scrollbar but keep functionality */
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+
+        /* Typography Elegance */
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(244, 241, 235, 0.4);
+        }
+        .text-outline-dark {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(2, 8, 19, 0.2);
+        }
+
+        /* Cinematic Hero Mask */
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+
+        /* Infinite Marquee */
+        .marquee-container {
+            display: flex;
+            width: 200vw;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 25s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Editorial Image Hover */
+        .img-reveal-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        .img-reveal-wrapper img {
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: scale(1.1);
+        }
+        .img-reveal-wrapper:hover img {
+            transform: scale(1);
+        }
+
+        /* Sticky Cards Stacking Effect */
+        .sticky-stack-container {
+            position: relative;
+            padding-bottom: 10vh;
+        }
+        .sticky-card {
+            position: sticky;
+            top: 15vh;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            transform-origin: top center;
+            transition: all 0.5s ease;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Floating Elements */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        .float-el { animation: float-slow 8s ease-in-out infinite; }
+        .float-el-delayed { animation: float-slow 8s ease-in-out 4s infinite; }
+
+        /* Custom Reveal Animation */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Magnetic Button feel (CSS only approximation) */
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: var(--accent-color);
+            transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: -1;
+        }
+        .btn-premium:hover::before {
+            height: 100%;
+        }
+        .btn-premium:hover {
+            color: #020813 !important;
+            border-color: var(--accent-color);
+        }
+
+        /* Split Section Hover */
+        .split-pane {
+            transition: flex 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
+        }
+        .split-container:hover .split-pane {
+            filter: grayscale(80%) brightness(0.5);
+        }
+        .split-container .split-pane:hover {
+            flex: 1.5;
+            filter: grayscale(0%) brightness(1);
+        }
+        @media (max-width: 768px) {
+            .split-container .split-pane:hover { flex: 1; } /* Disable flex grow on mobile */
+        }
+        
+        /* Blur Blob */
+        .blur-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body data-theme="dark">
+
+    <nav class="fixed w-full z-50 mix-blend-difference py-6 px-6 md:px-12 flex justify-between items-center text-white pointer-events-none">
+        <div class="pointer-events-auto">
+            <a href="#" class="flex flex-col group">
+                <span class="font-black text-2xl tracking-tighter uppercase leading-none">Black</span>
+                <span class="font-light text-[0.6rem] tracking-[0.4em] uppercase text-gray-300">Party Boat</span>
+            </a>
+        </div>
+        <div class="pointer-events-auto hidden md:flex gap-12 font-light text-sm tracking-widest uppercase">
+            <a href="#vibe" class="hover:opacity-50 transition-opacity">The Vibe</a>
+            <a href="#experiences" class="hover:opacity-50 transition-opacity">Voyages</a>
+            <a href="#kitchen" class="hover:opacity-50 transition-opacity">Taste</a>
+        </div>
+        <div class="pointer-events-auto">
+            <a href="#book" class="border border-white/30 rounded-full px-6 py-3 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-500">
+                Reserve
+            </a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Deep Ocean (Dark Theme) -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-10" data-color="#020813" data-text="#f4f1eb" data-accent="#00f2fe">
+        
+        <!-- Ambient background blob -->
+        <div class="blur-blob bg-brand-turquoise w-[60vw] h-[60vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-float"></div>
+
+        <div class="absolute inset-0 z-0 hero-mask">
+            <img src="https://images.unsplash.com/photo-1544274984-2a78e727e436?q=80&w=2560&auto=format&fit=crop" class="w-full h-full object-cover opacity-40 mix-blend-luminosity" alt="Ocean at night">
+        </div>
+
+        <div class="relative z-10 w-full px-6 md:px-12 flex flex-col justify-center h-full">
+            <div class="max-w-7xl mx-auto w-full">
+                <p class="font-light tracking-[0.5em] text-brand-turquoise text-xs md:text-sm uppercase mb-4 ml-2 reveal-up">Punta Cana, DR</p>
+                <h1 class="text-giant font-black leading-[0.85] tracking-tighter uppercase relative reveal-up" style="transition-delay: 100ms;">
+                    <span class="block">Leave The</span>
+                    <span class="block text-outline">Ordinary</span>
+                    <span class="block italic font-thin capitalize tracking-normal ml-0 md:ml-32 mt-2">on the shore.</span>
+                </h1>
+                
+                <div class="mt-16 md:mt-24 flex flex-col md:flex-row justify-between items-start md:items-end w-full gap-8 reveal-up" style="transition-delay: 300ms;">
+                    <p class="max-w-sm font-light text-gray-300 text-lg leading-relaxed">
+                        We don't sell boat tours. We craft private, sun-drenched memories for those who know how to celebrate life.
+                    </p>
+                    <a href="#experiences" class="btn-premium border border-white/20 rounded-full px-10 py-5 font-semibold tracking-widest uppercase text-sm inline-flex items-center gap-4">
+                        Explore Voyages
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Transition -->
+    <div class="py-8 bg-brand-turquoise text-brand-obsidian overflow-hidden transform -rotate-2 scale-105 shadow-2xl relative z-20">
+        <div class="marquee-container">
+            <div class="marquee-content font-black uppercase tracking-widest text-2xl md:text-4xl flex items-center gap-12">
+                <span>Good Vibes Only</span> <span class="w-3 h-3 rounded-full bg-brand-obsidian"></span>
+                <span>Premium Open Bar</span> <span class="w-3 h-3 rounded-full bg-brand-obsidian"></span>
+                <span>Private Exclusivity</span> <span class="w-3 h-3 rounded-full bg-brand-obsidian"></span>
+                <span>Unforgettable Memories</span> <span class="w-3 h-3 rounded-full bg-brand-obsidian"></span>
+                <span>Good Vibes Only</span> <span class="w-3 h-3 rounded-full bg-brand-obsidian"></span>
+                <span>Premium Open Bar</span> <span class="w-3 h-3 rounded-full bg-brand-obsidian"></span>
+                <span>Private Exclusivity</span> <span class="w-3 h-3 rounded-full bg-brand-obsidian"></span>
+                <span>Unforgettable Memories</span> <span class="w-3 h-3 rounded-full bg-brand-obsidian"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: Daylight / Sand (Light Theme) -->
+    <section id="vibe" class="py-32 px-6 md:px-12 relative" data-color="#f4f1eb" data-text="#020813" data-accent="#ff512f">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                
+                <div class="md:col-span-7 reveal-up">
+                    <h2 class="text-huge font-black leading-[0.9] tracking-tighter uppercase mb-8">
+                        Here, time is <br>
+                        <span class="font-thin italic lowercase tracking-normal">measured in</span> <br>
+                        sunsets.
+                    </h2>
+                    <div class="pl-0 md:pl-24">
+                        <p class="text-xl md:text-2xl font-light leading-relaxed mb-8">
+                            Whether you're raising a glass to the bride-to-be, turning thirty, or gathering your inner circle under the Dominican sun—this is your private floating venue.
+                        </p>
+                        <p class="font-semibold tracking-widest uppercase text-sm border-b-2 border-black inline-block pb-1">Absolute Exclusivity</p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 relative reveal-up" style="transition-delay: 200ms;">
+                    <div class="aspect-[3/4] img-reveal-wrapper rounded-t-full rounded-bl-full overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1523580494112-071d16940a1c?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Friends celebrating on a yacht">
+                    </div>
+                    <!-- Floating aesthetic badge -->
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-obsidian text-brand-sand rounded-full flex flex-col items-center justify-center float-el shadow-2xl rotate-12 p-4 text-center">
+                        <span class="font-black text-3xl">100%</span>
+                        <span class="font-light text-xs uppercase tracking-widest mt-1">Private<br>Vibe</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Experiences -->
+    <section id="experiences" class="py-20 relative sticky-stack-container" data-color="#f4f1eb" data-text="#020813" data-accent="#ff512f">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 mb-20 reveal-up">
+            <p class="font-light tracking-[0.5em] text-xs uppercase mb-4">Curated Voyages</p>
+            <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter">Choose Your <br><span class="text-outline-dark">Rhythm</span></h2>
+        </div>
+
+        <!-- Card 1 -->
+        <div class="sticky-card w-full max-w-6xl mx-auto px-6 mb-12 z-[1]">
+            <div class="w-full h-full bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-gray-100">
+                <div class="w-full md:w-1/2 h-64 md:h-full img-reveal-wrapper">
+                    <img src="https://images.unsplash.com/photo-1540324155974-7523202daa3f?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Private Party">
+                </div>
+                <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center bg-white relative">
+                    <div class="absolute top-10 right-10 text-gray-200 font-black text-6xl md:text-8xl opacity-30">01</div>
+                    <h3 class="text-3xl md:text-5xl font-black uppercase mb-4 tracking-tighter">The Private Escapade</h3>
+                    <p class="font-light text-gray-600 text-lg mb-8 leading-relaxed">Your rules, your playlist. A completely private daytime voyage for your inner circle. Dance on the deck, swim in the natural pools, and enjoy premium open bar service tailored just for you.</p>
+                    <a href="#" class="btn-premium border border-black rounded-full px-8 py-4 font-semibold tracking-widest uppercase text-xs w-max">Discover More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="sticky-card w-full max-w-6xl mx-auto px-6 mb-12 z-[2]">
+            <div class="w-full h-full bg-brand-obsidian text-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row-reverse border border-gray-800">
+                <div class="w-full md:w-1/2 h-64 md:h-full img-reveal-wrapper">
+                    <img src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Sunset Sail">
+                </div>
+                <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center bg-brand-obsidian relative">
+                    <div class="absolute top-10 right-10 text-gray-800 font-black text-6xl md:text-8xl">02</div>
+                    <h3 class="text-3xl md:text-5xl font-black uppercase mb-4 tracking-tighter text-brand-coral">Golden Hour Toast</h3>
+                    <p class="font-light text-gray-400 text-lg mb-8 leading-relaxed">Chase the horizon as the sky catches fire. Perfect for romantic group milestones or elegant preludes before hitting the Punta Cana nightlife. Includes champagne toast.</p>
+                    <a href="#" class="btn-premium border border-white/30 rounded-full px-8 py-4 font-semibold tracking-widest uppercase text-xs w-max hover:border-brand-coral hover:bg-brand-coral hover:text-white">Discover More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="sticky-card w-full max-w-6xl mx-auto px-6 mb-12 z-[3]">
+            <div class="w-full h-full bg-[#1a1a1a] text-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-gray-700">
+                <div class="w-full md:w-1/2 h-64 md:h-full img-reveal-wrapper relative">
+                    <div class="absolute inset-0 bg-brand-gold mix-blend-color opacity-30 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="VIP Group">
+                </div>
+                <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center bg-[#1a1a1a] relative">
+                    <div class="absolute top-10 right-10 text-gray-700 font-black text-6xl md:text-8xl">03</div>
+                    <h3 class="text-3xl md:text-5xl font-black uppercase mb-4 tracking-tighter text-brand-gold">Ultra VIP Access</h3>
+                    <p class="font-light text-gray-400 text-lg mb-8 leading-relaxed">For those who demand the highest tier of Caribbean hospitality. Upgraded top-shelf liquor packages, enhanced custom menus, and dedicated onboard concierges.</p>
+                    <a href="#" class="btn-premium border border-brand-gold text-brand-gold rounded-full px-8 py-4 font-semibold tracking-widest uppercase text-xs w-max hover:bg-brand-gold hover:text-black">Discover More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Deep Sunset (Coral/Navy Theme) -->
+    <section id="kitchen" class="py-32 overflow-hidden relative" data-color="#ff512f" data-text="#ffffff" data-accent="#020813">
+        <!-- Abstract background elements -->
+        <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-transparent to-brand-obsidian/50 z-0 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                
+                <div class="w-full md:w-1/2 order-2 md:order-1 relative reveal-up">
+                    <div class="w-full aspect-square rounded-full overflow-hidden border-8 border-white/10 relative">
+                        <img src="https://images.unsplash.com/photo-1577906096429-f73c2c312435?q=80&w=1000&auto=format&fit=crop" alt="Floating Kitchen Chef" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Orbiting text or element -->
+                    <div class="absolute top-10 -left-4 md:-left-10 bg-white text-black py-3 px-6 rounded-full font-black uppercase tracking-widest text-sm shadow-xl float-el">
+                        Fresh Catch
+                    </div>
+                    <div class="absolute bottom-20 -right-4 md:-right-10 bg-brand-obsidian text-white py-3 px-6 rounded-full font-black uppercase tracking-widest text-sm shadow-xl float-el-delayed border border-white/20">
+                        Live Prep
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 order-1 md:order-2 reveal-up" style="transition-delay: 200ms;">
+                    <p class="font-black tracking-[0.5em] text-white/70 text-xs uppercase mb-4">Signature Differentiator</p>
+                    <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-[0.9]">
+                        The Floating <br>
+                        <span class="font-thin italic lowercase tracking-normal">kitchen</span>
+                    </h2>
+                    <p class="text-xl font-light leading-relaxed mb-10 text-white/90">
+                        Forget pre-packaged snacks and cold sandwiches. Our onboard culinary team crafts fresh, vibrant dishes right on the deck while you dance. 
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 border-b border-white/30 pb-2 inline-block">Ocean to Plate</h4>
+                            <p class="font-light text-sm text-white/80">Ingredients sourced daily for absolute freshness.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 border-b border-white/30 pb-2 inline-block">Mixology Bar</h4>
+                            <p class="font-light text-sm text-white/80">Handcrafted tropical cocktails mixed by your dedicated bartender.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: The Split (Dark Theme returns) -->
+    <section class="h-auto md:h-screen w-full flex flex-col md:flex-row split-container overflow-hidden" data-color="#020813" data-text="#f4f1eb" data-accent="#00f2fe">
+        
+        <!-- B2C -->
+        <div class="split-pane w-full md:w-1/2 h-[50vh] md:h-full relative flex items-center justify-center cursor-pointer group">
+            <div class="absolute inset-0 bg-brand-navy/60 z-10 group-hover:bg-brand-navy/30 transition-colors duration-700"></div>
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" alt="Friends">
+            
+            <div class="relative z-20 text-center px-8">
+                <h3 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">Travelers &<br>Groups</h3>
+                <p class="font-light text-gray-300 mb-8 max-w-sm mx-auto h-0 md:h-auto opacity-100 md:opacity-0 group-hover:opacity-100 group-hover:h-auto overflow-hidden transition-all duration-500">
+                    Design the highlight of your Punta Cana vacation with your favorite people.
+                </p>
+                <button class="bg-white text-black rounded-full px-8 py-4 font-black tracking-widest uppercase text-xs hover:bg-brand-turquoise transition-colors duration-300">
+                    Book Private Boat
+                </button>
+            </div>
+        </div>
+
+        <!-- B2B -->
+        <div class="split-pane w-full md:w-1/2 h-[50vh] md:h-full relative flex items-center justify-center cursor-pointer group border-t md:border-t-0 md:border-l border-white/10">
+            <div class="absolute inset-0 bg-brand-obsidian/80 z-10 group-hover:bg-brand-obsidian/50 transition-colors duration-700"></div>
+            <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105 mix-blend-screen" alt="Corporate">
+            
+            <div class="relative z-20 text-center px-8">
+                <span class="font-light tracking-[0.5em] text-brand-gold text-xs uppercase mb-4 block">Professional Services</span>
+                <h3 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">Planners &<br>Organizers</h3>
+                <p class="font-light text-gray-300 mb-8 max-w-sm mx-auto h-0 md:h-auto opacity-100 md:opacity-0 group-hover:opacity-100 group-hover:h-auto overflow-hidden transition-all duration-500">
+                    Flawless execution for weddings, corporate retreats, and private VIP events.
+                </p>
+                <button class="border border-brand-gold text-brand-gold rounded-full px-8 py-4 font-black tracking-widest uppercase text-xs hover:bg-brand-gold hover:text-black transition-colors duration-300">
+                    Partner With Us
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-obsidian pt-32 pb-10 px-6 md:px-12 relative overflow-hidden" data-color="#020813" data-text="#f4f1eb" data-accent="#00f2fe">
+        <!-- Giant Background Text -->
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none opacity-5 flex justify-center pt-10">
+            <span class="text-[15vw] font-black uppercase whitespace-nowrap">Celebrate</span>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
+                
+                <div class="md:col-span-5">
+                    <a href="#" class="flex flex-col group mb-8">
+                        <span class="font-black text-4xl tracking-tighter uppercase leading-none">Black</span>
+                        <span class="font-light text-xs tracking-[0.4em] uppercase text-gray-400">Party Boat Punta Cana</span>
+                    </a>
+                    <p class="font-light text-gray-400 max-w-sm leading-relaxed">
+                        A premium brand by Hispaniola Aquatic Adventures. Crafting the most exclusive floating celebrations in the Caribbean.
+                    </p>
+                </div>
+
+                <div class="md:col-span-2 md:col-start-8">
+                    <h4 class="font-bold uppercase tracking-widest text-sm mb-6">Menu</h4>
+                    <ul class="space-y-4 font-light text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">The Experience</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Voyages</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Floating Kitchen</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">B2B Partners</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-3">
+                    <h4 class="font-bold uppercase tracking-widest text-sm mb-6">Connect</h4>
+                    <ul class="space-y-4 font-light text-gray-400 text-sm mb-8">
+                        <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">TikTok</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Concierge</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-light text-gray-500 uppercase tracking-widest">
+                <p>&copy; 2026 Black Party Boat.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Scroll Reveal Animations
+            const revealElements = document.querySelectorAll('.reveal-up');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: unobserve if you only want it to animate once
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // 2. Dynamic Background Color Changer
+            // This creates the immersive narrative feel
+            const sections = document.querySelectorAll('section[data-color], footer[data-color]');
+            
+            const colorObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bgColor = entry.target.getAttribute('data-color');
+                        const textColor = entry.target.getAttribute('data-text');
+                        const accentColor = entry.target.getAttribute('data-accent');
+                        
+                        document.documentElement.style.setProperty('--bg-color', bgColor);
+                        document.documentElement.style.setProperty('--text-color', textColor);
+                        document.documentElement.style.setProperty('--accent-color', accentColor);
+                    }
+                });
+            }, {
+                // Trigger when section is halfway up the viewport
+                rootMargin: '-50% 0px -50% 0px' 
+            });
+
+            sections.forEach(section => colorObserver.observe(section));
+        });
+    </script>
+</body>
+</html>

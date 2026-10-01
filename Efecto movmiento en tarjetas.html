@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Caribbean Tourism Card Effects</title>
+
+<style>
+
+:root{
+    --ocean:#0b7285;
+    --sand:#f8e7c0;
+    --gold:#f4b942;
+    --dark:#073b4c;
+    --white:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:
+    linear-gradient(
+        135deg,
+        #dff7ff,
+        #ffffff 40%,
+        #ffeecb
+    );
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px;
+    overflow-x:hidden;
+}
+
+
+/* Decorative background */
+
+.sun{
+    position:absolute;
+    width:90px;
+    height:90px;
+    background:#ffd166;
+    border-radius:50%;
+    top:60px;
+    right:120px;
+    box-shadow:
+    0 0 40px rgba(255,209,102,.8);
+    animation:pulse 4s infinite;
+}
+
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+
+.star{
+    position:absolute;
+    color:#ffffff;
+    font-size:25px;
+    animation:twinkle 3s infinite;
+}
+
+.star.one{
+    top:120px;
+    left:120px;
+}
+
+.star.two{
+    bottom:130px;
+    right:200px;
+}
+
+
+@keyframes twinkle{
+    50%{
+        opacity:.4;
+        transform:scale(.8);
+    }
+}
+
+
+
+/* Layout */
+
+.container{
+
+    display:flex;
+    gap:45px;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+
+.card{
+
+    width:320px;
+    height:520px;
+    background:white;
+    border-radius:28px;
+    overflow:hidden;
+    position:relative;
+
+    box-shadow:
+    0 25px 50px rgba(7,59,76,.15);
+
+    transition:
+    transform .6s cubic-bezier(.22,1,.36,1),
+    box-shadow .6s cubic-bezier(.22,1,.36,1);
+
+}
+
+
+.image{
+
+    height:230px;
+    background-size:cover;
+    background-position:center;
+}
+
+
+.content{
+
+    padding:25px;
+
+}
+
+
+h2{
+
+    margin:0 0 12px;
+    color:var(--dark);
+}
+
+
+p{
+
+    color:#555;
+    line-height:1.5;
+}
+
+
+.price{
+
+    font-size:24px;
+    color:var(--ocean);
+    font-weight:bold;
+    margin:20px 0;
+
+}
+
+
+button{
+
+    border:none;
+    padding:13px 25px;
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--gold),
+        #ffda77
+    );
+
+    color:#073b4c;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+
+/* CARD 1 */
+
+.floating{
+
+    animation:
+    floatCard 5s ease-in-out infinite;
+
+}
+
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+}
+
+
+
+/* CARD 2 */
+
+.tilt-card{
+
+    transform-style:preserve-3d;
+    perspective:1000px;
+
+}
+
+
+.tilt-card:hover{
+
+    box-shadow:
+    0 40px 70px rgba(7,59,76,.35);
+
+}
+
+
+
+/* CARD 3 */
+
+.resting{
+
+    transform:
+    rotate(3deg);
+
+}
+
+
+.resting:hover{
+
+    transform:
+    rotate(0deg)
+    scale(1.06)
+    translateY(-15px);
+
+    box-shadow:
+    0 45px 80px rgba(7,59,76,.35);
+
+}
+
+
+
+/* Compass SVG */
+
+.compass{
+
+    position:absolute;
+    bottom:25px;
+    right:25px;
+    width:55px;
+    height:55px;
+
+    animation:
+    rotateCompass 8s linear infinite;
+
+}
+
+
+@keyframes rotateCompass{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+
+@media(max-width:900px){
+
+    body{
+        padding:30px;
+    }
+
+    .container{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="sun"></div>
+
+<div class="star one">✦</div>
+<div class="star two">✦</div>
+
+
+<div class="container">
+
+
+<!-- CARD 1 -->
+
+<div class="card floating">
+
+<div class="image"
+style="
+background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+">
+</div>
+
+
+<div class="content">
+
+<h2>Caribbean Paradise</h2>
+
+<p>
+Relax on turquoise beaches surrounded by tropical landscapes and crystal waters.
+</p>
+
+<div class="price">
+$899
+</div>
+
+<button>
+Explore Tour
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- CARD 2 -->
+
+<div class="card tilt-card">
+
+<div class="image"
+style="
+background-image:url('https://images.unsplash.com/photo-1548013146-72479768bada');
+">
+</div>
+
+
+<div class="content">
+
+<h2>Island Adventure</h2>
+
+<p>
+Discover hidden caves, waterfalls and unforgettable Caribbean experiences.
+</p>
+
+<div class="price">
+$749
+</div>
+
+<button>
+Explore Tour
+</button>
+
+</div>
+
+
+<svg class="compass"
+viewBox="0 0 100 100">
+
+<circle cx="50" cy="50" r="45"
+fill="#f4b942"/>
+
+<polygon
+points="50,10 60,50 50,90 40,50"
+fill="#073b4c"/>
+
+</svg>
+
+
+</div>
+
+
+
+
+<!-- CARD 3 -->
+
+<div class="card resting">
+
+<div class="image"
+style="
+background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+">
+</div>
+
+
+<div class="content">
+
+<h2>Tropical Escape</h2>
+
+<p>
+A premium getaway combining luxury resorts, nature and ocean views.
+</p>
+
+
+<div class="price">
+$1299
+</div>
+
+
+<button>
+Explore Tour
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* Interactive 3D tilt */
+
+const tiltCards =
+document.querySelectorAll(".tilt-card");
+
+
+tiltCards.forEach(card=>{
+
+
+card.addEventListener(
+"mousemove",
+(e)=>{
+
+
+const rect =
+card.getBoundingClientRect();
+
+
+const x =
+e.clientX - rect.left;
+
+
+const y =
+e.clientY - rect.top;
+
+
+const centerX =
+rect.width/2;
+
+
+const centerY =
+rect.height/2;
+
+
+const rotateY =
+((x-centerX)/centerX)*12;
+
+
+const rotateX =
+((centerY-y)/centerY)*12;
+
+
+
+card.style.transform =
+`
+perspective(1000px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+scale(1.03)
+`;
+
+
+
+});
+
+
+
+card.addEventListener(
+"mouseleave",
+()=>{
+
+card.style.transform =
+`
+perspective(1000px)
+rotateX(0)
+rotateY(0)
+scale(1)
+`;
+
+});
+
+
+});
+
+
+</script>
+
+
+</body>
+</html>

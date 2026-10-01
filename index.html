@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postsicionate · UI Lab & Efectos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Fondo crema con leve tono rosado */
+        body { background-color: #FCF9F8; color: #27272A; font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+        .tarjeta-efecto {
+            background: #FFFFFF;
+            border: 1px solid #F1E8E8;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .tarjeta-efecto:hover {
+            border-color: #FCA5A5; /* Borde rojo suave en hover */
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -5px rgba(227, 24, 55, 0.08);
+        }
+        .color-chip { transition: transform 0.2s ease; cursor: pointer; }
+        .color-chip:hover { transform: scale(1.35); z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+        
+        /* Custom Scrollbar para las pestañas */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-red-600 selection:text-white pb-20">
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <header class="mb-10 pb-8 border-b border-rose-100">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <!-- Logotipo Postsicionate -->
+                    <img src="logo-400x80.png" alt="Postsicionate" class="h-10 object-contain mb-6">
+                    
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-red-50 border border-red-100 text-red-600 mb-3">
+                        <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                        Laboratorio de Experiencias Digitales
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 mb-3">
+                        Biblioteca de <span class="text-red-600">Efectos</span>
+                    </h1>
+                    <p class="text-zinc-500 text-base max-w-2xl leading-relaxed">
+                        Catálogo estratégico de micro-animaciones, física de tarjetas y componentes UI analizados con IA para enriquecer las propuestas web de la agencia.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Buscador y Sistema de Pestañas -->
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
+                <div class="relative flex-1 max-w-md">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <input type="text" id="busqueda" placeholder="Buscar por título, cliente o efecto..." 
+                        class="w-full pl-10 pr-4 py-2.5 bg-white border border-zinc-200 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 shadow-sm transition-all"
+                        oninput="filtrarComponentes()">
+                </div>
+                
+                <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 hide-scrollbar" id="contenedor-categorias">
+                    <button onclick="seleccionarCategoria('todas')" class="categoria-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-red-600 text-white shadow-sm transition-colors" data-cat="todas">
+                        Todos
+                    </button>
+                    <!-- Las pestañas se inyectan aquí dinámicamente -->
+                </div>
+            </div>
+        </header>
+
+        <main id="grid-componentes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="efectos de inclinación de tarjetas - punta cana in travel" data-cliente="agencia de turismo y excursiones en punta cana, república dominicana" data-efectos="alternating tilt hover straighten on hover gradient overlay box shadow lift" data-cat="Agencia de turismo y excursiones en Punta Cana, República Dominicana">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Agencia de turismo y excursiones en Punta Cana, República Dominicana</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="Demostración de Efectos de Inclinación en Tarjetas.html">Demostración de Efectos de Inclinación en Tarjetas.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Efectos de Inclinación de Tarjetas - Punta Cana in Travel</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Landing de tours y transfers con efectos CSS de inclinación para aumentar interacción y conversión.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#ff8c00')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #ff8c00;" title="Copiar #ff8c00"></button><button onclick="copiarColor('#00ced1')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #00ced1;" title="Copiar #00ced1"></button><button onclick="copiarColor('#fbfbfb')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #fbfbfb;" title="Copiar #fbfbfb"></button><button onclick="copiarColor('#333333')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #333333;" title="Copiar #333333"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Alternating Tilt Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Straighten on Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Gradient Overlay</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Box Shadow Lift</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('Demostración de Efectos de Inclinación en Tarjetas.html', 'Efectos de Inclinación de Tarjetas - Punta Cana in Travel')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="Demostración de Efectos de Inclinación en Tarjetas.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="premium caribbean tourism card effects" data-cliente="agencias de turismo caribeño y plataformas de viajes premium" data-efectos="floating card 3d tilt rotate on hover pulse twinkle compass rotation css transitions" data-cat="Agencias de turismo caribeño y plataformas de viajes premium">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Agencias de turismo caribeño y plataformas de viajes premium</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="Efecto movmiento en tarjetas.html">Efecto movmiento en tarjetas.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Premium Caribbean Tourism Card Effects</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Tarjetas de destinos caribeños con animaciones premium para inspirar reservas turísticas de alto valor.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#0b7285')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #0b7285;" title="Copiar #0b7285"></button><button onclick="copiarColor('#f8e7c0')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #f8e7c0;" title="Copiar #f8e7c0"></button><button onclick="copiarColor('#f4b942')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #f4b942;" title="Copiar #f4b942"></button><button onclick="copiarColor('#073b4c')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #073b4c;" title="Copiar #073b4c"></button><button onclick="copiarColor('#ffffff')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #ffffff;" title="Copiar #ffffff"></button><button onclick="copiarColor('#ffd166')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #ffd166;" title="Copiar #ffd166"></button><button onclick="copiarColor('#dff7ff')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #dff7ff;" title="Copiar #dff7ff"></button><button onclick="copiarColor('#ffeecb')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #ffeecb;" title="Copiar #ffeecb"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Floating Card</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">3D Tilt</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Rotate on Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Pulse</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Twinkle</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Compass Rotation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">CSS Transitions</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('Efecto movmiento en tarjetas.html', 'Premium Caribbean Tourism Card Effects')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="Efecto movmiento en tarjetas.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="luxury caribbean resort cards" data-cliente="turistas de alto poder adquisitivo buscando experiencias de resort exclusivas en el caribe" data-efectos="floating animation 3d tilt css rotation reset gradient overlay spinning compass star float sun glow pulse" data-cat="Turistas de alto poder adquisitivo buscando experiencias de resort exclusivas en el Caribe">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Turistas de alto poder adquisitivo buscando experiencias de resort exclusivas en el Caribe</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="Estilos tarjetas dinamicas Caribe- movimientos.html">Estilos tarjetas dinamicas Caribe- movimientos.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Luxury Caribbean Resort Cards</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Landing de resort caribeño con tarjetas animadas, tipografía serif y paleta dorada para transmitir lujo exclusivo.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#b18b43')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #b18b43;" title="Copiar #b18b43"></button><button onclick="copiarColor('#d5b76a')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #d5b76a;" title="Copiar #d5b76a"></button><button onclick="copiarColor('#123c43')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #123c43;" title="Copiar #123c43"></button><button onclick="copiarColor('#183b42')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #183b42;" title="Copiar #183b42"></button><button onclick="copiarColor('#f4c96b')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #f4c96b;" title="Copiar #f4c96b"></button><button onclick="copiarColor('#60777a')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #60777a;" title="Copiar #60777a"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Floating Animation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">3D Tilt</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">CSS Rotation Reset</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Gradient Overlay</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Spinning Compass</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Star Float</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Sun Glow Pulse</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('Estilos tarjetas dinamicas Caribe- movimientos.html', 'Luxury Caribbean Resort Cards')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="Estilos tarjetas dinamicas Caribe- movimientos.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="magnetic tourism card" data-cliente="agencias de turismo y experiencias de viaje premium" data-efectos="magnetic tilt 3d perspective shimmer sweep glassmorphism badge floating cta scroll hint" data-cat="Agencias de turismo y experiencias de viaje premium">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Agencias de turismo y experiencias de viaje premium</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="Magnetic cards.html">Magnetic cards.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Magnetic Tourism Card</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Tarjeta turística premium con tilt 3D magnético y brillo dinámico para maximizar engagement visual.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#087f8c')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #087f8c;" title="Copiar #087f8c"></button><button onclick="copiarColor('#07556b')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #07556b;" title="Copiar #07556b"></button><button onclick="copiarColor('#fff8eb')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #fff8eb;" title="Copiar #fff8eb"></button><button onclick="copiarColor('#123447')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #123447;" title="Copiar #123447"></button><button onclick="copiarColor('#09a7ad')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #09a7ad;" title="Copiar #09a7ad"></button><button onclick="copiarColor('#086b8a')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #086b8a;" title="Copiar #086b8a"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Magnetic Tilt</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">3D Perspective</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Shimmer Sweep</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glassmorphism Badge</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Floating CTA</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scroll Hint</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('Magnetic cards.html', 'Magnetic Tourism Card')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="Magnetic cards.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="movimiento king black" data-cliente="kingblacktour.com" data-efectos="accordion expand scroll reveal shimmer sweep settle slide-in card tilt straighten animated counter underline wipe button press feedback glassmorphism tag css accordion rule" data-cat="kingblacktour.com">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">kingblacktour.com</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="Movimiento-King-Black.html">Movimiento-King-Black.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Movimiento King Black</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Propuesta de ocho interacciones CSS/JS para kingblacktour.com con paleta navy-oro y degradación sin JavaScript.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#060F16')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #060F16;" title="Copiar #060F16"></button><button onclick="copiarColor('#D4AF37')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #D4AF37;" title="Copiar #D4AF37"></button><button onclick="copiarColor('#EBD489')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #EBD489;" title="Copiar #EBD489"></button><button onclick="copiarColor('#0B1A24')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #0B1A24;" title="Copiar #0B1A24"></button><button onclick="copiarColor('#102530')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #102530;" title="Copiar #102530"></button><button onclick="copiarColor('#B9C8D0')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #B9C8D0;" title="Copiar #B9C8D0"></button><button onclick="copiarColor('#EAF1F4')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #EAF1F4;" title="Copiar #EAF1F4"></button><button onclick="copiarColor('#F3EDE3')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #F3EDE3;" title="Copiar #F3EDE3"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Accordion Expand</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scroll Reveal</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Shimmer Sweep</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Settle Slide-In</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Card Tilt Straighten</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Animated Counter</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Underline Wipe</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Button Press Feedback</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glassmorphism Tag</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">CSS Accordion Rule</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('Movimiento-King-Black.html', 'Movimiento King Black')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="Movimiento-King-Black.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="black party boat punta cana | build your celebration" data-cliente="grupos de celebración (cumpleaños, despedidas de soltero/a, reuniones familiares) y planificadores de eventos en punta cana" data-efectos="scroll reveal marquee ticker glow card hover image zoom hover float on hover radial gradient overlay staggered transition delay" data-cat="Grupos de celebración (cumpleaños, despedidas de soltero/a, reuniones familiares) y planificadores de eventos en Punta Cana">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Grupos de celebración (cumpleaños, despedidas de soltero/a, reuniones familiares) y planificadores de eventos en Punta Cana</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="Propuesta A01.html">Propuesta A01.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Black Party Boat Punta Cana | Build Your Celebration</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Landing de charter náutico premium en el Caribe orientada a conversión de grupos mediante personalización visual y CTA directo.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#0b2545')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #0b2545;" title="Copiar #0b2545"></button><button onclick="copiarColor('#ef5b44')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #ef5b44;" title="Copiar #ef5b44"></button><button onclick="copiarColor('#d64a34')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #d64a34;" title="Copiar #d64a34"></button><button onclick="copiarColor('#0a5e6b')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #0a5e6b;" title="Copiar #0a5e6b"></button><button onclick="copiarColor('#a9e5ee')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #a9e5ee;" title="Copiar #a9e5ee"></button><button onclick="copiarColor('#f7f9fa')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #f7f9fa;" title="Copiar #f7f9fa"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scroll Reveal</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Marquee Ticker</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glow Card Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Image Zoom Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Float on Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Radial Gradient Overlay</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Staggered Transition Delay</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('Propuesta A01.html', 'Black Party Boat Punta Cana | Build Your Celebration')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="Propuesta A01.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="black party boat | the premium caribbean escape" data-cliente="turistas de lujo y grupos privados en punta cana que buscan experiencias exclusivas en el mar" data-efectos="scroll reveal infinite marquee sticky card stack image hover zoom split pane hover floating animation dynamic scroll color theme glassmorphism cinematic hero mask fill button sweep" data-cat="Turistas de lujo y grupos privados en Punta Cana que buscan experiencias exclusivas en el mar">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Turistas de lujo y grupos privados en Punta Cana que buscan experiencias exclusivas en el mar</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="Propuesta Landing 01.html">Propuesta Landing 01.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Black Party Boat | The Premium Caribbean Escape</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Landing page premium de experiencias náuticas privadas en Punta Cana con identidad oscura y lujosa.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#020813')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #020813;" title="Copiar #020813"></button><button onclick="copiarColor('#061325')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #061325;" title="Copiar #061325"></button><button onclick="copiarColor('#00f2fe')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #00f2fe;" title="Copiar #00f2fe"></button><button onclick="copiarColor('#ff512f')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #ff512f;" title="Copiar #ff512f"></button><button onclick="copiarColor('#f4f1eb')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #f4f1eb;" title="Copiar #f4f1eb"></button><button onclick="copiarColor('#d4af37')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #d4af37;" title="Copiar #d4af37"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scroll Reveal</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Infinite Marquee</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Sticky Card Stack</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Image Hover Zoom</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Split Pane Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Floating Animation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Dynamic Scroll Color Theme</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glassmorphism</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Cinematic Hero Mask</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Fill Button Sweep</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('Propuesta Landing 01.html', 'Black Party Boat | The Premium Caribbean Escape')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="Propuesta Landing 01.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="black party boat | exclusive punta cana celebrations" data-cliente="viajeros premium y grupos que buscan experiencias privadas exclusivas en el caribe para celebraciones de alto impacto emocional" data-efectos="custom cursor scroll reveal blob morph accordion gallery marquee glassmorphism noise texture overlay glowing orbs mix blend mode circular rotating text parallax scale scrapbook overlap grid" data-cat="Viajeros premium y grupos que buscan experiencias privadas exclusivas en el Caribe para celebraciones de alto impacto emocional">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Viajeros premium y grupos que buscan experiencias privadas exclusivas en el Caribe para celebraciones de alto impacto emocional</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="Propuesta Landing 02.html">Propuesta Landing 02.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Black Party Boat | Exclusive Punta Cana Celebrations</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Landing editorial de lujo para charter privado en Punta Cana, combinando atmósfera oscura con efectos cinematográficos para conversión emocional.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#050B14')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #050B14;" title="Copiar #050B14"></button><button onclick="copiarColor('#0A192F')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #0A192F;" title="Copiar #0A192F"></button><button onclick="copiarColor('#FF5A5F')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FF5A5F;" title="Copiar #FF5A5F"></button><button onclick="copiarColor('#FF8A66')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FF8A66;" title="Copiar #FF8A66"></button><button onclick="copiarColor('#00F2FE')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #00F2FE;" title="Copiar #00F2FE"></button><button onclick="copiarColor('#F7F4F0')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #F7F4F0;" title="Copiar #F7F4F0"></button><button onclick="copiarColor('#D4AF37')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #D4AF37;" title="Copiar #D4AF37"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Custom Cursor</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scroll Reveal</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Blob Morph</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Accordion Gallery</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Marquee</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glassmorphism</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Noise Texture Overlay</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glowing Orbs</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Mix Blend Mode</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Circular Rotating Text</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Parallax Scale</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scrapbook Overlap Grid</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('Propuesta Landing 02.html', 'Black Party Boat | Exclusive Punta Cana Celebrations')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="Propuesta Landing 02.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="black party boat – build your perfect punta cana celebration" data-cliente="grupos privados (despedidas de soltera, cumpleaños, celebraciones) que buscan experiencias de fiesta premium y personalizables en punta cana" data-efectos="scroll reveal floating animation marquee custom cursor brutalist shadow glassmorphism navbar bento grid hover gradient overlay radial dot pattern blob blur sticker elements text outline button slide fill" data-cat="Grupos privados (despedidas de soltera, cumpleaños, celebraciones) que buscan experiencias de fiesta premium y personalizables en Punta Cana">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Grupos privados (despedidas de soltera, cumpleaños, celebraciones) que buscan experiencias de fiesta premium y personalizables en Punta Cana</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="Propuesta web Fiesta.html">Propuesta web Fiesta.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Black Party Boat – Build Your Perfect Punta Cana Celebration</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Landing page brutalista y energética para catamaran party en Punta Cana, con personalización como propuesta de valor central.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#111111')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #111111;" title="Copiar #111111"></button><button onclick="copiarColor('#FDFBF7')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FDFBF7;" title="Copiar #FDFBF7"></button><button onclick="copiarColor('#FF4D4D')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FF4D4D;" title="Copiar #FF4D4D"></button><button onclick="copiarColor('#00E5FF')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #00E5FF;" title="Copiar #00E5FF"></button><button onclick="copiarColor('#FFD166')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FFD166;" title="Copiar #FFD166"></button><button onclick="copiarColor('#6A4C93')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #6A4C93;" title="Copiar #6A4C93"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scroll Reveal</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Floating Animation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Marquee</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Custom Cursor</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Brutalist Shadow</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glassmorphism Navbar</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Bento Grid Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Gradient Overlay</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Radial Dot Pattern</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Blob Blur</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Sticker Elements</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Text Outline</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Button Slide Fill</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('Propuesta web Fiesta.html', 'Black Party Boat – Build Your Perfect Punta Cana Celebration')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="Propuesta web Fiesta.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="black party boat | premium punta cana celebrations" data-cliente="turistas y grupos de lujo que buscan experiencias privadas de celebración en el mar caribe, incluyendo despedidas de soltera, retiros corporativos y eventos de hitos." data-efectos="scroll reveal glassmorphism 3d card tilt ambient background pan float animation premium button hover text gradient gold card image zoom hover sticky navbar transition bounce scroll indicator staggered reveal delays custom scrollbar" data-cat="Turistas y grupos de lujo que buscan experiencias privadas de celebración en el mar Caribe, incluyendo despedidas de soltera, retiros corporativos y eventos de hitos.">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Turistas y grupos de lujo que buscan experiencias privadas de celebración en el mar Caribe, incluyendo despedidas de soltera, retiros corporativos y eventos de hitos.</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="black_party_boat_punta_cana - 01.html">black_party_boat_punta_cana - 01.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Black Party Boat | Premium Punta Cana Celebrations</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Landing page de lujo para charter náutico en Punta Cana, orientada a conversión mediante animaciones premium y diferenciación experiencial.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#0A192F')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #0A192F;" title="Copiar #0A192F"></button><button onclick="copiarColor('#112240')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #112240;" title="Copiar #112240"></button><button onclick="copiarColor('#020C1B')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #020C1B;" title="Copiar #020C1B"></button><button onclick="copiarColor('#00B4D8')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #00B4D8;" title="Copiar #00B4D8"></button><button onclick="copiarColor('#48CAE4')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #48CAE4;" title="Copiar #48CAE4"></button><button onclick="copiarColor('#FF6B6B')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FF6B6B;" title="Copiar #FF6B6B"></button><button onclick="copiarColor('#FA5252')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FA5252;" title="Copiar #FA5252"></button><button onclick="copiarColor('#D4AF37')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #D4AF37;" title="Copiar #D4AF37"></button><button onclick="copiarColor('#F3E5AB')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #F3E5AB;" title="Copiar #F3E5AB"></button><button onclick="copiarColor('#F8FAFC')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #F8FAFC;" title="Copiar #F8FAFC"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scroll Reveal</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glassmorphism</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">3D Card Tilt</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Ambient Background Pan</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Float Animation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Premium Button Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Text Gradient Gold</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Card Image Zoom Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Sticky Navbar Transition</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Bounce Scroll Indicator</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Staggered Reveal Delays</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Custom Scrollbar</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('black_party_boat_punta_cana - 01.html', 'Black Party Boat | Premium Punta Cana Celebrations')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="black_party_boat_punta_cana - 01.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="black party boat punta cana | premium caribbean celebrations" data-cliente="grupos de alto poder adquisitivo que buscan experiencias exclusivas en el caribe para celebraciones privadas (cumpleaños, despedidas de soltera, retiros corporativos)" data-efectos="scroll reveal parallax glassmorphism 3d card hover image zoom on hover floating animation ambient glow radial ripple on button scroll indicator bounce custom scrollbar" data-cat="Grupos de alto poder adquisitivo que buscan experiencias exclusivas en el Caribe para celebraciones privadas (cumpleaños, despedidas de soltera, retiros corporativos)">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Grupos de alto poder adquisitivo que buscan experiencias exclusivas en el Caribe para celebraciones privadas (cumpleaños, despedidas de soltera, retiros corporativos)</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="black_party_boat_punta_cana - Propuesta 02.html">black_party_boat_punta_cana - Propuesta 02.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Black Party Boat Punta Cana | Premium Caribbean Celebrations</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Landing premium de experiencias náuticas exclusivas en Punta Cana, orientada a conversión mediante jerarquía visual y efectos de lujo.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#061325')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #061325;" title="Copiar #061325"></button><button onclick="copiarColor('#0d2240')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #0d2240;" title="Copiar #0d2240"></button><button onclick="copiarColor('#12c2e9')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #12c2e9;" title="Copiar #12c2e9"></button><button onclick="copiarColor('#ff6b6b')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #ff6b6b;" title="Copiar #ff6b6b"></button><button onclick="copiarColor('#d4af37')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #d4af37;" title="Copiar #d4af37"></button><button onclick="copiarColor('#fdfbf7')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #fdfbf7;" title="Copiar #fdfbf7"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scroll Reveal</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Parallax</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glassmorphism</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">3D Card Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Image Zoom on Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Floating Animation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Ambient Glow</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Radial Ripple on Button</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Scroll Indicator Bounce</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Custom Scrollbar</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('black_party_boat_punta_cana - Propuesta 02.html', 'Black Party Boat Punta Cana | Premium Caribbean Celebrations')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="black_party_boat_punta_cana - Propuesta 02.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="laboratorio de movimiento" data-cliente="hispaniola party boat" data-efectos="card tilt reveal magnetic 3d tilt float animation fix css illustration animation stamp entrance shine sweep" data-cat="Hispaniola Party Boat">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Hispaniola Party Boat</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="laboratorio-de-movimiento actualizado.html">laboratorio-de-movimiento actualizado.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Laboratorio de Movimiento</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Laboratorio de efectos CSS/JS para Hispaniola Party Boat con paleta noche festiva y microinteracciones de alta energía.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#17092E')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #17092E;" title="Copiar #17092E"></button><button onclick="copiarColor('#241147')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #241147;" title="Copiar #241147"></button><button onclick="copiarColor('#2F1659')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #2F1659;" title="Copiar #2F1659"></button><button onclick="copiarColor('#EF5B44')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #EF5B44;" title="Copiar #EF5B44"></button><button onclick="copiarColor('#D6452F')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #D6452F;" title="Copiar #D6452F"></button><button onclick="copiarColor('#FF2E7A')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FF2E7A;" title="Copiar #FF2E7A"></button><button onclick="copiarColor('#FFC857')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FFC857;" title="Copiar #FFC857"></button><button onclick="copiarColor('#3FE0D0')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #3FE0D0;" title="Copiar #3FE0D0"></button><button onclick="copiarColor('#FFF6F2')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FFF6F2;" title="Copiar #FFF6F2"></button><button onclick="copiarColor('#2A1240')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #2A1240;" title="Copiar #2A1240"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Card Tilt Reveal</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Magnetic 3D Tilt</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Float Animation Fix</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">CSS Illustration Animation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Stamp Entrance</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Shine Sweep</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('laboratorio-de-movimiento actualizado.html', 'Laboratorio de Movimiento')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="laboratorio-de-movimiento actualizado.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="laboratorio de movimiento" data-cliente="hispaniola party boat" data-efectos="tilt on hover magnetic tilt 3d float animation css illustration animation stamp entrance" data-cat="Hispaniola Party Boat">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Hispaniola Party Boat</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="laboratorio-de-movimiento.html">laboratorio-de-movimiento.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Laboratorio de Movimiento</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Propuesta interna de paleta y efectos interactivos para rediseño orientado a fiesta, celebración y eventos.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#17092E')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #17092E;" title="Copiar #17092E"></button><button onclick="copiarColor('#EF5B44')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #EF5B44;" title="Copiar #EF5B44"></button><button onclick="copiarColor('#FF2E7A')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FF2E7A;" title="Copiar #FF2E7A"></button><button onclick="copiarColor('#FFC857')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FFC857;" title="Copiar #FFC857"></button><button onclick="copiarColor('#3FE0D0')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #3FE0D0;" title="Copiar #3FE0D0"></button><button onclick="copiarColor('#FFF6F2')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #FFF6F2;" title="Copiar #FFF6F2"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Tilt on Hover</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Magnetic Tilt 3D</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Float Animation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">CSS Illustration Animation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Stamp Entrance</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('laboratorio-de-movimiento.html', 'Laboratorio de Movimiento')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="laboratorio-de-movimiento.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="premium travel cards animation" data-cliente="agencias de viajes y turismo de lujo caribeño" data-efectos="floating cards hover scale hover rotate sun float compass rotation star move radial gradient background css keyframes" data-cat="Agencias de viajes y turismo de lujo caribeño">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Agencias de viajes y turismo de lujo caribeño</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="preview.html">preview.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Premium Travel Cards Animation</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Landing de experiencias turísticas premium con animaciones CSS continuas y tarjetas interactivas de destinos caribeños.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#00b4d8')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #00b4d8;" title="Copiar #00b4d8"></button><button onclick="copiarColor('#0077b6')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #0077b6;" title="Copiar #0077b6"></button><button onclick="copiarColor('#ffd166')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #ffd166;" title="Copiar #ffd166"></button><button onclick="copiarColor('#083344')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #083344;" title="Copiar #083344"></button><button onclick="copiarColor('#0096a6')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #0096a6;" title="Copiar #0096a6"></button><button onclick="copiarColor('#eafcff')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #eafcff;" title="Copiar #eafcff"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Floating Cards</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Hover Scale</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Hover Rotate</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Sun Float</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Compass Rotation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Star Move</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Radial Gradient Background</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">CSS Keyframes</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('preview.html', 'Premium Travel Cards Animation')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="preview.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        <article class="tarjeta-componente tarjeta-efecto rounded-2xl p-6 flex flex-col justify-between" data-titulo="experiencias en movimiento" data-cliente="agencias de viajes, turismo experiencial y plataformas de lifestyle" data-efectos="float animation 3d perspective hover lift alternating rotation image zoom glassmorphism tag reduced motion" data-cat="Agencias de viajes, turismo experiencial y plataformas de lifestyle">
+            <div>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <span class="bg-red-50 text-red-700 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Agencias de viajes, turismo experiencial y plataformas de lifestyle</span>
+                    <span class="text-zinc-400 text-[10px] font-mono truncate max-w-[140px]" title="tarjetas_vivas.html">tarjetas_vivas.html</span>
+                </div>
+                <h2 class="text-lg font-bold text-zinc-900 mb-2 leading-tight">Experiencias en Movimiento</h2>
+                <p class="text-sm text-zinc-500 mb-6 leading-relaxed line-clamp-3">Galería de tarjetas de viaje con flotación orgánica independiente, elevación 3D y microinteracciones suaves al hover.</p>
+                
+                <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Paleta Cromática</h3>
+                        <span class="text-[9px] text-zinc-400 font-mono tracking-tighter">click para copiar</span>
+                    </div>
+                    <div class="flex flex-wrap"><button onclick="copiarColor('#f4f6f8')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #f4f6f8;" title="Copiar #f4f6f8"></button><button onclick="copiarColor('#ffffff')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #ffffff;" title="Copiar #ffffff"></button><button onclick="copiarColor('#1a1f2b')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #1a1f2b;" title="Copiar #1a1f2b"></button><button onclick="copiarColor('#5e6878')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #5e6878;" title="Copiar #5e6878"></button><button onclick="copiarColor('#2c68f6')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #2c68f6;" title="Copiar #2c68f6"></button><button onclick="copiarColor('#111827')" class="color-chip w-6 h-6 rounded-full border border-zinc-200 mr-2 mb-1 shadow-sm" style="background-color: #111827;" title="Copiar #111827"></button></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">Efectos & Interacciones</h3>
+                    <div class="flex flex-wrap"><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Float Animation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">3D Perspective</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Hover Lift</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Alternating Rotation</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Image Zoom</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Glassmorphism Tag</span><span class="bg-zinc-100 text-zinc-700 text-[11px] font-medium px-2.5 py-1 rounded-md mr-1.5 mb-1.5 inline-block border border-zinc-200">Reduced Motion</span></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                <button onclick="abrirModalPreview('tarjetas_vivas.html', 'Experiencias en Movimiento')" class="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-zinc-50 text-zinc-700 text-xs font-semibold py-2.5 px-3 rounded-xl transition-all border border-zinc-200 shadow-sm">
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    Vista Rápida
+                </button>
+                <a href="tarjetas_vivas.html" target="_blank" class="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-all shadow-sm">
+                    Abrir Demo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </article>
+        
+        </main>
+    </div>
+
+    <!-- Modal de Vista Rápida -->
+    <div id="modal-preview" class="fixed inset-0 z-50 hidden bg-zinc-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white border border-zinc-200 w-full max-w-5xl h-[85vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden">
+            <div class="px-5 py-3 border-b border-zinc-100 flex justify-between bg-zinc-50 items-center">
+                <h3 id="modal-titulo" class="font-bold text-zinc-800 text-sm">Vista Previa</h3>
+                <button onclick="cerrarModalPreview()" class="text-zinc-400 hover:text-red-600 font-bold text-lg leading-none">&times;</button>
+            </div>
+            <iframe id="modal-iframe" src="" class="w-full h-full border-none"></iframe>
+        </div>
+    </div>
+
+    <!-- Notificación Toast de Copiado -->
+    <div id="toast-copiado" class="fixed bottom-6 right-6 z-50 bg-zinc-800 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-xl flex items-center gap-2 transition-all transform translate-y-20 opacity-0 pointer-events-none">
+        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span id="toast-mensaje">Copiado</span>
+    </div>
+
+    <script>
+        let categoriaActual = 'todas';
+        const categorias = ["Agencia de turismo y excursiones en Punta Cana, República Dominicana", "Agencias de turismo caribeño y plataformas de viajes premium", "Agencias de turismo y experiencias de viaje premium", "Agencias de viajes y turismo de lujo caribeño", "Agencias de viajes, turismo experiencial y plataformas de lifestyle", "Grupos de alto poder adquisitivo que buscan experiencias exclusivas en el Caribe para celebraciones privadas (cumpleaños, despedidas de soltera, retiros corporativos)", "Grupos de celebración (cumpleaños, despedidas de soltero/a, reuniones familiares) y planificadores de eventos en Punta Cana", "Grupos privados (despedidas de soltera, cumpleaños, celebraciones) que buscan experiencias de fiesta premium y personalizables en Punta Cana", "Hispaniola Party Boat", "Turistas de alto poder adquisitivo buscando experiencias de resort exclusivas en el Caribe", "Turistas de lujo y grupos privados en Punta Cana que buscan experiencias exclusivas en el mar", "Turistas y grupos de lujo que buscan experiencias privadas de celebración en el mar Caribe, incluyendo despedidas de soltera, retiros corporativos y eventos de hitos.", "Viajeros premium y grupos que buscan experiencias privadas exclusivas en el Caribe para celebraciones de alto impacto emocional", "kingblacktour.com"];
+        
+        // Generar pestañas dinámicamente con etiquetas limpias
+        const contenedor = document.getElementById('contenedor-categorias');
+        categorias.forEach(cat => {
+            if(cat) {
+                const btn = document.createElement('button');
+                btn.className = 'categoria-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-white border border-zinc-200 text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900 shadow-sm transition-colors';
+                btn.setAttribute('data-cat', cat);
+                btn.title = cat;
+                btn.innerText = cat.length > 28 ? cat.substring(0, 26) + '...' : cat;
+                btn.onclick = () => seleccionarCategoria(cat);
+                contenedor.appendChild(btn);
+            }
+        });
+
+        function filtrarComponentes() {
+            const busqueda = document.getElementById('busqueda').value.toLowerCase().trim();
+            document.querySelectorAll('.tarjeta-componente').forEach(tarjeta => {
+                const titulo = tarjeta.getAttribute('data-titulo') || '';
+                const cliente = tarjeta.getAttribute('data-cliente') || '';
+                const efectos = tarjeta.getAttribute('data-efectos') || '';
+                const cat = tarjeta.getAttribute('data-cat') || '';
+                const texto = titulo + " " + cliente + " " + efectos;
+                
+                const coincideBusqueda = !busqueda || texto.includes(busqueda);
+                const coincideCategoria = (categoriaActual === 'todas' || cat === categoriaActual);
+                
+                tarjeta.style.display = (coincideBusqueda && coincideCategoria) ? 'flex' : 'none';
+            });
+        }
+
+        function seleccionarCategoria(catSeleccionada) {
+            categoriaActual = catSeleccionada;
+            document.querySelectorAll('.categoria-btn').forEach(btn => {
+                if (btn.getAttribute('data-cat') === catSeleccionada) {
+                    btn.className = 'categoria-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-red-600 border border-red-600 text-white shadow-sm transition-colors';
+                } else {
+                    btn.className = 'categoria-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-white border border-zinc-200 text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900 shadow-sm transition-colors';
+                }
+            });
+            filtrarComponentes();
+        }
+
+        function abrirModalPreview(archivo, titulo) {
+            document.getElementById('modal-titulo').innerText = titulo;
+            document.getElementById('modal-iframe').src = archivo;
+            document.getElementById('modal-preview').classList.remove('hidden');
+        }
+
+        function cerrarModalPreview() {
+            document.getElementById('modal-preview').classList.add('hidden');
+            document.getElementById('modal-iframe').src = '';
+        }
+        
+        function copiarColor(hex) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const toast = document.getElementById('toast-copiado');
+                document.getElementById('toast-mensaje').innerText = hex + ' copiado al portapapeles';
+                toast.classList.remove('translate-y-20', 'opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                }, 2000);
+            }).catch(() => {
+                // Fallback de copiado
+                const tempInput = document.createElement('input');
+                tempInput.value = hex;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            });
+        }
+        
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') cerrarModalPreview();
+        });
+    </script>
+</body>
+</html>

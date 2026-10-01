@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luxury Caribbean Resort Cards</title>
+
+
+<style>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500&display=swap');
+
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+
+body{
+
+min-height:100vh;
+
+font-family:'Montserrat',sans-serif;
+
+background:
+
+linear-gradient(
+180deg,
+rgba(255,248,231,.9),
+rgba(218,245,240,.95)
+),
+
+url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+
+background-size:cover;
+background-position:center;
+
+color:#183b42;
+
+}
+
+
+
+.section{
+
+position:relative;
+
+padding:90px 40px;
+
+overflow:hidden;
+
+}
+
+
+
+.title{
+
+text-align:center;
+
+margin-bottom:80px;
+
+}
+
+
+
+.title span{
+
+letter-spacing:5px;
+font-size:.8rem;
+color:#b18b43;
+
+}
+
+
+
+.title h1{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(3rem,5vw,4.5rem);
+
+font-weight:600;
+
+color:#123c43;
+
+margin-top:15px;
+
+}
+
+
+
+.title p{
+
+margin-top:20px;
+
+color:#60777a;
+
+font-weight:300;
+
+}
+
+
+
+
+
+/* DECORATION */
+
+
+.sun{
+
+position:absolute;
+
+top:60px;
+left:12%;
+
+width:90px;
+height:90px;
+
+background:#f4c96b;
+
+border-radius:50%;
+
+filter:blur(.2px);
+
+box-shadow:
+0 0 80px rgba(244,201,107,.8);
+
+animation:
+float 5s infinite ease-in-out;
+
+}
+
+
+
+.star{
+
+position:absolute;
+
+font-size:20px;
+
+color:#c7a55b;
+
+animation:
+float 6s infinite ease-in-out;
+
+}
+
+
+
+.star.one{
+
+right:18%;
+top:160px;
+
+}
+
+
+
+.star.two{
+
+left:10%;
+bottom:120px;
+
+animation-delay:2s;
+
+}
+
+
+
+
+
+.compass{
+
+position:absolute;
+
+right:12%;
+top:70px;
+
+width:80px;
+height:80px;
+
+border:
+
+2px solid #b18b43;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+color:#b18b43;
+
+font-size:35px;
+
+animation:
+
+spin 15s linear infinite;
+
+}
+
+
+@keyframes spin{
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+}
+
+
+
+
+
+
+
+.cards{
+
+display:flex;
+
+justify-content:center;
+
+gap:45px;
+
+max-width:1300px;
+
+margin:auto;
+
+}
+
+
+
+
+
+.card{
+
+width:360px;
+
+background:
+
+rgba(255,255,255,.95);
+
+border-radius:32px;
+
+overflow:hidden;
+
+position:relative;
+
+box-shadow:
+
+0 30px 70px rgba(20,70,70,.18);
+
+
+transition:
+
+transform .6s cubic-bezier(.2,.8,.2,1),
+
+box-shadow .6s;
+
+
+}
+
+
+
+
+.card-image{
+
+height:280px;
+
+background-size:cover;
+
+background-position:center;
+
+position:relative;
+
+}
+
+
+
+.card-image:after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+transparent,
+
+rgba(0,0,0,.35)
+
+);
+
+}
+
+
+
+
+
+.img1{
+
+background-image:url(
+"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+);
+
+}
+
+
+
+.img2{
+
+background-image:url(
+"https://images.unsplash.com/photo-1544550285-f813152fb2fd"
+);
+
+}
+
+
+.img3{
+
+background-image:url(
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+);
+
+}
+
+
+
+
+
+.content{
+
+padding:35px;
+
+text-align:center;
+
+}
+
+
+
+.content h2{
+
+font-family:
+'Cormorant Garamond',
+serif;
+
+font-size:2.2rem;
+
+color:#123c43;
+
+margin-bottom:15px;
+
+}
+
+
+
+.content p{
+
+font-size:.95rem;
+
+line-height:1.7;
+
+color:#64777a;
+
+}
+
+
+
+.price{
+
+margin:25px 0;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
+font-size:2.4rem;
+
+color:#b18b43;
+
+}
+
+
+
+button{
+
+background:
+
+linear-gradient(
+135deg,
+#b18b43,
+#d5b76a
+);
+
+border:none;
+
+color:white;
+
+padding:15px 35px;
+
+border-radius:40px;
+
+letter-spacing:1px;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+/* CARD 1 */
+
+
+.floating{
+
+animation:
+luxFloat 7s infinite ease-in-out;
+
+}
+
+
+@keyframes luxFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+
+
+/* CARD 2 */
+
+
+.tilt-wrapper{
+
+perspective:1200px;
+
+}
+
+
+
+.tilt-inner{
+
+transition:
+
+transform .5s cubic-bezier(.2,.8,.2,1),
+
+box-shadow .5s;
+
+}
+
+
+
+.tilt-wrapper:hover .tilt-inner{
+
+box-shadow:
+
+0 45px 90px rgba(0,50,60,.35);
+
+}
+
+
+
+
+
+
+
+/* CARD 3 */
+
+
+.rest{
+
+transform:
+
+rotate(3deg);
+
+}
+
+
+
+.rest:hover{
+
+transform:
+
+rotate(0)
+
+translateY(-25px)
+
+scale(1.04);
+
+
+box-shadow:
+
+0 45px 90px rgba(0,50,60,.35);
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+
+.cards{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+
+.card{
+
+width:min(90%,380px);
+
+}
+
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<section class="section">
+
+
+<div class="sun"></div>
+
+<div class="star one">✦</div>
+
+<div class="star two">✦</div>
+
+<div class="compass">✧</div>
+
+
+
+<div class="title">
+
+<span>LUXURY CARIBBEAN EXPERIENCES</span>
+
+<h1>
+Discover Paradise Beyond Expectations
+</h1>
+
+<p>
+Private escapes crafted for unforgettable resort moments
+</p>
+
+
+</div>
+
+
+
+<div class="cards">
+
+
+
+
+
+<div class="card floating">
+
+<div class="card-image img1"></div>
+
+
+<div class="content">
+
+<h2>
+Azure Island Retreat
+</h2>
+
+
+<p>
+A private beach experience surrounded by crystal waters and tropical serenity.
+</p>
+
+
+<div class="price">
+$249
+</div>
+
+
+<button>
+Discover Experience
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="tilt-wrapper">
+
+
+<div class="card tilt-inner">
+
+
+<div class="card-image img2"></div>
+
+
+<div class="content">
+
+<h2>
+Ocean Villa Escape
+</h2>
+
+
+<p>
+Luxury sailing, private snorkeling and exclusive Caribbean views.
+</p>
+
+
+<div class="price">
+$189
+</div>
+
+
+<button>
+Discover Experience
+</button>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="card rest">
+
+
+<div class="card-image img3"></div>
+
+
+<div class="content">
+
+<h2>
+Tropical Sanctuary
+</h2>
+
+
+<p>
+A hidden jungle paradise with waterfalls and authentic island beauty.
+</p>
+
+
+<div class="price">
+$299
+</div>
+
+
+<button>
+Discover Experience
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+<script>
+
+
+const tilt =
+document.querySelector(".tilt-wrapper");
+
+
+const inner =
+document.querySelector(".tilt-inner");
+
+
+
+tilt.addEventListener(
+"mousemove",
+(e)=>{
+
+
+const box =
+tilt.getBoundingClientRect();
+
+
+const x =
+e.clientX-box.left;
+
+
+const y =
+e.clientY-box.top;
+
+
+
+const rotateY =
+(x/box.width-.5)*18;
+
+
+const rotateX =
+(y/box.height-.5)*-18;
+
+
+
+inner.style.transform =
+`
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+`;
+
+
+
+});
+
+
+
+tilt.addEventListener(
+"mouseleave",
+()=>{
+
+inner.style.transform =
+"rotateX(0) rotateY(0)";
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
