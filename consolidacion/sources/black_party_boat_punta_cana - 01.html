@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Party Boat | Premium Punta Cana Celebrations</title>
+    <meta name="description" content="The ultimate private party boat experience in Punta Cana. Gather your people for an unforgettable journey of luxury, music, and golden hour magic.">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (Utility classes for layout, responsiveness, and baseline styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Configuration for Brand Identity -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0A192F', // Deep, premium navy
+                            light: '#112240',
+                            dark: '#020C1B'
+                        },
+                        turquoise: {
+                            DEFAULT: '#00B4D8', // Caribbean water accent
+                            light: '#48CAE4'
+                        },
+                        coral: {
+                            DEFAULT: '#FF6B6B', // Vibrant CTA
+                            hover: '#FA5252'
+                        },
+                        champagne: {
+                            DEFAULT: '#D4AF37', // Luxury accent
+                            light: '#F3E5AB'
+                        },
+                        paper: '#F8FAFC' // Soft white background
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'linear-gradient(to bottom, rgba(10, 25, 47, 0.3), rgba(10, 25, 47, 0.9))',
+                        'card-gradient': 'linear-gradient(to top, rgba(10, 25, 47, 0.95), transparent)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Reset */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8FAFC;
+            color: #0A192F;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A192F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00B4D8;
+            border-radius: 5px;
+        }
+
+        /* Typography Refinements */
+        h1, h2, h3, h4, h5, h6 {
+            letter-spacing: -0.02em;
+        }
+
+        /* 
+         * Luxury Interaction Design 
+         */
+
+        /* Scroll Reveal System */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth ease-out */
+            will-change: opacity, transform;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Floating Element Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Ambient Ocean Background Animation */
+        @keyframes ambientPan {
+            0% { background-position: 0% 50%; transform: scale(1); }
+            50% { background-position: 100% 50%; transform: scale(1.05); }
+            100% { background-position: 0% 50%; transform: scale(1); }
+        }
+        .bg-ambient-animate {
+            background-size: 120% 120%;
+            animation: ambientPan 30s ease-in-out infinite alternate;
+        }
+
+        /* 3D Card Transform Setup */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        .card-3d-wrapper {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        /* JS will handle the dynamic rotation, CSS handles the reset */
+        .card-3d-wrapper.reset {
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+
+        /* Premium Button Hover */
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        .btn-premium::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: -1;
+        }
+        .btn-premium:hover::after {
+            transform: translateY(0);
+        }
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(255, 107, 107, 0.5);
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(10, 25, 47, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Text gradient */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #D4AF37, #F3E5AB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-turquoise selection:text-navy">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-bold tracking-wider flex items-center gap-2 group">
+                <span class="text-turquoise transition-transform group-hover:rotate-12 duration-300">⚓</span>
+                BLACK<span class="font-light">BOAT</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-white/90 text-sm font-medium">
+                <a href="#experiences" class="hover:text-turquoise transition-colors">Experiences</a>
+                <a href="#kitchen" class="hover:text-turquoise transition-colors">Floating Kitchen</a>
+                <a href="#journey" class="hover:text-turquoise transition-colors">The Journey</a>
+            </div>
+
+            <a href="#book" class="hidden md:inline-block bg-coral text-white px-6 py-2 rounded-full text-sm font-semibold btn-premium shadow-lg">
+                Check Availability
+            </a>
+
+            <!-- Mobile Menu Button (simplified for prototype) -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. Cinematic Hero Section -->
+    <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-navy">
+        <!-- Ambient Ocean Background -->
+        <div class="absolute inset-0 z-0 bg-ambient-animate" 
+             style="background-image: url('https://images.unsplash.com/photo-1548115184-bc6544d06a58?q=80&w=2070&auto=format&fit=crop'); background-position: center; background-size: cover;">
+        </div>
+        <!-- Gradient Overlay for contrast -->
+        <div class="absolute inset-0 z-10 bg-hero-gradient"></div>
+
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-20">
+            <span class="block text-turquoise font-semibold tracking-[0.2em] uppercase text-sm mb-4 reveal">
+                By Hispaniola Aquatic Adventures
+            </span>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight reveal reveal-delay-1 drop-shadow-lg">
+                Celebrate Life on the <br class="hidden md:block"/>
+                <span class="text-gradient-gold">Caribbean Sea.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto font-light reveal reveal-delay-2">
+                The ultimate private party boat experience in Punta Cana. Gather your people for an unforgettable journey of luxury, music, and golden hour magic.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal reveal-delay-3">
+                <a href="#experiences" class="bg-coral text-white px-8 py-4 rounded-full font-semibold text-lg btn-premium shadow-[0_0_20px_rgba(255,107,107,0.3)] w-full sm:w-auto">
+                    Plan Your Celebration
+                </a>
+                <a href="#journey" class="text-white flex items-center gap-2 hover:text-turquoise transition-colors py-4 px-6 w-full sm:w-auto justify-center group">
+                    Watch the Experience 
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </header>
+
+    <!-- Brand Intro -->
+    <section class="py-20 bg-paper">
+        <div class="max-w-4xl mx-auto text-center px-6 reveal">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Not just a boat ride.<br/>A canvas for your memories.</h2>
+            <p class="text-navy/70 text-lg leading-relaxed">
+                We designed the Black Party Boat to be the perfect venue for your most important moments. Away from crowded resorts, surrounded by the turquoise waters of Punta Cana, this is where premium hospitality meets pure Caribbean energy.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. Travel Experience Cards -->
+    <section id="experiences" class="py-24 bg-navy text-white relative">
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#00B4D8 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span class="text-turquoise tracking-widest uppercase text-sm font-semibold">Curated Journeys</span>
+                <h2 class="text-4xl font-bold mt-2">Choose Your Experience</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-1000">
+                
+                <!-- Card 1 -->
+                <div class="group relative rounded-2xl overflow-hidden h-[500px] cursor-pointer reveal transform-style-3d card-container">
+                    <div class="card-3d-wrapper absolute inset-0 w-full h-full shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1971&auto=format&fit=crop" alt="Private Party Boat" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-card-gradient transition-opacity duration-300 group-hover:opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 w-full p-8 translate-z-50">
+                            <h3 class="text-2xl font-bold mb-2 text-white">The Private Charter</h3>
+                            <p class="text-white/80 mb-6 text-sm transform translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                                Total exclusivity. Your group, your vibe, your ocean. Perfect for daytime celebrations, swimming, and private coastal exploration.
+                            </p>
+                            <button class="text-turquoise font-semibold flex items-center gap-2 group-hover:text-white transition-colors">
+                                Explore Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative rounded-2xl overflow-hidden h-[500px] cursor-pointer reveal reveal-delay-1 transform-style-3d card-container">
+                    <div class="card-3d-wrapper absolute inset-0 w-full h-full shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1559825481-12a05cc00344?q=80&w=1965&auto=format&fit=crop" alt="Sunset Celebration" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-card-gradient transition-opacity duration-300 group-hover:opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 w-full p-8">
+                            <h3 class="text-2xl font-bold mb-2 text-champagne">The Golden Sunset</h3>
+                            <p class="text-white/80 mb-6 text-sm transform translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                                Sail into the evening with premium cocktails and a sky on fire. The ultimate romantic or milestone setting.
+                            </p>
+                            <button class="text-turquoise font-semibold flex items-center gap-2 group-hover:text-white transition-colors">
+                                Explore Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative rounded-2xl overflow-hidden h-[500px] cursor-pointer reveal reveal-delay-2 transform-style-3d card-container">
+                    <div class="card-3d-wrapper absolute inset-0 w-full h-full shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1540324155970-146607e1fa62?q=80&w=2000&auto=format&fit=crop" alt="VIP Group Experience" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-card-gradient transition-opacity duration-300 group-hover:opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 w-full p-8">
+                            <h3 class="text-2xl font-bold mb-2 text-white">VIP Group Experience</h3>
+                            <p class="text-white/80 mb-6 text-sm transform translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                                Spacious luxury for larger gatherings, bachelorettes, and corporate retreats requiring flawless execution.
+                            </p>
+                            <button class="text-turquoise font-semibold flex items-center gap-2 group-hover:text-white transition-colors">
+                                Explore Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Differentiator Section: Floating Kitchen -->
+    <section id="kitchen" class="py-24 bg-paper overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 reveal">
+                    <span class="text-coral font-bold tracking-wider uppercase text-sm mb-4 block">Our Signature Difference</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-navy mb-6 leading-tight">
+                        The <span class="text-turquoise">Floating Kitchen</span> Experience.
+                    </h2>
+                    <p class="text-navy/70 text-lg mb-6 leading-relaxed">
+                        We believe that a premium celebration requires exceptional food. We don't do pre-packaged snacks or generic buffets.
+                    </p>
+                    <p class="text-navy/70 text-lg mb-8 leading-relaxed">
+                        Our onboard chef prepares fresh, vibrant Caribbean cuisine right before your eyes as you sail. From ceviche caught that morning to grilled skewers infused with island spices, taste the difference of true premium hospitality.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-navy font-medium">
+                            <svg class="w-5 h-5 text-turquoise" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Prepared fresh onboard during your journey
+                        </li>
+                        <li class="flex items-center gap-3 text-navy font-medium">
+                            <svg class="w-5 h-5 text-turquoise" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Dietary restrictions accommodated with care
+                        </li>
+                        <li class="flex items-center gap-3 text-navy font-medium">
+                            <svg class="w-5 h-5 text-turquoise" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Premium open bar with top-shelf options
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Image Composition -->
+                <div class="lg:w-1/2 relative reveal reveal-delay-1">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl z-10">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop" alt="Fresh Seafood Preparation" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <!-- Decorative Element -->
+                    <div class="absolute -bottom-8 -left-8 w-48 h-48 bg-champagne rounded-full opacity-20 blur-3xl z-0 animate-float"></div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -right-6 top-10 glass rounded-xl p-4 shadow-xl z-20 animate-float" style="animation-delay: 1s;">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-champagne/20 p-2 rounded-full text-champagne">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-white text-sm font-bold">5-Star</p>
+                                <p class="text-white/70 text-xs">Culinary Standard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Storytelling: Your Day On The Water -->
+    <section id="journey" class="py-24 bg-navy relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <span class="text-champagne tracking-widest uppercase text-sm font-semibold">The Itinerary</span>
+                <h2 class="text-4xl font-bold mt-2 text-white">Your Day On The Water</h2>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-turquoise/50 via-turquoise to-transparent"></div>
+
+                <div class="space-y-16">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between reveal">
+                        <div class="md:w-5/12 text-center md:text-right mb-6 md:mb-0 pr-0 md:pr-8">
+                            <h3 class="text-2xl font-bold text-white mb-2">1. Welcome Aboard</h3>
+                            <p class="text-white/70">Step onto our pristine deck and be greeted by our crew with a chilled glass of sparkling wine. The celebration begins immediately.</p>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center relative z-10 mb-6 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-navy border-2 border-turquoise flex items-center justify-center shadow-[0_0_15px_rgba(0,180,216,0.5)]">
+                                <span class="text-turquoise font-bold">01</span>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12 pl-0 md:pl-8">
+                            <img src="https://images.unsplash.com/photo-1596423735880-5f2a689b903e?q=80&w=2070&auto=format&fit=crop" alt="Welcome Toast" class="rounded-xl shadow-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center justify-between reveal reveal-delay-1">
+                        <div class="md:w-5/12 text-center md:text-left mb-6 md:mb-0 pl-0 md:pl-8">
+                            <h3 class="text-2xl font-bold text-white mb-2">2. Drop Anchor</h3>
+                            <p class="text-white/70">We sail to an exclusive natural pool. The anchor drops, the music turns up, and the crystal-clear Caribbean water awaits you.</p>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center relative z-10 mb-6 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-navy border-2 border-turquoise flex items-center justify-center shadow-[0_0_15px_rgba(0,180,216,0.5)]">
+                                <span class="text-turquoise font-bold">02</span>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12 pr-0 md:pr-8">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2070&auto=format&fit=crop" alt="Swimming in Ocean" class="rounded-xl shadow-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between reveal reveal-delay-2">
+                        <div class="md:w-5/12 text-center md:text-right mb-6 md:mb-0 pr-0 md:pr-8">
+                            <h3 class="text-2xl font-bold text-white mb-2">3. The Golden Hour</h3>
+                            <p class="text-white/70">As the sun begins to set, the sky transforms. Enjoy our freshly prepared floating kitchen service and toast to unforgettable memories as we cruise back along the coast.</p>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center relative z-10 mb-6 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-navy border-2 border-coral flex items-center justify-center shadow-[0_0_15px_rgba(255,107,107,0.5)]">
+                                <span class="text-coral font-bold">03</span>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12 pl-0 md:pl-8">
+                            <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=2070&auto=format&fit=crop" alt="Sunset Celebration" class="rounded-xl shadow-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Audience Segmentation -->
+    <section class="py-24 bg-paper">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- B2C Path -->
+                <div class="bg-white p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow reveal border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-turquoise/10 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-navy mb-4">For Travelers Celebrating Together</h3>
+                        <p class="text-navy/70 mb-6 text-lg">
+                            Birthdays, bachelorettes, anniversaries, or simply getting the crew together. Make your Punta Cana trip legendary. We handle the logistics; you handle the memories.
+                        </p>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-coral font-bold hover:text-navy transition-colors mt-4">
+                        Plan a Private Celebration <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- B2B Path -->
+                <div class="bg-navy p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow reveal reveal-delay-1 relative overflow-hidden flex flex-col justify-between">
+                    <!-- Subtle pattern -->
+                    <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#D4AF37 1px, transparent 1px), linear-gradient(90deg, #D4AF37 1px, transparent 1px); background-size: 20px 20px;"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-champagne/10 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-4">For Planners & Private Events</h3>
+                        <p class="text-white/70 mb-6 text-lg">
+                            Elevate your corporate retreat, destination wedding itinerary, or VIP group tour with a flawless execution. Partner with Punta Cana's most reliable premium operator.
+                        </p>
+                    </div>
+                    <a href="#" class="relative z-10 inline-flex items-center gap-2 text-champagne font-bold hover:text-white transition-colors mt-4">
+                        Group Rates & Availability <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy.dark text-white/60 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="#" class="text-white text-xl font-bold tracking-wider flex items-center gap-2 mb-4">
+                    <span class="text-turquoise">⚓</span> BLACK<span class="font-light">BOAT</span>
+                </a>
+                <p class="max-w-xs mb-6">A premium experience curated by Hispaniola Aquatic Adventures. Setting the standard for luxury celebrations in Punta Cana.</p>
+                <div class="flex gap-4">
+                    <!-- Social placeholders -->
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-turquoise hover:text-navy transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-turquoise hover:text-navy transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Experiences</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-turquoise transition-colors">Private Charter</a></li>
+                    <li><a href="#" class="hover:text-turquoise transition-colors">Sunset Celebration</a></li>
+                    <li><a href="#" class="hover:text-turquoise transition-colors">VIP Groups</a></li>
+                    <li><a href="#" class="hover:text-turquoise transition-colors">Floating Kitchen</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Contact</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>Punta Cana, Dominican Republic</li>
+                    <li>hello@hispaniola.com</li>
+                    <li>+1 (809) 555-0199</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/10 text-xs flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; 2026 Hispaniola Aquatic Adventures. All rights reserved.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Scroll Reveal Animation Logic
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: Stop observing once revealed to keep it visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const revealOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // Trigger when 15% of element is visible
+            };
+
+            const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+            
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // 2. Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-navy/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
+                    navbar.classList.remove('py-4');
+                } else {
+                    navbar.classList.remove('bg-navy/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
+                    navbar.classList.add('py-4');
+                }
+            });
+
+            // 3. Premium 3D Card Hover Effect (Vanilla JS)
+            const cards = document.querySelectorAll('.card-container');
+            
+            cards.forEach(card => {
+                const wrapper = card.querySelector('.card-3d-wrapper');
+                
+                card.addEventListener('mousemove', (e) => {
+                    // Get dimensions and cursor position relative to card
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left; // x position within the element.
+                    const y = e.clientY - rect.top;  // y position within the element.
+                    
+                    // Calculate rotation (max rotation is 10deg)
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -8; 
+                    const rotateY = ((x - centerX) / centerX) * 8;
+                    
+                    wrapper.classList.remove('reset');
+                    wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    // Reset transform smoothly
+                    wrapper.style.transform = '';
+                    wrapper.classList.add('reset');
+                    
+                    // Remove reset class after transition to allow hover again
+                    setTimeout(() => {
+                        wrapper.classList.remove('reset');
+                    }, 400); // Matches CSS transition time
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ocho piezas de interaccion propuestas para kingblacktour.com, con su coste real, donde va cada una y que ocurre sin JavaScript. Propuesta interna de Postsicionate.">
+<meta name="author" content="Postsicionate">
+<style>html{color-scheme:dark}body{margin:0;background:#060F16}img{max-width:100%}</style>
+</head>
+<body>
+<title>Movimiento King Black</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* ============================================================
+   Movimiento King Black · Postsicionate
+   Paleta y tipografia tomadas del sitio en produccion, no
+   inventadas: oro #D4AF37 sobre navy #060F16, Archivo para
+   rotulos y Source Sans 3 para lectura. El documento se ve
+   como el sitio del que habla.
+   ============================================================ */
+:root{
+  color-scheme: dark;
+
+  --navy:#060F16;
+  --panel:#0B1A24;
+  --panel-2:#102530;
+
+  --gold:#D4AF37;
+  --gold-2:#EBD489;
+  --gold-dim:rgba(212,175,55,.18);
+
+  --tx:#B9C8D0;
+  --tx-str:#EAF1F4;
+  --dim:#7B8D97;
+
+  --sand:#F3EDE3;
+  --sand-ink:#12212B;
+  --sand-dim:#5F6E77;
+
+  --ln:rgba(212,175,55,.16);
+  --ln-soft:rgba(185,200,208,.10);
+
+  --r:12px;
+  --r-lg:18px;
+
+  --disp:Archivo, "Helvetica Neue", Arial, sans-serif;
+  --body:"Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--navy);
+  color:var(--tx);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{width:100%;max-width:1120px;margin-inline:auto;padding-inline:20px}
+
+h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;line-height:1.08;text-wrap:balance;letter-spacing:-.025em}
+h1{font-size:clamp(2.3rem,1.3rem + 4.1vw,4.1rem)}
+h2{font-size:clamp(1.75rem,1.25rem + 2.1vw,2.7rem);line-height:1.1}
+h3{font-size:clamp(1.1rem,1rem + .45vw,1.32rem);letter-spacing:-.012em;line-height:1.22;color:var(--tx-str)}
+p{margin:0}
+
+.kick{
+  font-family:var(--disp);font-size:.68rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin:0 0 .85rem
+}
+.lede{color:var(--tx);max-width:64ch;font-size:1.03rem}
+.gold{color:var(--gold)}
+
+/* ---------- estructura ---------- */
+.sec{padding-block:clamp(3rem,6vw,5rem);position:relative}
+.sec + .sec{border-top:1px solid var(--ln-soft)}
+.sec--sand{background:var(--sand);color:var(--sand-ink)}
+.sec--sand h2,.sec--sand h3{color:var(--sand-ink)}
+.sec--sand .lede{color:var(--sand-dim)}
+.sec--sand .kick{color:#A8862A}
+.head{margin-bottom:clamp(1.8rem,3.5vw,2.8rem)}
+
+/* ---------- portada ---------- */
+.hero{padding-block:clamp(3rem,7vw,5.5rem) clamp(2rem,4vw,3.2rem)}
+.hero h1{margin-bottom:1.2rem}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.7rem}
+.pill{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.4rem .85rem;border-radius:999px;
+  border:1px solid var(--ln);background:rgba(212,175,55,.05);
+  font-family:var(--disp);font-size:.7rem;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--dim)
+}
+.pill b{color:var(--tx-str);font-weight:700}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none}
+.dot--live{background:#4ED8A0}
+
+/* ---------- ficha de efecto ---------- */
+.lab{
+  display:grid;gap:clamp(1.3rem,3vw,2.4rem);
+  grid-template-columns:minmax(0,1fr);
+  align-items:start;
+  padding-block:clamp(2rem,3.6vw,3rem)
+}
+.lab + .lab{border-top:1px dashed var(--ln)}
+.sec--sand .lab + .lab{border-top-color:rgba(18,33,43,.16)}
+@media(min-width:880px){
+  .lab{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}
+  .lab--flip .stage{order:2}
+}
+
+.stage{
+  min-height:250px;display:grid;place-items:center;
+  padding:clamp(1.2rem,2.6vw,2rem);
+  border-radius:var(--r-lg);
+  background:linear-gradient(158deg,var(--panel-2),var(--panel));
+  border:1px solid var(--ln);
+  position:relative;overflow:hidden;overflow:clip
+}
+.sec--sand .stage{
+  background:linear-gradient(158deg,#fff,#F7F1E6);
+  border-color:rgba(18,33,43,.12)
+}
+
+.n{
+  font-family:var(--disp);font-size:.7rem;font-weight:700;letter-spacing:.18em;
+  color:var(--gold);margin-bottom:.6rem;font-variant-numeric:tabular-nums
+}
+.sec--sand .n{color:#A8862A}
+.body{display:flex;flex-direction:column;gap:.95rem}
+.body p{color:var(--tx);font-size:.97rem}
+.sec--sand .body p{color:var(--sand-dim)}
+.body code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.86em;color:var(--gold-2);
+  background:rgba(212,175,55,.09);padding:.08em .35em;border-radius:4px
+}
+.sec--sand .body code{color:#8C6E14;background:rgba(212,175,55,.16)}
+
+.spec{display:flex;flex-direction:column;gap:.5rem;margin-top:.15rem}
+.row{display:grid;grid-template-columns:96px minmax(0,1fr);gap:.8rem;font-size:.87rem;align-items:baseline}
+.k{font-family:var(--disp);font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.sec--sand .k{color:#6E7B83}
+.v{color:var(--tx-str)}
+.sec--sand .v{color:var(--sand-ink)}
+.v b{color:var(--gold);font-weight:600}
+.sec--sand .v b{color:#8C6E14}
+
+.note{
+  border-left:3px solid var(--gold);
+  padding:.55rem 0 .55rem .9rem;
+  font-size:.88rem;color:var(--tx)
+}
+.sec--sand .note{color:var(--sand-dim)}
+.note b{
+  display:block;font-family:var(--disp);color:var(--gold);font-weight:700;
+  font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.2rem
+}
+.sec--sand .note b{color:#8C6E14}
+
+.replay{
+  border:1px solid var(--ln);background:rgba(212,175,55,.07);
+  color:var(--tx-str);font-family:var(--disp);font-weight:700;font-size:.7rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:.5rem 1.05rem;border-radius:999px;cursor:pointer
+}
+.replay:hover{border-color:var(--gold);color:var(--gold)}
+.sec--sand .replay{border-color:rgba(18,33,43,.2);background:rgba(18,33,43,.05);color:var(--sand-ink)}
+.sec--sand .replay:hover{border-color:#A8862A;color:#8C6E14}
+
+.hint{
+  font-family:var(--disp);font-size:.6rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim);margin-top:1rem;text-align:center
+}
+.sec--sand .hint{color:#6E7B83}
+.sec--sand .tv{color:var(--sand-ink)}
+.sec--sand .tv:hover,.sec--sand .tv:focus-visible{color:#8C6E14}
+.sec--sand .tv::after{background:#A8862A}
+.sec--sand .kbtn--ghost{color:var(--sand-ink);border-color:rgba(18,33,43,.22)}
+.sec--sand .kbtn--ghost:hover{background:rgba(212,175,55,.14);color:#8C6E14}
+
+/* ============================================================
+   01 · La fila que atiende
+   ============================================================ */
+.strip{display:flex;gap:9px;width:100%;max-width:430px}
+.sc{
+  flex:1 1 0;min-width:0;height:168px;border-radius:10px;position:relative;
+  overflow:hidden;overflow:clip;cursor:pointer;
+  outline:2px solid transparent;outline-offset:-2px;
+  transition:flex-grow .55s cubic-bezier(.22,.9,.24,1), outline-color .35s ease
+}
+.sc:nth-child(1){background:linear-gradient(150deg,#1B4C5E,#07202B)}
+.sc:nth-child(2){background:linear-gradient(150deg,#2A5A48,#08211C)}
+.sc:nth-child(3){background:linear-gradient(150deg,#5A4527,#231708)}
+.sc:nth-child(4){background:linear-gradient(150deg,#264A66,#071824)}
+.sc:nth-child(5){background:linear-gradient(150deg,#3D5230,#0F1A0C)}
+.sc.lead{flex-grow:1.5;outline-color:var(--gold)}
+.sc span{
+  position:absolute;left:8px;right:8px;bottom:8px;
+  font-family:var(--disp);font-size:.6rem;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:#fff;line-height:1.15
+}
+.sc i{
+  display:block;font-style:normal;font-size:.56rem;color:var(--gold-2);
+  letter-spacing:.04em;margin-top:.25rem;transition:opacity .3s ease
+}
+@media(hover:hover){
+  .strip:hover .sc{flex-grow:.88}
+  .strip:hover .sc.lead:not(:hover){outline-color:transparent}
+  .strip .sc:hover{flex-grow:2.5;outline-color:var(--gold)}
+  .strip:hover .sc:not(:hover) i{opacity:0}
+}
+
+/* ============================================================
+   02 · El oro que viaja
+   ============================================================ */
+.trav{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.tv{
+  font-family:var(--disp);font-size:.68rem;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--tx);
+  padding:.6rem .85rem;border-radius:8px;cursor:pointer;
+  position:relative;background:none;border:0;
+  transition:color .25s ease
+}
+.tv::after{
+  content:"";position:absolute;left:.85rem;right:.85rem;bottom:.3rem;height:2px;
+  background:var(--gold);border-radius:2px;
+  transform:scaleX(0);transform-origin:50% 50%;
+  transition:transform .32s cubic-bezier(.22,.9,.24,1)
+}
+.tv:hover,.tv:focus-visible{color:var(--gold-2)}
+.tv:hover::after,.tv:focus-visible::after{transform:scaleX(1)}
+
+/* ============================================================
+   03 · Reposa torcida, se endereza
+   ============================================================ */
+.pins{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.pin{
+  width:min(178px,42vw);border-radius:11px;overflow:hidden;
+  background:var(--sand);padding:8px 8px 0;
+  box-shadow:0 16px 36px -16px rgba(0,0,0,.75);
+  transform:rotate(-2.8deg);
+  transition:transform .42s cubic-bezier(.2,.8,.2,1), box-shadow .42s ease;
+  cursor:pointer
+}
+.pin:nth-child(2){transform:rotate(2.4deg)}
+.pin:hover,.pin:focus-visible{transform:rotate(0deg);box-shadow:0 24px 50px -16px rgba(0,0,0,.85)}
+.pin__ph{
+  aspect-ratio:4/3;border-radius:6px;display:grid;place-items:center;text-align:center;
+  background:linear-gradient(145deg,#12414D,#0A2430 60%,#06161E);
+  color:rgba(255,255,255,.72);font-family:var(--disp);font-size:.57rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;padding:.5rem;line-height:1.5
+}
+.pin:nth-child(2) .pin__ph{background:linear-gradient(145deg,#4E3C1B,#241A07 60%,#150F04)}
+.pin__cap{
+  padding:.55rem .25rem .7rem;color:#3A4A52;font-size:.74rem;font-weight:600;text-align:center
+}
+
+/* ============================================================
+   04 · Llegar y asentarse
+   ============================================================ */
+.arrive{width:min(300px,100%);display:grid;gap:1rem;justify-items:center}
+.veh{
+  width:100%;border-radius:var(--r);padding:1.15rem 1.2rem;
+  background:linear-gradient(155deg,#132A36,#091820);
+  border:1px solid var(--ln);
+  box-shadow:0 18px 40px -20px rgba(0,0,0,.8)
+}
+.io .veh.in{animation:settle .72s cubic-bezier(.16,1.02,.3,1) both}
+@keyframes settle{
+  0%{transform:translateX(34px);opacity:0}
+  70%{transform:translateX(-4px);opacity:1}
+  100%{transform:translateX(0);opacity:1}
+}
+.veh__k{font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.veh h3{margin:.35rem 0 .3rem}
+.veh p{font-size:.85rem;color:var(--dim);line-height:1.5}
+.veh__foot{
+  display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+  margin-top:.95rem;padding-top:.75rem;border-top:1px solid var(--ln-soft)
+}
+.veh__seats{font-family:var(--disp);font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--tx)}
+
+/* ============================================================
+   05 · El destello sobre el cromado
+   ============================================================ */
+.shine{width:min(320px,100%);display:grid;gap:1rem;justify-items:center}
+.sh{position:relative;isolation:isolate;width:100%}
+.sh__plate{
+  position:absolute;inset:0;z-index:-1;border-radius:var(--r);
+  transform:rotate(2.4deg) scale(1.012);
+  background:linear-gradient(140deg,var(--gold),#8C6E14 55%,var(--gold-2));
+  opacity:.38;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease
+}
+.sh:hover .sh__plate,.sh:focus-within .sh__plate{transform:rotate(4.4deg) scale(1.035);opacity:.8}
+.sh__fig{
+  margin:0;position:relative;border-radius:var(--r);
+  overflow:hidden;overflow:clip;
+  transform:rotate(-2deg);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 18px 40px -20px rgba(0,0,0,.85);
+  outline:none;cursor:pointer
+}
+.sh__fig:hover,.sh__fig:focus-visible{transform:rotate(0deg) translateY(-5px)}
+.sh__img{
+  aspect-ratio:3/2;display:grid;place-items:center;text-align:center;padding:1rem;
+  background:linear-gradient(150deg,#14303D,#07161E 62%,#0C212C);
+  color:var(--dim);font-family:var(--disp);font-size:.6rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;line-height:1.7
+}
+.sh__fig::after,.sh__fig::before{
+  content:"";position:absolute;inset:-12% -35%;pointer-events:none;z-index:2;
+  background:linear-gradient(104deg,transparent 40%,rgba(235,212,137,.10) 45%,
+    rgba(255,244,205,.62) 50%,rgba(235,212,137,.10) 55%,transparent 60%);
+  transform:translateX(-115%);opacity:0
+}
+.io .sh__fig.in::after{animation:shine .95s cubic-bezier(.35,.7,.3,1) .2s both}
+.sh__fig:hover::before,.sh__fig:focus-visible::before{animation:shine .85s cubic-bezier(.35,.7,.3,1) both}
+@keyframes shine{
+  0%{transform:translateX(-115%);opacity:0}
+  12%{opacity:1}
+  86%{opacity:1}
+  100%{transform:translateX(115%);opacity:0}
+}
+.sh__tag{
+  position:absolute;left:.7rem;bottom:.7rem;z-index:3;
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.36rem .75rem .36rem .6rem;border-radius:999px;color:#fff;
+  background:rgba(6,15,22,.62);border:1px solid rgba(212,175,55,.35);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)
+}
+.sh__tag i{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
+.sh__tag b{font-family:var(--disp);font-weight:800;font-size:.82rem}
+.sh__tag span{font-family:var(--disp);font-size:.58rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+
+/* ============================================================
+   06 · La cifra que se cuenta sola
+   ============================================================ */
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;width:100%;max-width:400px;text-align:center}
+.fig__n{
+  font-family:var(--disp);font-size:clamp(1.6rem,1.2rem + 1.6vw,2.2rem);font-weight:800;
+  color:var(--gold);line-height:1;font-variant-numeric:tabular-nums
+}
+.sec--sand .fig__n{color:#A8862A}
+.fig__l{
+  font-family:var(--disp);font-size:.57rem;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--dim);margin-top:.5rem;line-height:1.4
+}
+.sec--sand .fig__l{color:#6E7B83}
+
+/* ============================================================
+   07 · La pregunta que se abre
+   ============================================================ */
+.faq{width:100%;max-width:420px;display:flex;flex-direction:column;gap:.55rem}
+.q{
+  border:1px solid rgba(18,33,43,.14);border-radius:10px;background:#fff;
+  overflow:hidden
+}
+.q summary{
+  list-style:none;cursor:pointer;padding:.85rem 2.4rem .85rem 1rem;position:relative;
+  font-family:var(--disp);font-size:.84rem;font-weight:700;color:var(--sand-ink);
+  line-height:1.35
+}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{
+  content:"";position:absolute;right:1rem;top:50%;width:9px;height:9px;
+  border-right:2px solid #A8862A;border-bottom:2px solid #A8862A;
+  transform:translateY(-70%) rotate(45deg);
+  transition:transform .3s cubic-bezier(.22,.9,.24,1)
+}
+.q[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.q summary:focus-visible{outline:2px solid #A8862A;outline-offset:-2px}
+.q__a{padding:0 1rem 1rem;font-size:.86rem;color:var(--sand-dim);line-height:1.6}
+.q__a::before{
+  content:"";display:block;height:2px;width:0;background:#D4AF37;border-radius:2px;
+  margin-bottom:.7rem;animation:rule .42s cubic-bezier(.22,.9,.24,1) forwards
+}
+@keyframes rule{to{width:38px}}
+
+/* ============================================================
+   08 · El boton que acusa recibo
+   ============================================================ */
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+.kbtn{
+  font-family:var(--disp);font-weight:800;font-size:.76rem;letter-spacing:.08em;
+  text-transform:uppercase;border:0;cursor:pointer;border-radius:7px;
+  padding:.85rem 1.35rem;background:var(--gold);color:#060F16;
+  transition:transform .12s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow:0 8px 22px -12px rgba(212,175,55,.9)
+}
+.kbtn:hover{background:var(--gold-2)}
+.kbtn:active{transform:translateY(2px) scale(.985);box-shadow:0 3px 10px -8px rgba(212,175,55,.9)}
+.kbtn--ghost{
+  background:none;color:var(--tx-str);border:1px solid var(--ln);box-shadow:none
+}
+.kbtn--ghost:hover{background:rgba(212,175,55,.08);color:var(--gold-2)}
+.kbtn--ghost:active{transform:translateY(2px) scale(.985)}
+
+/* ---------- reglas, presupuesto, exclusiones ---------- */
+.rules{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.rule{padding:1.4rem 1.3rem;border-radius:var(--r-lg);background:var(--panel);border:1px solid var(--ln)}
+.rule h3{margin-bottom:.5rem}
+.rule p{color:var(--tx);font-size:.93rem}
+.rule__k{font-family:var(--disp);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+
+.budget{
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  padding:1.05rem 1.25rem;border-radius:var(--r);
+  background:rgba(212,175,55,.07);border:1px solid var(--ln);margin-top:1.5rem
+}
+.budget__n{font-family:var(--disp);font-size:2rem;font-weight:800;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
+.budget p{font-size:.88rem;color:var(--tx);max-width:56ch}
+
+.out{margin-top:1.5rem;display:grid;gap:.7rem}
+.out__i{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:.75rem;align-items:start;
+  padding:.85rem 1rem;border-radius:var(--r);
+  background:var(--panel);border:1px solid var(--ln-soft);font-size:.9rem
+}
+.out__i b{font-family:var(--disp);font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);padding-top:.22rem;white-space:nowrap}
+
+/* ---------- tabla de despliegue ---------- */
+.tblwrap{overflow-x:auto;border:1px solid var(--ln);border-radius:var(--r-lg)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.88rem}
+th,td{text-align:left;padding:.78rem .95rem;border-bottom:1px solid var(--ln-soft);vertical-align:top}
+thead th{
+  font-family:var(--disp);font-size:.62rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);background:rgba(212,175,55,.06);white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:0}
+td:first-child{color:var(--tx-str);font-weight:600;white-space:nowrap}
+.st{
+  display:inline-block;font-family:var(--disp);font-size:.58rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:999px;white-space:nowrap
+}
+.st--live{background:rgba(78,216,160,.14);color:#6FE3B6;border:1px solid rgba(78,216,160,.3)}
+.st--next{background:rgba(212,175,55,.12);color:var(--gold-2);border:1px solid var(--ln)}
+.st--wait{background:rgba(185,200,208,.08);color:var(--dim);border:1px solid var(--ln-soft)}
+
+/* ---------- bloque FAQ (propuesta) ---------- */
+.two{display:grid;gap:1.4rem;grid-template-columns:minmax(0,1fr)}
+@media(min-width:800px){.two{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem}}
+.card{padding:1.4rem 1.3rem;border-radius:var(--r-lg);background:var(--panel);border:1px solid var(--ln)}
+.card h3{margin-bottom:.6rem}
+.card p + p{margin-top:.7rem}
+.card p{font-size:.93rem;color:var(--tx)}
+.list{margin:.7rem 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.list li{position:relative;padding-left:1.1rem;font-size:.9rem;color:var(--tx)}
+.list li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+/* ---------- pie ---------- */
+.foot{padding-block:clamp(2.2rem,4vw,3rem);border-top:1px solid var(--ln-soft);color:var(--dim);font-size:.86rem}
+.foot strong{color:var(--tx);font-weight:600}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:5px}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important
+  }
+}
+</style>
+
+<div class="sec hero">
+  <div class="wrap">
+    <p class="kick">King Black Tour &amp; Travel · Propuesta interna</p>
+    <h1>Movimiento<br><em>con oficio.</em></h1>
+    <p class="lede" style="margin-top:1.1rem">Ocho piezas de interacción propuestas para kingblacktour.com, cada una con su coste real, el lugar donde se gana el sitio y lo que ocurre si el JavaScript no llega. El método es el del laboratorio de Hispaniola; el vocabulario es distinto, porque lo que esta web cuenta es distinto.</p>
+    <div class="meta">
+      <span class="pill"><span class="dot dot--live"></span>2 piezas <b>en producción</b></span>
+      <span class="pill"><span class="dot"></span>6 <b>propuestas</b></span>
+      <span class="pill"><span class="dot"></span>Paleta y tipografía <b>del sitio</b></span>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="head">
+      <p class="kick">La premisa</p>
+      <h2>Esta web vende a una persona.</h2>
+      <p class="lede" style="margin-top:1rem">Black Party Boat es noche violeta y coral: allí el movimiento puede ser eléctrico, porque el producto es una fiesta. King Black promete otra cosa. Promete que hay un hombre que contesta su propio WhatsApp, que te dice si un tour no es para tu grupo, que sale en la foto con su perro en la playa de Punta Cana.</p>
+      <p class="lede" style="margin-top:.9rem">Si el movimiento imita lo que se cuenta, aquí tiene que imitar <span class="gold">atención</span>: cosas que se acercan cuando te acercas, que tienen peso, que llegan y se asientan, que están colocadas a mano. Ese es el criterio con el que elegí las ocho piezas, y el que usaría para descartar la novena.</p>
+    </div>
+    <div class="rules">
+      <div class="rule">
+        <p class="rule__k">Regla 1</p>
+        <h3>El movimiento imita lo que cuenta</h3>
+        <p>Una foto pinchada en la pared está torcida. Una camioneta llega y se asienta sobre su suspensión. La luz cruza el cromado una vez. Eso cuenta el producto. Una tarjeta girando en 3D porque sí cuenta que sabemos CSS, y al visitante eso no le interesa.</p>
+      </div>
+      <div class="rule">
+        <p class="rule__k">Regla 2</p>
+        <h3>Entrar y quedarse quieto</h3>
+        <p>El movimiento que se dispara al aparecer en pantalla cuesta una vez. El permanente no para nunca: sigue componiendo mientras la pestaña esté abierta, y en un móvil eso es batería. Por defecto, todo entra y se queda quieto. La excepción se justifica por escrito.</p>
+      </div>
+      <div class="rule">
+        <p class="rule__k">Regla 3</p>
+        <h3>Presupuesto: cero permanentes</h3>
+        <p>En Black Party Boat el techo era uno por pantalla. Aquí propongo <b class="gold">cero</b>, porque el móvil de King Black está en 65 y cada animación infinita compite con el hilo principal. Las ocho piezas de este documento respetan ese techo.</p>
+      </div>
+    </div>
+    <div class="budget">
+      <span class="budget__n" id="count">—</span>
+      <p><strong style="color:var(--tx-str)">animaciones permanentes en esta página.</strong> Lo cuenta el navegador ahora mismo, no yo. Si al añadir una pieza el número sube, la pieza no entra.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec sec--sand">
+  <div class="wrap">
+    <div class="head">
+      <p class="kick">Las ocho piezas</p>
+      <h2>Vivas, no descritas.</h2>
+      <p class="lede" style="margin-top:1rem">Pasa el cursor sobre cada escenario; en móvil, toca. Lo que ves aquí es el código que se instalaría, con la paleta real del sitio.</p>
+    </div>
+
+    <!-- 01 -->
+    <div class="lab">
+      <div class="stage">
+        <div class="strip">
+          <div class="sc lead" tabindex="0"><span>Party Boat<i>US$69</i></span></div>
+          <div class="sc" tabindex="0"><span>Saona<i>US$65</i></span></div>
+          <div class="sc" tabindex="0"><span>ATV<i>US$55</i></span></div>
+          <div class="sc" tabindex="0"><span>Scuba Doo<i>US$80</i></span></div>
+          <div class="sc" tabindex="0"><span>Zipline<i>US$70</i></span></div>
+        </div>
+        <p class="hint">Pasa el cursor por la fila</p>
+      </div>
+      <div class="body">
+        <p class="n">01 · En producción</p>
+        <h3>La fila que atiende</h3>
+        <p>La tarjeta bajo el cursor se abre y las demás se estrechan. No es una pirueta: es que la fila reacciona hacia dónde estás mirando, que es lo que hace una persona atendiéndote. Está en el home desde hoy y es el primer punto de decisión de toda la web.</p>
+        <div class="spec">
+          <div class="row"><span class="k">Coste</span><span class="v"><b>0 KB</b> · CSS puro, sin JavaScript</span></div>
+          <div class="row"><span class="k">Dónde</span><span class="v">Home (hecho) y el índice <code>/experiences/</code></span></div>
+          <div class="row"><span class="k">Móvil</span><span class="v">No se activa: va tras <code>@media(hover:hover)</code></span></div>
+          <div class="row"><span class="k">Sin JS</span><span class="v">Idéntico</span></div>
+        </div>
+        <div class="note"><b>La decisión de calibrado</b>Al 100 % de ancho literal las otras cuatro quedan en 20 px: un borde de color, ilegible. A 2,5 contra 0,88 la abierta ocupa cerca de la mitad de la fila y las demás siguen leyéndose.</div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="lab lab--flip">
+      <div class="stage">
+        <div class="trav">
+          <button class="tv" type="button">Party Boat</button>
+          <button class="tv" type="button">Saona</button>
+          <button class="tv" type="button">Transfers</button>
+          <button class="tv" type="button">Contacto</button>
+        </div>
+        <p class="hint">El oro llega antes que el clic</p>
+      </div>
+      <div class="body">
+        <p class="n">02</p>
+        <h3>El oro que viaja</h3>
+        <p>El sitio ya tenía un borde dorado fijo en la primera tarjeta, sin explicar por qué era esa. Convertirlo en un marcador que sigue al puntero le da un trabajo: señalar lo que el usuario está mirando. Un solo token de marca, el mismo gesto en el menú, en las tarjetas y en las preguntas frecuentes.</p>
+        <div class="spec">
+          <div class="row"><span class="k">Coste</span><span class="v"><b>0 KB</b> · una transformación de escala</span></div>
+          <div class="row"><span class="k">Dónde</span><span class="v">Menú principal, tarjetas, acordeón de FAQ</span></div>
+          <div class="row"><span class="k">Teclado</span><span class="v">Responde a <code>:focus-visible</code>, no solo al ratón</span></div>
+        </div>
+        <div class="note"><b>Por qué escala y no se desliza</b>Deslizar una barra entre elementos exige medir posiciones con JavaScript y se rompe al cambiar el idioma o el ancho. La escala desde el centro da la misma sensación con una propiedad compuesta y cero medición.</div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="lab">
+      <div class="stage">
+        <div class="pins">
+          <div class="pin" tabindex="0">
+            <div class="pin__ph">Foto · Yobi<br>con el grupo</div>
+            <div class="pin__cap">Saona · marzo</div>
+          </div>
+          <div class="pin" tabindex="0">
+            <div class="pin__ph">Foto · cubierta<br>del party boat</div>
+            <div class="pin__cap">A bordo</div>
+          </div>
+        </div>
+        <p class="hint">Se colocan al acercarte</p>
+      </div>
+      <div class="body">
+        <p class="n">03</p>
+        <h3>Reposa torcida, se endereza</h3>
+        <p>La pieza más barata de las ocho y la que mejor dice la verdad sobre este sitio: las fotos las tomó Yobi, no un banco de imágenes. Que se vean pinchadas a mano y se coloquen cuando te acercas convierte una limitación en una firma.</p>
+        <div class="spec">
+          <div class="row"><span class="k">Coste</span><span class="v"><b>0 KB</b> · CSS puro</span></div>
+          <div class="row"><span class="k">Dónde</span><span class="v">Galerías de las fichas de tour</span></div>
+          <div class="row"><span class="k">Móvil</span><span class="v">Reposa torcida igual; enderezarse es propina de escritorio</span></div>
+        </div>
+        <div class="note"><b>Lo que hay que respetar</b>Solo sobre fotos propias. Una imagen de catálogo pinchada a mano miente, y ese es justo el límite que esta web ha sostenido todo el proyecto.</div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="lab lab--flip">
+      <div class="stage">
+        <div class="arrive">
+          <article class="veh">
+            <span class="veh__k">Flota privada</span>
+            <h3>Cadillac Escalade</h3>
+            <p>Traslado privado desde el aeropuerto de Punta Cana, con Yobi o con su chófer de confianza.</p>
+            <div class="veh__foot">
+              <span class="veh__seats">Hasta 6 pasajeros</span>
+              <span class="dot" aria-hidden="true"></span>
+            </div>
+          </article>
+          <button class="replay" type="button" id="r-veh">Verlo otra vez</button>
+        </div>
+      </div>
+      <div class="body">
+        <p class="n">04</p>
+        <h3>Llegar y asentarse</h3>
+        <p>Para los vehículos, flotar sería mentira: una camioneta no flota, llega. La tarjeta entra desde la derecha, se pasa cuatro píxeles de frenada y se asienta. Entra una vez al aparecer en pantalla y después está quieta para siempre.</p>
+        <div class="spec">
+          <div class="row"><span class="k">Coste</span><span class="v">Una animación de <b>0,72 s</b>, y después nada</span></div>
+          <div class="row"><span class="k">Dónde</span><span class="v"><code>/transfers/</code>, sobre la Escalade y la Hiace</span></div>
+          <div class="row"><span class="k">JS</span><span class="v"><b>~0,3 KB</b>: un observador que pone una clase</span></div>
+          <div class="row"><span class="k">Sin JS</span><span class="v">Las tarjetas se ven colocadas y visibles</span></div>
+        </div>
+        <div class="note"><b>Cuidado con el desplazamiento lateral</b>Entrar desde la derecha puede crear barra horizontal en móvil. Va dentro de un contenedor con <code>overflow:clip</code>, y en móvil se reduce a una entrada vertical de 12 px.</div>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="lab">
+      <div class="stage">
+        <div class="shine">
+          <div class="sh">
+            <span class="sh__plate" aria-hidden="true"></span>
+            <figure class="sh__fig" tabindex="0">
+              <div class="sh__img">Foto · party boat<br>desde el agua</div>
+              <figcaption class="sh__tag"><i aria-hidden="true"></i><b>Hip-Hop Party Boat</b><span>3 horas</span></figcaption>
+            </figure>
+          </div>
+          <button class="replay" type="button" id="r-sh">Verlo otra vez</button>
+        </div>
+      </div>
+      <div class="body">
+        <p class="n">05</p>
+        <h3>El destello sobre el oro</h3>
+        <p>La pieza que ya existe en Black Party Boat, con la luz teñida de oro en vez de blanca para que pertenezca a esta marca. Una plancha de color girada al revés que la foto, un barrido diagonal que cruza una vez al entrar y vuelve con el cursor, y un rótulo anclado que responde la pregunta de quien mira: qué es esto y cuánto dura.</p>
+        <div class="spec">
+          <div class="row"><span class="k">Coste</span><span class="v"><b>0 KB</b> de CSS; el JS solo avisa de la entrada</span></div>
+          <div class="row"><span class="k">Dónde</span><span class="v">La foto que abre una sección. <b>Una por página</b></span></div>
+          <div class="row"><span class="k">Sin JS</span><span class="v">Foto, plancha y rótulo iguales; se pierde el destello de entrada</span></div>
+        </div>
+        <div class="note"><b>El fallo heredado que no repito</b>La primera versión de vuestro laboratorio metía la entrada y el cursor en el mismo pseudo-elemento, y al retirar el ratón el destello se repetía. Aquí van separados desde el principio: <code>::after</code> para la entrada, <code>::before</code> para el cursor.</div>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="lab lab--flip">
+      <div class="stage">
+        <div class="figs">
+          <div><div class="fig__n" data-to="12" data-suffix="+">12+</div><div class="fig__l">Años en<br>Punta Cana</div></div>
+          <div><div class="fig__n" data-to="24" data-suffix="/7">24/7</div><div class="fig__l">Yobi<br>contesta</div></div>
+          <div><div class="fig__n" data-to="6" data-suffix="">6</div><div class="fig__l">Experiencias<br>propias</div></div>
+        </div>
+        <button class="replay" type="button" id="r-fig" style="margin-top:1.1rem">Verlo otra vez</button>
+      </div>
+      <div class="body">
+        <p class="n">06</p>
+        <h3>La cifra que se cuenta sola</h3>
+        <p>La franja de datos del home hoy es texto quieto. Contar hasta la cifra al aparecer en pantalla hace que el ojo se detenga en el número, que es exactamente lo que queremos que recuerde. Una vez, sin repetición.</p>
+        <div class="spec">
+          <div class="row"><span class="k">Coste</span><span class="v"><b>~0,4 KB</b> de JS, con <code>requestAnimationFrame</code></span></div>
+          <div class="row"><span class="k">Dónde</span><span class="v">La franja de datos del home</span></div>
+          <div class="row"><span class="k">Sin JS</span><span class="v">El número final ya está en el HTML</span></div>
+        </div>
+        <div class="note"><b>Condición previa</b>Las cifras del ejemplo son de muestra. Ninguna se publica sin que Yobi confirme el dato, igual que con los horarios y las inclusiones.</div>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="lab">
+      <div class="stage">
+        <div class="faq">
+          <details class="q">
+            <summary>¿El precio incluye el traslado desde mi hotel?</summary>
+            <div class="q__a">Respuesta pendiente de confirmación de Yobi. Este escenario muestra el comportamiento, no el contenido.</div>
+          </details>
+          <details class="q" open>
+            <summary>¿Puedo pagar el día del tour?</summary>
+            <div class="q__a">La barra dorada se dibuja al abrir y el ángulo gira. Es el único movimiento de las ocho que hace un trabajo funcional: decir qué está abierto.</div>
+          </details>
+          <details class="q">
+            <summary>¿Qué pasa si llueve?</summary>
+            <div class="q__a">Respuesta pendiente de confirmación de Yobi.</div>
+          </details>
+        </div>
+      </div>
+      <div class="body">
+        <p class="n">07</p>
+        <h3>La pregunta que se abre</h3>
+        <p>Construido sobre <code>&lt;details&gt;</code> y <code>&lt;summary&gt;</code> nativos: sin JavaScript, navegable con teclado de fábrica, y buscable por el navegador aunque esté cerrado. Es el sitio donde el movimiento deja de ser decoración y pasa a ser función.</p>
+        <div class="spec">
+          <div class="row"><span class="k">Coste</span><span class="v"><b>0 KB</b> · elemento nativo del navegador</span></div>
+          <div class="row"><span class="k">Dónde</span><span class="v">Cada página de servicio, antes del CTA final</span></div>
+          <div class="row"><span class="k">Extra</span><span class="v">Cada bloque lleva su <code>FAQPage</code> en JSON-LD</span></div>
+        </div>
+        <div class="note"><b>Esto es la propuesta de Nelson</b>La sección de preguntas frecuentes tiene su propio apartado más abajo, con el plan completo.</div>
+      </div>
+    </div>
+
+    <!-- 08 -->
+    <div class="lab lab--flip">
+      <div class="stage">
+        <div class="btns">
+          <button class="kbtn" type="button">Escribir a Yobi</button>
+          <button class="kbtn kbtn--ghost" type="button">Ver la experiencia</button>
+        </div>
+        <p class="hint">Mantén pulsado</p>
+      </div>
+      <div class="body">
+        <p class="n">08</p>
+        <h3>El botón que acusa recibo</h3>
+        <p>El botón se hunde dos píxeles mientras el dedo o el ratón lo mantienen. Es la única pieza que funciona igual en móvil que en escritorio, y la más importante de las ocho: confirma que el gesto llegó, justo en el momento en que el usuario decide escribir.</p>
+        <div class="spec">
+          <div class="row"><span class="k">Coste</span><span class="v"><b>0 KB</b> · <code>:active</code>, 120 ms</span></div>
+          <div class="row"><span class="k">Dónde</span><span class="v">Todos los CTA: WhatsApp, Book Now, fichas</span></div>
+          <div class="row"><span class="k">Móvil</span><span class="v">Sí. Es el único caso donde el móvil sí recibe movimiento</span></div>
+        </div>
+        <div class="note"><b>Por qué 120 ms</b>Por debajo de 100 ms no se percibe; por encima de 200 ms el botón parece lento y el usuario vuelve a pulsar. Es la ventana donde el gesto se siente sólido.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="head">
+      <p class="kick">Dónde va cada pieza</p>
+      <h2>Una por página, y ninguna en el héroe.</h2>
+      <p class="lede" style="margin-top:1rem">La imagen que abre cada página es el elemento LCP, la métrica que estamos peleando en móvil. Ninguna pieza la toca.</p>
+    </div>
+    <div class="tblwrap">
+      <table>
+        <thead>
+          <tr><th>Página</th><th>Pieza</th><th>Qué aporta</th><th>Estado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Home</td><td>01 · La fila que atiende</td><td>Convierte una rejilla pasiva en un selector</td><td><span class="st st--live">En producción</span></td></tr>
+          <tr><td>Home</td><td>06 · La cifra que se cuenta</td><td>Fija el número en la memoria</td><td><span class="st st--wait">Espera datos de Yobi</span></td></tr>
+          <tr><td>/experiences/</td><td>01 + 02</td><td>El mismo gesto de elección que el home</td><td><span class="st st--next">Siguiente</span></td></tr>
+          <tr><td>Fichas de tour</td><td>03 · Reposa torcida</td><td>Declara que las fotos son suyas</td><td><span class="st st--next">Siguiente</span></td></tr>
+          <tr><td>Fichas de tour</td><td>05 · El destello</td><td>Una foto de apertura por página</td><td><span class="st st--next">Siguiente</span></td></tr>
+          <tr><td>/transfers/</td><td>04 · Llegar y asentarse</td><td>El vehículo llega, no flota</td><td><span class="st st--next">Siguiente</span></td></tr>
+          <tr><td>/packages/</td><td>02 · El oro que viaja</td><td>Señala el paquete que se está leyendo</td><td><span class="st st--next">Siguiente</span></td></tr>
+          <tr><td>/contact/</td><td>Ya resuelto</td><td>El retrato de Yobi con su barrido</td><td><span class="st st--live">En producción</span></td></tr>
+          <tr><td>Todas</td><td>07 · La pregunta que se abre</td><td>Resuelve la duda antes del CTA</td><td><span class="st st--next">Siguiente</span></td></tr>
+          <tr><td>Todas</td><td>08 · El botón que acusa recibo</td><td>Confirma el gesto en el momento de convertir</td><td><span class="st st--next">Siguiente</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="out">
+      <div class="out__i"><b>No entra</b><span>Las animaciones de entrada y los Motion Effects de Elementor Pro. Cargan el JavaScript de <code>motion-fx</code> y golpean el render-blocking de 2540 ms que tenemos abierto en móvil. Todo el movimiento se escribe a mano en CSS dentro del contenido de la página.</span></div>
+      <div class="out__i"><b>No entra</b><span>Cualquier movimiento sobre la imagen de apertura de una página. Es el LCP.</span></div>
+      <div class="out__i"><b>No entra</b><span>Movimiento permanente en móvil. Cero, sin excepción, mientras el móvil siga por debajo de 90.</span></div>
+      <div class="out__i"><b>Orden</b><span>Primero el rendimiento, después el movimiento. Una web con movimiento sobre una base lenta no se lee como elegante, se lee como que va a trompicones. Las piezas se aplican una a una, midiendo PageSpeed antes y después de cada página; si una página pierde puntos, la pieza se cae.</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec sec--sand">
+  <div class="wrap">
+    <div class="head">
+      <p class="kick">La propuesta de Nelson</p>
+      <h2>Preguntas frecuentes, por página.</h2>
+      <p class="lede" style="margin-top:1rem">De acuerdo, y con más razón de la que parece: <code style="background:rgba(212,175,55,.16);color:#8C6E14;padding:.08em .35em;border-radius:4px">/faq/</code> ya está enlazada desde el pie de todas las páginas y hoy es una página vacía. El enlace existe, el contenido no.</p>
+    </div>
+
+    <div class="two">
+      <div class="card" style="background:#fff;border-color:rgba(18,33,43,.12)">
+        <h3>Por qué ahora importa más que antes</h3>
+        <p style="color:var(--sand-dim)">Google retiró el resultado enriquecido de FAQ para la mayoría de sitios, así que las estrellitas en el buscador ya no son el premio. El premio es otro y es mayor: una pregunta con su respuesta, marcada como <code style="background:rgba(212,175,55,.16);color:#8C6E14;padding:.08em .35em;border-radius:4px">FAQPage</code>, es el formato exacto que los asistentes de IA citan cuando alguien pregunta «¿cuánto cuesta el party boat en Punta Cana?».</p>
+        <p style="color:var(--sand-dim)">Es la pieza que le falta al trabajo de GEO que ya hicimos. Tenemos Organization, LocalBusiness y las ofertas en JSON-LD. Falta justo el nodo que habla en preguntas.</p>
+      </div>
+      <div class="card" style="background:#fff;border-color:rgba(18,33,43,.12)">
+        <h3>Dónde, y un matiz</h3>
+        <p style="color:var(--sand-dim)">De acuerdo con el final de cada página de servicio, con una corrección: <strong style="color:var(--sand-ink)">antes del CTA final, no después</strong>. Lo último que ve el usuario debe ser la acción, no una pregunta. El orden queda contenido → preguntas → «Escribir a Yobi».</p>
+        <p style="color:var(--sand-dim)">Y sin repetir el mismo bloque en seis páginas: eso diluye y duplica. Entre cuatro y seis preguntas por página, y solo las que tienen sentido en esa página.</p>
+      </div>
+    </div>
+
+    <div class="two" style="margin-top:1.4rem">
+      <div class="card" style="background:#fff;border-color:rgba(18,33,43,.12)">
+        <h3>El reparto que propongo</h3>
+        <ul class="list">
+          <li style="color:var(--sand-dim)"><strong style="color:var(--sand-ink)">Fichas de tour</strong> — duración, punto de recogida, qué llevar, edades, qué pasa si llueve.</li>
+          <li style="color:var(--sand-dim)"><strong style="color:var(--sand-ink)">/transfers/</strong> — dónde espera el chófer, vuelos retrasados, sillas de niño, equipaje, pago.</li>
+          <li style="color:var(--sand-dim)"><strong style="color:var(--sand-ink)">/packages/</strong> — qué se puede cambiar, mínimo de personas, cómo se confirma.</li>
+          <li style="color:var(--sand-dim)"><strong style="color:var(--sand-ink)">/faq/</strong> — el centro: quién es King Black, que es empresa registrada con su RNC, idiomas, formas de pago, cancelación.</li>
+        </ul>
+      </div>
+      <div class="card" style="background:#fff;border-color:rgba(18,33,43,.12)">
+        <h3>La condición, que es la de siempre</h3>
+        <p style="color:var(--sand-dim)">Una respuesta de FAQ suena autoritativa y un asistente de IA la cita palabra por palabra. Es el peor lugar posible para escribir algo que Yobi no haya confirmado.</p>
+        <p style="color:var(--sand-dim)">Así que el trabajo va en dos montones: las preguntas las escribo yo, y las respuestas se dividen entre las que salen de lo ya publicado y confirmado, y las que necesitan una frase de Yobi. El segundo montón sale como lista aparte para él, no como huecos en la web.</p>
+        <p style="color:var(--sand-dim)">Y todas en afirmativo. «Yobi te confirma el precio antes de reservar», nunca «no hay cargos ocultos»: nombrar el problema lo planta en quien no lo tenía.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec foot">
+  <div class="wrap">
+    <p><strong>Movimiento King Black · kingblacktour.com</strong><br>
+    Propuesta interna de Postsicionate · 28 de septiembre de 2026.<br>
+    Método adaptado del Laboratorio de movimiento de Hispaniola Party Boat. En producción las tipografías se alojan en el dominio propio, no se cargan desde un servidor externo como aquí.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- 04, 05 y 06 entran una vez al aparecer en pantalla ----
+     El unico trabajo del JS es poner una clase. Si esto no corre,
+     las tres piezas se ven colocadas, visibles y con su cifra final. */
+  var once = document.querySelectorAll(".veh,.sh__fig");
+  if (!reduce && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("io");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.4 });
+    once.forEach(function (el) { io.observe(el); });
+
+    var replay = function (btnId, sel) {
+      var btn = document.getElementById(btnId), el = document.querySelector(sel);
+      if (!btn || !el) { return; }
+      btn.addEventListener("click", function () {
+        el.classList.remove("in");
+        void el.offsetWidth;
+        el.classList.add("in");
+      });
+    };
+    replay("r-veh", ".veh");
+    replay("r-sh", ".sh__fig");
+  }
+
+  /* ---- 06 · el contador ---- */
+  var figs = [].slice.call(document.querySelectorAll(".fig__n"));
+  function runFigs() {
+    figs.forEach(function (el) {
+      var to = parseInt(el.getAttribute("data-to"), 10) || 0;
+      var sfx = el.getAttribute("data-suffix") || "";
+      if (reduce) { el.textContent = to + sfx; return; }
+      var t0 = null, dur = 900;
+      function step(ts) {
+        if (t0 === null) { t0 = ts; }
+        var p = Math.min((ts - t0) / dur, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(to * e) + sfx;
+        if (p < 1) { requestAnimationFrame(step); }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if (figs.length) {
+    if ("IntersectionObserver" in window) {
+      var fio = new IntersectionObserver(function (es) {
+        es.forEach(function (en) {
+          if (en.isIntersecting) { runFigs(); fio.disconnect(); }
+        });
+      }, { threshold: 0.5 });
+      fio.observe(figs[0]);
+    } else { runFigs(); }
+    var rf = document.getElementById("r-fig");
+    if (rf) { rf.addEventListener("click", runFigs); }
+  }
+
+  /* ---- contador honesto de animaciones permanentes ---- */
+  var out = document.getElementById("count");
+  if (out) {
+    setTimeout(function () {
+      if (!document.getAnimations) { out.textContent = "n/d"; return; }
+      var n = 0;
+      document.getAnimations().forEach(function (a) {
+        try { if (a.effect && a.effect.getTiming().iterations === Infinity) { n++; } } catch (e) {}
+      });
+      out.textContent = String(n);
+    }, 800);
+  }
+})();
+</script>
+
+</body>
+</html>

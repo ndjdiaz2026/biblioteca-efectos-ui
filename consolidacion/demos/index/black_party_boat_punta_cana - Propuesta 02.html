@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Party Boat Punta Cana | Premium Caribbean Celebrations</title>
+    <meta name="description" content="Elevate your celebration in Punta Cana. Exclusive, premium party boat experiences for birthdays, bachelor parties, and unforgettable group memories.">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#061325',
+                            navylight: '#0d2240',
+                            turquoise: '#12c2e9',
+                            coral: '#ff6b6b',
+                            gold: '#d4af37',
+                            paper: '#fdfbf7'
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(6, 19, 37, 0.4), rgba(6, 19, 37, 0.9)), url('https://images.unsplash.com/photo-1544274984-2a78e727e436?q=80&w=2560&auto=format&fit=crop')",
+                        'kitchen-pattern': "url('https://images.unsplash.com/photo-1577906096429-f73c2c312435?q=80&w=1000&auto=format&fit=crop')",
+                        'sunset-pattern': "linear-gradient(to right, rgba(6, 19, 37, 0.95), rgba(6, 19, 37, 0.7)), url('https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?q=80&w=2000&auto=format&fit=crop')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Premium Animations & Utilities */
+        body {
+            background-color: #fdfbf7;
+            color: #061325;
+            overflow-x: hidden;
+        }
+
+        /* Smooth reveal transitions */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-delay-1 { transition-delay: 100ms; }
+        .reveal-delay-2 { transition-delay: 200ms; }
+        .reveal-delay-3 { transition-delay: 300ms; }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 6s ease-in-out 3s infinite;
+        }
+
+        /* Ambient Ocean Glow */
+        .ocean-glow {
+            box-shadow: 0 0 60px rgba(18, 194, 233, 0.15);
+        }
+
+        /* 3D Premium Card Hover */
+        .card-3d-wrapper {
+            perspective: 1000px;
+        }
+        .card-3d {
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
+            transform-style: preserve-3d;
+        }
+        .card-3d-wrapper:hover .card-3d {
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 25px 50px -12px rgba(6, 19, 37, 0.2);
+        }
+        .card-image-zoom {
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .card-3d-wrapper:hover .card-image-zoom {
+            transform: scale(1.05);
+        }
+
+        /* Coral Button Glow */
+        .btn-coral {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-coral::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-coral:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .btn-coral:hover {
+            box-shadow: 0 10px 25px -5px rgba(255, 107, 107, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .glass-dark {
+            background: rgba(6, 19, 37, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Parallax Backgrounds */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdfbf7; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0d2240; 
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #12c2e9; 
+        }
+    </style>
+</head>
+<body class="antialiased font-sans text-brand-navy selection:bg-brand-turquoise selection:text-white">
+
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-500 ease-in-out py-6 px-6 lg:px-12 bg-transparent">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="#" class="group flex flex-col">
+                    <span class="text-white font-bold text-2xl tracking-wider transition-colors group-hover:text-brand-turquoise">
+                        BLACK
+                    </span>
+                    <span class="text-brand-gold text-[0.65rem] uppercase tracking-[0.3em] font-medium mt-[-2px]">
+                        Party Boat Punta Cana
+                    </span>
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#experiences" class="text-sm font-medium text-white hover:text-brand-turquoise transition-colors tracking-wide">Experiences</a>
+                <a href="#floating-kitchen" class="text-sm font-medium text-white hover:text-brand-turquoise transition-colors tracking-wide">Culinary</a>
+                <a href="#journey" class="text-sm font-medium text-white hover:text-brand-turquoise transition-colors tracking-wide">The Journey</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="#book" class="btn-coral bg-brand-coral text-white px-7 py-3 rounded-full text-sm font-semibold tracking-wide shadow-lg">
+                    Plan Your Celebration
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white hover:text-brand-turquoise transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-brand-navy parallax-bg bg-hero-pattern">
+        <!-- Floating atmospheric elements -->
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-turquoise rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-coral rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-float-delayed"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20">
+            <span class="block text-brand-gold uppercase tracking-[0.4em] text-xs md:text-sm font-semibold mb-6 reveal-element">
+                By Hispaniola Aquatic Adventures
+            </span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-6 reveal-element reveal-delay-1 drop-shadow-xl">
+                Celebrate Life on the <span class="italic text-brand-turquoise font-light">Caribbean</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 font-light mb-12 max-w-2xl mx-auto reveal-element reveal-delay-2 leading-relaxed">
+                Exclusive party boat experiences in Punta Cana. Not just a boat tour, but a premium milestone for memories that outlast the tan.
+            </p>
+            <div class="reveal-element reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#experiences" class="btn-coral bg-brand-coral text-white px-10 py-4 rounded-full text-base font-semibold tracking-wider w-full sm:w-auto">
+                    Discover Experiences
+                </a>
+                <div class="flex items-center gap-2 mt-4 sm:mt-0 ml-0 sm:ml-4 text-white opacity-80 hover:opacity-100 transition cursor-pointer">
+                    <div class="w-10 h-10 rounded-full border border-white flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-1">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span class="text-sm font-medium tracking-wide">Watch the Vibe</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce opacity-70">
+            <span class="text-white text-xs tracking-[0.2em] uppercase mb-2">Scroll</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+        </div>
+    </section>
+
+    <section class="py-24 md:py-32 px-6 bg-brand-paper relative">
+        <div class="max-w-4xl mx-auto text-center reveal-element">
+            <svg class="w-10 h-10 mx-auto text-brand-gold mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+            </svg>
+            <h2 class="text-3xl md:text-5xl font-bold text-brand-navy mb-8 leading-tight">
+                You're not buying a boat ride.<br>
+                <span class="text-brand-turquoise">You're framing a memory.</span>
+            </h2>
+            <p class="text-lg text-gray-600 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
+                Whether you are toasting to a new decade of life, celebrating the bride-to-be, or simply gathering your favorite people under the Dominican sun, the Black Party Boat is your private, floating venue. Premium hospitality, warm Caribbean energy, and absolute exclusivity.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-medium text-brand-navylight">
+                <span class="px-5 py-2 rounded-full border border-gray-200 bg-white shadow-sm">Birthdays</span>
+                <span class="px-5 py-2 rounded-full border border-gray-200 bg-white shadow-sm">Bachelorettes</span>
+                <span class="px-5 py-2 rounded-full border border-gray-200 bg-white shadow-sm">Family Reunions</span>
+                <span class="px-5 py-2 rounded-full border border-gray-200 bg-white shadow-sm">Corporate Retreats</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiences" class="py-24 px-6 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal-element">
+                <span class="text-brand-turquoise font-semibold tracking-[0.2em] uppercase text-sm">Curated Voyages</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4">Choose Your Celebration</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Card 1 -->
+                <div class="card-3d-wrapper reveal-element">
+                    <div class="card-3d h-full bg-brand-paper rounded-2xl overflow-hidden border border-gray-100 flex flex-col">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-gray-900/20 z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1540324155974-7523202daa3f?q=80&w=800&auto=format&fit=crop" alt="Private Party Boat" class="w-full h-full object-cover card-image-zoom">
+                            <div class="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-xs font-bold tracking-wide text-brand-navy">MOST POPULAR</div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold mb-3 text-brand-navy">Private Party Boat</h3>
+                            <p class="text-gray-600 text-sm font-light leading-relaxed mb-8 flex-grow">
+                                Your rules, your rhythm. A completely private voyage for your inner circle. Dance on the deck, swim in natural pools, and enjoy premium open bar service tailored just for you.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-brand-coral font-semibold group">
+                                Explore Details 
+                                <span class="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-3d-wrapper reveal-element reveal-delay-1">
+                    <div class="card-3d h-full bg-brand-paper rounded-2xl overflow-hidden border border-gray-100 flex flex-col">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?q=80&w=800&auto=format&fit=crop" alt="Sunset Celebration" class="w-full h-full object-cover card-image-zoom">
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold mb-3 text-brand-navy">Sunset Celebration</h3>
+                            <p class="text-gray-600 text-sm font-light leading-relaxed mb-8 flex-grow">
+                                Chase the golden hour. Toast to the horizon as the sky catches fire. Perfect for romantic group milestones or elegant evening preludes before hitting the Punta Cana nightlife.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-brand-coral font-semibold group">
+                                Explore Details 
+                                <span class="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-3d-wrapper reveal-element reveal-delay-2">
+                    <div class="card-3d h-full bg-brand-paper rounded-2xl overflow-hidden border border-gray-100 flex flex-col">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-brand-gold/10 z-10 mix-blend-color"></div>
+                            <img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?q=80&w=800&auto=format&fit=crop" alt="VIP Group Experience" class="w-full h-full object-cover card-image-zoom">
+                            <div class="absolute top-4 right-4 z-20 bg-brand-navy text-brand-gold px-4 py-1 rounded-full text-xs font-bold tracking-wide shadow-lg">ULTRA PREMIUM</div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold mb-3 text-brand-navy">VIP Group Experience</h3>
+                            <p class="text-gray-600 text-sm font-light leading-relaxed mb-8 flex-grow">
+                                Curated perfection. For those who demand the highest tier of Caribbean hospitality. Upgraded liquor packages, enhanced menus, and dedicated onboard concierges.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-brand-coral font-semibold group">
+                                Explore Details 
+                                <span class="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="floating-kitchen" class="py-24 relative overflow-hidden bg-brand-navy">
+        <!-- Abstract shape -->
+        <div class="absolute -right-64 -top-64 w-[800px] h-[800px] bg-brand-turquoise rounded-full mix-blend-screen opacity-10 filter blur-[80px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="relative reveal-element">
+                <div class="aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10">
+                    <img src="https://images.unsplash.com/photo-1577906096429-f73c2c312435?q=80&w=1000&auto=format&fit=crop" alt="Chef preparing fresh food onboard" class="w-full h-full object-cover">
+                </div>
+                <!-- Floating decorative element -->
+                <div class="hidden md:block absolute -bottom-10 -right-10 w-64 h-64 bg-brand-paper rounded-2xl p-6 shadow-xl z-20 animate-float-delayed flex flex-col justify-center">
+                    <div class="flex text-brand-gold mb-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-sm font-bold text-brand-navy italic">"The food was a highlight, not an afterthought."</p>
+                    <p class="text-xs text-gray-500 mt-2">— Sarah M., Bachelorette Trip</p>
+                </div>
+            </div>
+
+            <div class="text-white reveal-element reveal-delay-1">
+                <span class="text-brand-gold font-semibold tracking-[0.2em] uppercase text-sm">Signature Advantage</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">The Floating Kitchen Experience</h2>
+                <p class="text-gray-300 font-light text-lg mb-8 leading-relaxed">
+                    Forget pre-packaged snacks and cold sandwiches. Our onboard culinary team crafts fresh, vibrant dishes as you sail. Taste the authenticity of the Caribbean, prepared live while you dance.
+                </p>
+                
+                <ul class="space-y-6 mb-10">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-turquoise/20 flex items-center justify-center mt-1 mr-4">
+                            <div class="w-2 h-2 rounded-full bg-brand-turquoise"></div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold">Fresh Catch & Local Flavors</h4>
+                            <p class="text-sm text-gray-400 mt-1">Ingredients sourced daily for maximum freshness and flavor.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-turquoise/20 flex items-center justify-center mt-1 mr-4">
+                            <div class="w-2 h-2 rounded-full bg-brand-turquoise"></div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold">Live Preparation</h4>
+                            <p class="text-sm text-gray-400 mt-1">Watch our chefs grill and plate your meal right on the deck.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-turquoise/20 flex items-center justify-center mt-1 mr-4">
+                            <div class="w-2 h-2 rounded-full bg-brand-turquoise"></div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold">Premium Open Bar</h4>
+                            <p class="text-sm text-gray-400 mt-1">Handcrafted tropical cocktails mixed by your dedicated bartender.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey" class="py-24 bg-brand-paper relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal-element">
+                <h2 class="text-4xl md:text-5xl font-bold text-brand-navy">Your Day On The Water</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">From the moment you step on board to the final golden hour toast, every detail is orchestrated for joy.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gray-200"></div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-16 md:space-y-24">
+                    
+                    <!-- Item 1 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full reveal-element">
+                        <div class="md:w-5/12 mb-8 md:mb-0">
+                            <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+                                <img src="https://images.unsplash.com/photo-1544222018-b7654ed9d026?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Boarding the yacht">
+                            </div>
+                        </div>
+                        <div class="z-10 flex items-center justify-center w-12 h-12 bg-white border-4 border-brand-paper rounded-full shadow-md text-brand-coral font-bold mx-auto absolute left-1/2 transform -translate-x-1/2 -mt-6 md:mt-0 md:static md:transform-none">1</div>
+                        <div class="md:w-5/12 md:pl-10 text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">The Welcome</h3>
+                            <p class="text-gray-600 font-light">Step onto the pristine deck. Handed a signature welcome cocktail, you immediately feel the Caribbean rhythm as our crew welcomes your group like family.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center justify-between w-full reveal-element">
+                        <div class="md:w-5/12 mb-8 md:mb-0">
+                            <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+                                <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Sailing the coast">
+                            </div>
+                        </div>
+                        <div class="z-10 flex items-center justify-center w-12 h-12 bg-brand-turquoise border-4 border-brand-paper rounded-full shadow-md text-white font-bold mx-auto absolute left-1/2 transform -translate-x-1/2 -mt-6 md:mt-0 md:static md:transform-none">2</div>
+                        <div class="md:w-5/12 md:pr-10 text-center md:text-right">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Coastal Cruising</h3>
+                            <p class="text-gray-600 font-light">Feel the breeze as we sail along the stunning Bavaro coastline. The music sets the mood—your playlist, your vibe. Sunbathe on the nets or dance under the canopy.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full reveal-element">
+                        <div class="md:w-5/12 mb-8 md:mb-0">
+                            <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Swimming in natural pool">
+                            </div>
+                        </div>
+                        <div class="z-10 flex items-center justify-center w-12 h-12 bg-white border-4 border-brand-paper rounded-full shadow-md text-brand-coral font-bold mx-auto absolute left-1/2 transform -translate-x-1/2 -mt-6 md:mt-0 md:static md:transform-none">3</div>
+                        <div class="md:w-5/12 md:pl-10 text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">The Natural Pool</h3>
+                            <p class="text-gray-600 font-light">We drop anchor in waist-deep, crystal-clear turquoise waters. Our crew brings the floating bar to you. Swim, toast, and capture the ultimate group photos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center justify-between w-full reveal-element">
+                        <div class="md:w-5/12 mb-8 md:mb-0">
+                            <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Celebration toast">
+                            </div>
+                        </div>
+                        <div class="z-10 flex items-center justify-center w-12 h-12 bg-brand-coral border-4 border-brand-paper rounded-full shadow-md text-white font-bold mx-auto absolute left-1/2 transform -translate-x-1/2 -mt-6 md:mt-0 md:static md:transform-none">4</div>
+                        <div class="md:w-5/12 md:pr-10 text-center md:text-right">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">The Culinary & Celebration Peak</h3>
+                            <p class="text-gray-600 font-light">Back on board, the Floating Kitchen serves up your freshly prepared meal. As the energy peaks, we turn up the music for the ultimate ocean celebration.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full flex flex-col md:flex-row h-auto md:h-[600px]">
+        
+        <!-- B2C Path -->
+        <div class="w-full md:w-1/2 relative group overflow-hidden">
+            <div class="absolute inset-0 bg-gray-900 z-10 transition-opacity duration-500 group-hover:opacity-60 opacity-40"></div>
+            <img src="https://images.unsplash.com/photo-1523580494112-071d16940a1c?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110" alt="Friends celebrating">
+            
+            <div class="relative z-20 h-full flex flex-col justify-center items-center text-center p-12 md:p-20">
+                <h3 class="text-white text-3xl md:text-4xl font-bold mb-4">Travelers & Groups</h3>
+                <p class="text-gray-200 font-light mb-8 max-w-sm">For friends and families ready to design the highlight of their Punta Cana vacation.</p>
+                <a href="#" class="border border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-brand-navy transition-all duration-300 tracking-wide font-medium">
+                    Book Private Boat
+                </a>
+            </div>
+        </div>
+
+        <!-- B2B Path -->
+        <div class="w-full md:w-1/2 relative group overflow-hidden">
+            <div class="absolute inset-0 bg-brand-navy z-10 transition-opacity duration-500 group-hover:opacity-80 opacity-90"></div>
+            <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 mix-blend-luminosity" alt="Corporate event">
+            
+            <div class="relative z-20 h-full flex flex-col justify-center items-center text-center p-12 md:p-20">
+                <span class="text-brand-gold uppercase tracking-[0.2em] text-xs font-bold mb-3">Professional Services</span>
+                <h3 class="text-white text-3xl md:text-4xl font-bold mb-4">Planners & Organizers</h3>
+                <p class="text-gray-300 font-light mb-8 max-w-sm">For wedding planners, corporate retreats, and travel agents requiring flawless execution.</p>
+                <a href="#" class="bg-brand-turquoise text-white px-8 py-3 rounded-full hover:bg-white hover:text-brand-navy transition-all duration-300 tracking-wide font-medium shadow-lg shadow-brand-turquoise/30">
+                    Partner With Us
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="py-24 relative overflow-hidden bg-brand-navy parallax-bg bg-sunset-pattern text-center px-6">
+        <div class="relative z-20 max-w-3xl mx-auto reveal-element glass-dark p-10 md:p-16 rounded-3xl">
+            <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">Ready to cast off?</h2>
+            <p class="text-xl text-gray-300 font-light mb-10">Dates book quickly. Secure your vessel and let us craft your unforgettable Caribbean memory.</p>
+            <a href="#book" class="btn-coral inline-block bg-brand-coral text-white px-12 py-5 rounded-full text-lg font-bold tracking-wider shadow-2xl">
+                Check Availability
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-brand-navy text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex flex-col mb-6">
+                    <span class="text-white font-bold text-2xl tracking-wider">BLACK</span>
+                    <span class="text-brand-gold text-xs uppercase tracking-[0.2em] font-medium">Party Boat</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Premium private boat experiences in Punta Cana, operated by the renowned Hispaniola Aquatic Adventures team.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-6">Experiences</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-brand-turquoise transition-colors">Private Party Boat</a></li>
+                    <li><a href="#" class="hover:text-brand-turquoise transition-colors">Sunset Celebration</a></li>
+                    <li><a href="#" class="hover:text-brand-turquoise transition-colors">VIP Group Package</a></li>
+                    <li><a href="#" class="hover:text-brand-turquoise transition-colors">Floating Kitchen</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-semibold mb-6">Company</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-brand-turquoise transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-brand-turquoise transition-colors">Event Planners (B2B)</a></li>
+                    <li><a href="#" class="hover:text-brand-turquoise transition-colors">FAQ</a></li>
+                    <li><a href="#" class="hover:text-brand-turquoise transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-semibold mb-6">Connect</h4>
+                <p class="text-sm text-gray-400 mb-4">Follow the celebration on social media.</p>
+                <div class="flex space-x-4">
+                    <!-- Social Icons Placeholders -->
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-turquoise transition-colors">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-coral transition-colors">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 pt-8 border-t border-gray-800">
+            <p>&copy; 2026 Black Party Boat Punta Cana. All rights reserved.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Navbar Background Transition on Scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.remove('bg-transparent', 'py-6');
+                    navbar.classList.add('bg-brand-navy/95', 'backdrop-blur-md', 'py-4', 'shadow-lg');
+                } else {
+                    navbar.classList.add('bg-transparent', 'py-6');
+                    navbar.classList.remove('bg-brand-navy/95', 'backdrop-blur-md', 'py-4', 'shadow-lg');
+                }
+            });
+
+            // Intersection Observer for Elements Reveal
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Run once
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-element');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencias en Movimiento</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #1a1f2b;
+            --text-muted: #5e6878;
+            --accent: #2c68f6;
+            --shadow-normal: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            --shadow-hover: 0 24px 48px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .header {
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 4rem;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        @media (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        
+        /* Capa Escena: Da la perspectiva 3D */
+        .card-scene {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            /* Evita que el contenedor colapse durante transformaciones */
+            position: relative;
+            height: 100%; 
+        }
+
+        /* Capa Flotador: Ejecuta el @keyframe continuo. Se pausa en hover. */
+        .card-floater {
+            height: 100%;
+            will-change: transform;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); /* ease-in-out muy suave */
+            transform-origin: center center;
+        }
+
+        .card-scene:hover .card-floater {
+            /* Pausa la animación sutilmente al poner el mouse */
+            animation-play-state: paused;
+        }
+
+        /* Tiempos específicos solicitados */
+        .float-1 { animation-name: floatAnimation1; animation-duration: 5s; animation-delay: 0s; }
+        .float-2 { animation-name: floatAnimation2; animation-duration: 5.8s; animation-delay: -2s; }
+        .float-3 { animation-name: floatAnimation3; animation-duration: 6.5s; animation-delay: -4s; }
+
+        /* Movimiento orgánico 1 */
+        @keyframes floatAnimation1 {
+            0%   { transform: translate(0px, 0px) rotate(0deg); }
+            33%  { transform: translate(2px, -8px) rotate(0.6deg); }
+            66%  { transform: translate(-2px, -3px) rotate(-0.3deg); }
+            100% { transform: translate(0px, 0px) rotate(0deg); }
+        }
+
+        /* Movimiento orgánico 2 */
+        @keyframes floatAnimation2 {
+            0%   { transform: translate(0px, 0px) rotate(0deg); }
+            33%  { transform: translate(-3px, -6px) rotate(-0.5deg); }
+            66%  { transform: translate(3px, -2px) rotate(0.4deg); }
+            100% { transform: translate(0px, 0px) rotate(0deg); }
+        }
+
+        /* Movimiento orgánico 3 */
+        @keyframes floatAnimation3 {
+            0%   { transform: translate(0px, 0px) rotate(0deg); }
+            33%  { transform: translate(1px, -9px) rotate(0.3deg); }
+            66%  { transform: translate(-1px, -4px) rotate(-0.7deg); }
+            100% { transform: translate(0px, 0px) rotate(0deg); }
+        }
+
+
+        /* Capa Lift: Maneja la elevación vertical, escala y rotación 2D en hover (CSS) */
+        .card-lift {
+            height: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-normal);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                        box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform, box-shadow;
+            background-color: var(--card-bg);
+        }
+
+        /* Inclinación hacia la izquierda para tarjetas impares (1 y 3) */
+        .card-scene:nth-child(odd):hover .card-lift {
+            transform: translateY(-12px) scale(1.02) rotate(-3deg);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Inclinación hacia la derecha para tarjetas pares (2) */
+        .card-scene:nth-child(even):hover .card-lift {
+            transform: translateY(-12px) scale(1.02) rotate(3deg);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Capa Visual: Contenedor estético */
+        .card-visual {
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            background-color: var(--card-bg);
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .card-scene:hover .card-image {
+            /* Ligero zoom interno en hover para dar más vida */
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #111827;
+            letter-spacing: -0.01em;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .card-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform 0.3s ease;
+        }
+
+        .card-scene:hover .card-btn {
+            gap: 12px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card-floater {
+                animation: none !important;
+            }
+            .card-lift, .card-visual {
+                transition: none !important;
+                transform: none !important;
+            }
+            .card-scene:nth-child(odd):hover .card-lift,
+            .card-scene:nth-child(even):hover .card-lift {
+                transform: translateY(-4px) rotate(0deg) !important; /* Movimiento minimizado */
+            }
+            .card-scene:hover .card-image {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Experiencias que se mueven contigo</h1>
+        <p>Una colección diseñada con un lenguaje de movimiento orgánico, flotación independiente y sutiles interacciones 3D al alcance de tu cursor.</p>
+    </header>
+
+    <section class="cards-grid">
+        
+        <!-- TARJETA 1 -->
+        <article class="card-scene">
+            <div class="card-floater float-1">
+                <div class="card-lift">
+                    <div class="card-visual">
+                        <div class="card-image-wrapper">
+                            <span class="card-tag">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h5v5"/><path d="M19.5 4 12 11.5"/><path d="M9.5 20h-5v-5"/><path d="M4.5 20 12 12.5"/></svg>
+                                Aventura
+                            </span>
+                            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Playa tropical" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Costa Esmeralda</h2>
+                            <p class="card-description">Sumérgete en aguas cristalinas y descubre paisajes donde el tiempo parece detenerse por completo.</p>
+                            <a href="#" class="card-btn">
+                                Descubrir más
+                                <svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- TARJETA 2 -->
+        <article class="card-scene">
+            <div class="card-floater float-2">
+                <div class="card-lift">
+                    <div class="card-visual">
+                        <div class="card-image-wrapper">
+                            <span class="card-tag">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                Naturaleza
+                            </span>
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montañas nubladas" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Cumbres del Norte</h2>
+                            <p class="card-description">Respira aire puro en ecosistemas vírgenes, rodeado de senderos ocultos y naturaleza salvaje.</p>
+                            <a href="#" class="card-btn">
+                                Descubrir más
+                                <svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- TARJETA 3 -->
+        <article class="card-scene">
+            <div class="card-floater float-3">
+                <div class="card-lift">
+                    <div class="card-visual">
+                        <div class="card-image-wrapper">
+                            <span class="card-tag">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                                Cultura
+                            </span>
+                            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ciudad histórica europea" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Ruta Histórica</h2>
+                            <p class="card-description">Camina por calles empedradas que cuentan historias centenarias en cada esquina y fachada.</p>
+                            <a href="#" class="card-btn">
+                                Descubrir más
+                                <svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </section>
+
+</body>
+</html>

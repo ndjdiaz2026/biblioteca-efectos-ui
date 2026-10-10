@@ -1,0 +1,362 @@
+{
+    "black_party_boat_punta_cana - 01.html": {
+        "titulo": "Black Party Boat | Premium Punta Cana Celebrations",
+        "cliente_objetivo": "Turistas y grupos de lujo que buscan experiencias privadas de celebración en el mar Caribe, incluyendo despedidas de soltera, retiros corporativos y eventos de hitos.",
+        "colores_hex": [
+            "#0A192F",
+            "#112240",
+            "#020C1B",
+            "#00B4D8",
+            "#48CAE4",
+            "#FF6B6B",
+            "#FA5252",
+            "#D4AF37",
+            "#F3E5AB",
+            "#F8FAFC"
+        ],
+        "efectos_clave": [
+            "Scroll Reveal",
+            "Glassmorphism",
+            "3D Card Tilt",
+            "Ambient Background Pan",
+            "Float Animation",
+            "Premium Button Hover",
+            "Text Gradient Gold",
+            "Card Image Zoom Hover",
+            "Sticky Navbar Transition",
+            "Bounce Scroll Indicator",
+            "Staggered Reveal Delays",
+            "Custom Scrollbar"
+        ],
+        "resumen_estrategico": "Landing page de lujo para charter náutico en Punta Cana, orientada a conversión mediante animaciones premium y diferenciación experiencial."
+    },
+    "black_party_boat_punta_cana - Propuesta 02.html": {
+        "titulo": "Black Party Boat Punta Cana | Premium Caribbean Celebrations",
+        "cliente_objetivo": "Grupos de alto poder adquisitivo que buscan experiencias exclusivas en el Caribe para celebraciones privadas (cumpleaños, despedidas de soltera, retiros corporativos)",
+        "colores_hex": [
+            "#061325",
+            "#0d2240",
+            "#12c2e9",
+            "#ff6b6b",
+            "#d4af37",
+            "#fdfbf7"
+        ],
+        "efectos_clave": [
+            "Scroll Reveal",
+            "Parallax",
+            "Glassmorphism",
+            "3D Card Hover",
+            "Image Zoom on Hover",
+            "Floating Animation",
+            "Ambient Glow",
+            "Radial Ripple on Button",
+            "Scroll Indicator Bounce",
+            "Custom Scrollbar"
+        ],
+        "resumen_estrategico": "Landing premium de experiencias náuticas exclusivas en Punta Cana, orientada a conversión mediante jerarquía visual y efectos de lujo."
+    },
+    "Demostración de Efectos de Inclinación en Tarjetas.html": {
+        "titulo": "Efectos de Inclinación de Tarjetas - Punta Cana in Travel",
+        "cliente_objetivo": "Agencia de turismo y excursiones en Punta Cana, República Dominicana",
+        "colores_hex": [
+            "#ff8c00",
+            "#00ced1",
+            "#fbfbfb",
+            "#333333"
+        ],
+        "efectos_clave": [
+            "Alternating Tilt Hover",
+            "Straighten on Hover",
+            "Gradient Overlay",
+            "Box Shadow Lift"
+        ],
+        "resumen_estrategico": "Landing de tours y transfers con efectos CSS de inclinación para aumentar interacción y conversión."
+    },
+    "Efecto movmiento en tarjetas.html": {
+        "titulo": "Premium Caribbean Tourism Card Effects",
+        "cliente_objetivo": "Agencias de turismo caribeño y plataformas de viajes premium",
+        "colores_hex": [
+            "#0b7285",
+            "#f8e7c0",
+            "#f4b942",
+            "#073b4c",
+            "#ffffff",
+            "#ffd166",
+            "#dff7ff",
+            "#ffeecb"
+        ],
+        "efectos_clave": [
+            "Floating Card",
+            "3D Tilt",
+            "Rotate on Hover",
+            "Pulse",
+            "Twinkle",
+            "Compass Rotation",
+            "CSS Transitions"
+        ],
+        "resumen_estrategico": "Tarjetas de destinos caribeños con animaciones premium para inspirar reservas turísticas de alto valor."
+    },
+    "Estilos tarjetas dinamicas Caribe- movimientos.html": {
+        "titulo": "Luxury Caribbean Resort Cards",
+        "cliente_objetivo": "Turistas de alto poder adquisitivo buscando experiencias de resort exclusivas en el Caribe",
+        "colores_hex": [
+            "#b18b43",
+            "#d5b76a",
+            "#123c43",
+            "#183b42",
+            "#f4c96b",
+            "#60777a"
+        ],
+        "efectos_clave": [
+            "Floating Animation",
+            "3D Tilt",
+            "CSS Rotation Reset",
+            "Gradient Overlay",
+            "Spinning Compass",
+            "Star Float",
+            "Sun Glow Pulse"
+        ],
+        "resumen_estrategico": "Landing de resort caribeño con tarjetas animadas, tipografía serif y paleta dorada para transmitir lujo exclusivo."
+    },
+    "laboratorio-de-movimiento actualizado.html": {
+        "titulo": "Laboratorio de Movimiento",
+        "cliente_objetivo": "Hispaniola Party Boat",
+        "colores_hex": [
+            "#17092E",
+            "#241147",
+            "#2F1659",
+            "#EF5B44",
+            "#D6452F",
+            "#FF2E7A",
+            "#FFC857",
+            "#3FE0D0",
+            "#FFF6F2",
+            "#2A1240"
+        ],
+        "efectos_clave": [
+            "Card Tilt Reveal",
+            "Magnetic 3D Tilt",
+            "Float Animation Fix",
+            "CSS Illustration Animation",
+            "Stamp Entrance",
+            "Shine Sweep"
+        ],
+        "resumen_estrategico": "Laboratorio de efectos CSS/JS para Hispaniola Party Boat con paleta noche festiva y microinteracciones de alta energía."
+    },
+    "laboratorio-de-movimiento.html": {
+        "titulo": "Laboratorio de Movimiento",
+        "cliente_objetivo": "Hispaniola Party Boat",
+        "colores_hex": [
+            "#17092E",
+            "#EF5B44",
+            "#FF2E7A",
+            "#FFC857",
+            "#3FE0D0",
+            "#FFF6F2"
+        ],
+        "efectos_clave": [
+            "Tilt on Hover",
+            "Magnetic Tilt 3D",
+            "Float Animation",
+            "CSS Illustration Animation",
+            "Stamp Entrance"
+        ],
+        "resumen_estrategico": "Propuesta interna de paleta y efectos interactivos para rediseño orientado a fiesta, celebración y eventos."
+    },
+    "Magnetic cards.html": {
+        "titulo": "Magnetic Tourism Card",
+        "cliente_objetivo": "Agencias de turismo y experiencias de viaje premium",
+        "colores_hex": [
+            "#087f8c",
+            "#07556b",
+            "#fff8eb",
+            "#123447",
+            "#09a7ad",
+            "#086b8a"
+        ],
+        "efectos_clave": [
+            "Magnetic Tilt",
+            "3D Perspective",
+            "Shimmer Sweep",
+            "Glassmorphism Badge",
+            "Floating CTA",
+            "Scroll Hint"
+        ],
+        "resumen_estrategico": "Tarjeta turística premium con tilt 3D magnético y brillo dinámico para maximizar engagement visual."
+    },
+    "Movimiento-King-Black.html": {
+        "titulo": "Movimiento King Black",
+        "cliente_objetivo": "kingblacktour.com",
+        "colores_hex": [
+            "#060F16",
+            "#D4AF37",
+            "#EBD489",
+            "#0B1A24",
+            "#102530",
+            "#B9C8D0",
+            "#EAF1F4",
+            "#F3EDE3"
+        ],
+        "efectos_clave": [
+            "Accordion Expand",
+            "Scroll Reveal",
+            "Shimmer Sweep",
+            "Settle Slide-In",
+            "Card Tilt Straighten",
+            "Animated Counter",
+            "Underline Wipe",
+            "Button Press Feedback",
+            "Glassmorphism Tag",
+            "CSS Accordion Rule"
+        ],
+        "resumen_estrategico": "Propuesta de ocho interacciones CSS/JS para kingblacktour.com con paleta navy-oro y degradación sin JavaScript."
+    },
+    "preview.html": {
+        "titulo": "Premium Travel Cards Animation",
+        "cliente_objetivo": "Agencias de viajes y turismo de lujo caribeño",
+        "colores_hex": [
+            "#00b4d8",
+            "#0077b6",
+            "#ffd166",
+            "#083344",
+            "#0096a6",
+            "#eafcff"
+        ],
+        "efectos_clave": [
+            "Floating Cards",
+            "Hover Scale",
+            "Hover Rotate",
+            "Sun Float",
+            "Compass Rotation",
+            "Star Move",
+            "Radial Gradient Background",
+            "CSS Keyframes"
+        ],
+        "resumen_estrategico": "Landing de experiencias turísticas premium con animaciones CSS continuas y tarjetas interactivas de destinos caribeños."
+    },
+    "Propuesta A01.html": {
+        "titulo": "Black Party Boat Punta Cana | Build Your Celebration",
+        "cliente_objetivo": "Grupos de celebración (cumpleaños, despedidas de soltero/a, reuniones familiares) y planificadores de eventos en Punta Cana",
+        "colores_hex": [
+            "#0b2545",
+            "#ef5b44",
+            "#d64a34",
+            "#0a5e6b",
+            "#a9e5ee",
+            "#f7f9fa"
+        ],
+        "efectos_clave": [
+            "Scroll Reveal",
+            "Marquee Ticker",
+            "Glow Card Hover",
+            "Image Zoom Hover",
+            "Float on Hover",
+            "Radial Gradient Overlay",
+            "Staggered Transition Delay"
+        ],
+        "resumen_estrategico": "Landing de charter náutico premium en el Caribe orientada a conversión de grupos mediante personalización visual y CTA directo."
+    },
+    "Propuesta Landing 01.html": {
+        "titulo": "Black Party Boat | The Premium Caribbean Escape",
+        "cliente_objetivo": "Turistas de lujo y grupos privados en Punta Cana que buscan experiencias exclusivas en el mar",
+        "colores_hex": [
+            "#020813",
+            "#061325",
+            "#00f2fe",
+            "#ff512f",
+            "#f4f1eb",
+            "#d4af37"
+        ],
+        "efectos_clave": [
+            "Scroll Reveal",
+            "Infinite Marquee",
+            "Sticky Card Stack",
+            "Image Hover Zoom",
+            "Split Pane Hover",
+            "Floating Animation",
+            "Dynamic Scroll Color Theme",
+            "Glassmorphism",
+            "Cinematic Hero Mask",
+            "Fill Button Sweep"
+        ],
+        "resumen_estrategico": "Landing page premium de experiencias náuticas privadas en Punta Cana con identidad oscura y lujosa."
+    },
+    "Propuesta Landing 02.html": {
+        "titulo": "Black Party Boat | Exclusive Punta Cana Celebrations",
+        "cliente_objetivo": "Viajeros premium y grupos que buscan experiencias privadas exclusivas en el Caribe para celebraciones de alto impacto emocional",
+        "colores_hex": [
+            "#050B14",
+            "#0A192F",
+            "#FF5A5F",
+            "#FF8A66",
+            "#00F2FE",
+            "#F7F4F0",
+            "#D4AF37"
+        ],
+        "efectos_clave": [
+            "Custom Cursor",
+            "Scroll Reveal",
+            "Blob Morph",
+            "Accordion Gallery",
+            "Marquee",
+            "Glassmorphism",
+            "Noise Texture Overlay",
+            "Glowing Orbs",
+            "Mix Blend Mode",
+            "Circular Rotating Text",
+            "Parallax Scale",
+            "Scrapbook Overlap Grid"
+        ],
+        "resumen_estrategico": "Landing editorial de lujo para charter privado en Punta Cana, combinando atmósfera oscura con efectos cinematográficos para conversión emocional."
+    },
+    "Propuesta web Fiesta.html": {
+        "titulo": "Black Party Boat – Build Your Perfect Punta Cana Celebration",
+        "cliente_objetivo": "Grupos privados (despedidas de soltera, cumpleaños, celebraciones) que buscan experiencias de fiesta premium y personalizables en Punta Cana",
+        "colores_hex": [
+            "#111111",
+            "#FDFBF7",
+            "#FF4D4D",
+            "#00E5FF",
+            "#FFD166",
+            "#6A4C93"
+        ],
+        "efectos_clave": [
+            "Scroll Reveal",
+            "Floating Animation",
+            "Marquee",
+            "Custom Cursor",
+            "Brutalist Shadow",
+            "Glassmorphism Navbar",
+            "Bento Grid Hover",
+            "Gradient Overlay",
+            "Radial Dot Pattern",
+            "Blob Blur",
+            "Sticker Elements",
+            "Text Outline",
+            "Button Slide Fill"
+        ],
+        "resumen_estrategico": "Landing page brutalista y energética para catamaran party en Punta Cana, con personalización como propuesta de valor central."
+    },
+    "tarjetas_vivas.html": {
+        "titulo": "Experiencias en Movimiento",
+        "cliente_objetivo": "Agencias de viajes, turismo experiencial y plataformas de lifestyle",
+        "colores_hex": [
+            "#f4f6f8",
+            "#ffffff",
+            "#1a1f2b",
+            "#5e6878",
+            "#2c68f6",
+            "#111827"
+        ],
+        "efectos_clave": [
+            "Float Animation",
+            "3D Perspective",
+            "Hover Lift",
+            "Alternating Rotation",
+            "Image Zoom",
+            "Glassmorphism Tag",
+            "Reduced Motion"
+        ],
+        "resumen_estrategico": "Galería de tarjetas de viaje con flotación orgánica independiente, elevación 3D y microinteracciones suaves al hover."
+    }
+}

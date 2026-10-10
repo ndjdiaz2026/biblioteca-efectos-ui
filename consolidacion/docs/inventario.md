@@ -1,0 +1,173 @@
+# Inventario por ocurrencia
+
+- postsicionate:web-vip-01:J01 — Dos entradas para dos intenciones — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:J02 — Destinos con imagen vinculada — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:J03 — Galería horizontal con ritmo alternado — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:J04 — Reseñas con procedencia y control — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:K01 — Submenú contextual fuera de la cabecera — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:K02 — Índice numerado para una página larga — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:K03 — Beneficios como capítulos visuales — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:K04 — CTA persistente con contacto humano — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:B01 — Una colección, varias formas de entrar — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:B02 — Descubrimiento por emoción deseada — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:B03 — Mega menú con rutas de descubrimiento — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:B04 — Tarjeta editorial con datos para decidir — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:C01 — Portada cinematográfica con mensaje secuencial — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:C02 — Mosaico de experiencias como navegación — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:C03 — Ritmo editorial y entrada al desplazarse — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-01:C04 — Prueba editorial próxima a la propuesta — pattern — Web-VIP-01-biblioteca.html
+- postsicionate:web-vip-02:P01 — Mega menú con una selección editorial — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:P02 — El calendario como puerta al catálogo — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:P03 — Tres especialidades bajo una misma promesa — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:P04 — Impacto con un camino hacia la evidencia — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:W01 — Relato visual por capas al desplazarse — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:W02 — La logística convertida en una ruta visual — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:W03 — Alojamientos con identidad y datos comparables — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:W04 — El proceso de compra explicado por etapas — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:A01 — Experiencias agrupadas por la motivación del viaje — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:A02 — La temporada cambia la explicación y el paisaje — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:A03 — Una guía para quien aún no sabe qué preguntar — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:A04 — Itinerario explicado con contexto, no sólo una foto — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:L01 — Búsqueda con destino y fecha desde la portada — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:L02 — Retomar la exploración sin volver a empezar — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:L03 — Un pasaporte visual para experiencias concretas — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:web-vip-02:L04 — La promesa de lujo traducida a inclusiones — pattern — Web-VIP-02-biblioteca.html
+- postsicionate:index:entry-001 — Efectos de Inclinación de Tarjetas - Punta Cana in Travel — example-page — index.html
+- postsicionate:index:entry-001:effect-1 — Alternating Tilt Hover — effect-occurrence — index.html
+- postsicionate:index:entry-001:effect-2 — Straighten on Hover — effect-occurrence — index.html
+- postsicionate:index:entry-001:effect-3 — Gradient Overlay — effect-occurrence — index.html
+- postsicionate:index:entry-001:effect-4 — Box Shadow Lift — effect-occurrence — index.html
+- postsicionate:index:entry-002 — Premium Caribbean Tourism Card Effects — example-page — index.html
+- postsicionate:index:entry-002:effect-1 — Floating Card — effect-occurrence — index.html
+- postsicionate:index:entry-002:effect-2 — 3D Tilt — effect-occurrence — index.html
+- postsicionate:index:entry-002:effect-3 — Rotate on Hover — effect-occurrence — index.html
+- postsicionate:index:entry-002:effect-4 — Pulse — effect-occurrence — index.html
+- postsicionate:index:entry-002:effect-5 — Twinkle — effect-occurrence — index.html
+- postsicionate:index:entry-002:effect-6 — Compass Rotation — effect-occurrence — index.html
+- postsicionate:index:entry-002:effect-7 — CSS Transitions — effect-occurrence — index.html
+- postsicionate:index:entry-003 — Luxury Caribbean Resort Cards — example-page — index.html
+- postsicionate:index:entry-003:effect-1 — Floating Animation — effect-occurrence — index.html
+- postsicionate:index:entry-003:effect-2 — 3D Tilt — effect-occurrence — index.html
+- postsicionate:index:entry-003:effect-3 — CSS Rotation Reset — effect-occurrence — index.html
+- postsicionate:index:entry-003:effect-4 — Gradient Overlay — effect-occurrence — index.html
+- postsicionate:index:entry-003:effect-5 — Spinning Compass — effect-occurrence — index.html
+- postsicionate:index:entry-003:effect-6 — Star Float — effect-occurrence — index.html
+- postsicionate:index:entry-003:effect-7 — Sun Glow Pulse — effect-occurrence — index.html
+- postsicionate:index:entry-004 — Magnetic Tourism Card — example-page — index.html
+- postsicionate:index:entry-004:effect-1 — Magnetic Tilt — effect-occurrence — index.html
+- postsicionate:index:entry-004:effect-2 — 3D Perspective — effect-occurrence — index.html
+- postsicionate:index:entry-004:effect-3 — Shimmer Sweep — effect-occurrence — index.html
+- postsicionate:index:entry-004:effect-4 — Glassmorphism Badge — effect-occurrence — index.html
+- postsicionate:index:entry-004:effect-5 — Floating CTA — effect-occurrence — index.html
+- postsicionate:index:entry-004:effect-6 — Scroll Hint — effect-occurrence — index.html
+- postsicionate:index:entry-005 — Movimiento King Black — example-page — index.html
+- postsicionate:index:entry-005:effect-1 — Accordion Expand — effect-occurrence — index.html
+- postsicionate:index:entry-005:effect-2 — Scroll Reveal — effect-occurrence — index.html
+- postsicionate:index:entry-005:effect-3 — Shimmer Sweep — effect-occurrence — index.html
+- postsicionate:index:entry-005:effect-4 — Settle Slide-In — effect-occurrence — index.html
+- postsicionate:index:entry-005:effect-5 — Card Tilt Straighten — effect-occurrence — index.html
+- postsicionate:index:entry-005:effect-6 — Animated Counter — effect-occurrence — index.html
+- postsicionate:index:entry-005:effect-7 — Underline Wipe — effect-occurrence — index.html
+- postsicionate:index:entry-005:effect-8 — Button Press Feedback — effect-occurrence — index.html
+- postsicionate:index:entry-005:effect-9 — Glassmorphism Tag — effect-occurrence — index.html
+- postsicionate:index:entry-005:effect-10 — CSS Accordion Rule — effect-occurrence — index.html
+- postsicionate:index:entry-006 — Black Party Boat Punta Cana | Build Your Celebration — example-page — index.html
+- postsicionate:index:entry-006:effect-1 — Scroll Reveal — effect-occurrence — index.html
+- postsicionate:index:entry-006:effect-2 — Marquee Ticker — effect-occurrence — index.html
+- postsicionate:index:entry-006:effect-3 — Glow Card Hover — effect-occurrence — index.html
+- postsicionate:index:entry-006:effect-4 — Image Zoom Hover — effect-occurrence — index.html
+- postsicionate:index:entry-006:effect-5 — Float on Hover — effect-occurrence — index.html
+- postsicionate:index:entry-006:effect-6 — Radial Gradient Overlay — effect-occurrence — index.html
+- postsicionate:index:entry-006:effect-7 — Staggered Transition Delay — effect-occurrence — index.html
+- postsicionate:index:entry-007 — Black Party Boat | The Premium Caribbean Escape — example-page — index.html
+- postsicionate:index:entry-007:effect-1 — Scroll Reveal — effect-occurrence — index.html
+- postsicionate:index:entry-007:effect-2 — Infinite Marquee — effect-occurrence — index.html
+- postsicionate:index:entry-007:effect-3 — Sticky Card Stack — effect-occurrence — index.html
+- postsicionate:index:entry-007:effect-4 — Image Hover Zoom — effect-occurrence — index.html
+- postsicionate:index:entry-007:effect-5 — Split Pane Hover — effect-occurrence — index.html
+- postsicionate:index:entry-007:effect-6 — Floating Animation — effect-occurrence — index.html
+- postsicionate:index:entry-007:effect-7 — Dynamic Scroll Color Theme — effect-occurrence — index.html
+- postsicionate:index:entry-007:effect-8 — Glassmorphism — effect-occurrence — index.html
+- postsicionate:index:entry-007:effect-9 — Cinematic Hero Mask — effect-occurrence — index.html
+- postsicionate:index:entry-007:effect-10 — Fill Button Sweep — effect-occurrence — index.html
+- postsicionate:index:entry-008 — Black Party Boat | Exclusive Punta Cana Celebrations — example-page — index.html
+- postsicionate:index:entry-008:effect-1 — Custom Cursor — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-2 — Scroll Reveal — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-3 — Blob Morph — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-4 — Accordion Gallery — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-5 — Marquee — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-6 — Glassmorphism — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-7 — Noise Texture Overlay — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-8 — Glowing Orbs — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-9 — Mix Blend Mode — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-10 — Circular Rotating Text — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-11 — Parallax Scale — effect-occurrence — index.html
+- postsicionate:index:entry-008:effect-12 — Scrapbook Overlap Grid — effect-occurrence — index.html
+- postsicionate:index:entry-009 — Black Party Boat – Build Your Perfect Punta Cana Celebration — example-page — index.html
+- postsicionate:index:entry-009:effect-1 — Scroll Reveal — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-2 — Floating Animation — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-3 — Marquee — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-4 — Custom Cursor — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-5 — Brutalist Shadow — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-6 — Glassmorphism Navbar — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-7 — Bento Grid Hover — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-8 — Gradient Overlay — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-9 — Radial Dot Pattern — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-10 — Blob Blur — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-11 — Sticker Elements — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-12 — Text Outline — effect-occurrence — index.html
+- postsicionate:index:entry-009:effect-13 — Button Slide Fill — effect-occurrence — index.html
+- postsicionate:index:entry-010 — Black Party Boat | Premium Punta Cana Celebrations — example-page — index.html
+- postsicionate:index:entry-010:effect-1 — Scroll Reveal — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-2 — Glassmorphism — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-3 — 3D Card Tilt — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-4 — Ambient Background Pan — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-5 — Float Animation — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-6 — Premium Button Hover — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-7 — Text Gradient Gold — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-8 — Card Image Zoom Hover — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-9 — Sticky Navbar Transition — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-10 — Bounce Scroll Indicator — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-11 — Staggered Reveal Delays — effect-occurrence — index.html
+- postsicionate:index:entry-010:effect-12 — Custom Scrollbar — effect-occurrence — index.html
+- postsicionate:index:entry-011 — Black Party Boat Punta Cana | Premium Caribbean Celebrations — example-page — index.html
+- postsicionate:index:entry-011:effect-1 — Scroll Reveal — effect-occurrence — index.html
+- postsicionate:index:entry-011:effect-2 — Parallax — effect-occurrence — index.html
+- postsicionate:index:entry-011:effect-3 — Glassmorphism — effect-occurrence — index.html
+- postsicionate:index:entry-011:effect-4 — 3D Card Hover — effect-occurrence — index.html
+- postsicionate:index:entry-011:effect-5 — Image Zoom on Hover — effect-occurrence — index.html
+- postsicionate:index:entry-011:effect-6 — Floating Animation — effect-occurrence — index.html
+- postsicionate:index:entry-011:effect-7 — Ambient Glow — effect-occurrence — index.html
+- postsicionate:index:entry-011:effect-8 — Radial Ripple on Button — effect-occurrence — index.html
+- postsicionate:index:entry-011:effect-9 — Scroll Indicator Bounce — effect-occurrence — index.html
+- postsicionate:index:entry-011:effect-10 — Custom Scrollbar — effect-occurrence — index.html
+- postsicionate:index:entry-012 — Laboratorio de Movimiento — example-page — index.html
+- postsicionate:index:entry-012:effect-1 — Card Tilt Reveal — effect-occurrence — index.html
+- postsicionate:index:entry-012:effect-2 — Magnetic 3D Tilt — effect-occurrence — index.html
+- postsicionate:index:entry-012:effect-3 — Float Animation Fix — effect-occurrence — index.html
+- postsicionate:index:entry-012:effect-4 — CSS Illustration Animation — effect-occurrence — index.html
+- postsicionate:index:entry-012:effect-5 — Stamp Entrance — effect-occurrence — index.html
+- postsicionate:index:entry-012:effect-6 — Shine Sweep — effect-occurrence — index.html
+- postsicionate:index:entry-013 — Laboratorio de Movimiento — example-page — index.html
+- postsicionate:index:entry-013:effect-1 — Tilt on Hover — effect-occurrence — index.html
+- postsicionate:index:entry-013:effect-2 — Magnetic Tilt 3D — effect-occurrence — index.html
+- postsicionate:index:entry-013:effect-3 — Float Animation — effect-occurrence — index.html
+- postsicionate:index:entry-013:effect-4 — CSS Illustration Animation — effect-occurrence — index.html
+- postsicionate:index:entry-013:effect-5 — Stamp Entrance — effect-occurrence — index.html
+- postsicionate:index:entry-014 — Premium Travel Cards Animation — example-page — index.html
+- postsicionate:index:entry-014:effect-1 — Floating Cards — effect-occurrence — index.html
+- postsicionate:index:entry-014:effect-2 — Hover Scale — effect-occurrence — index.html
+- postsicionate:index:entry-014:effect-3 — Hover Rotate — effect-occurrence — index.html
+- postsicionate:index:entry-014:effect-4 — Sun Float — effect-occurrence — index.html
+- postsicionate:index:entry-014:effect-5 — Compass Rotation — effect-occurrence — index.html
+- postsicionate:index:entry-014:effect-6 — Star Move — effect-occurrence — index.html
+- postsicionate:index:entry-014:effect-7 — Radial Gradient Background — effect-occurrence — index.html
+- postsicionate:index:entry-014:effect-8 — CSS Keyframes — effect-occurrence — index.html
+- postsicionate:index:entry-015 — Experiencias en Movimiento — example-page — index.html
+- postsicionate:index:entry-015:effect-1 — Float Animation — effect-occurrence — index.html
+- postsicionate:index:entry-015:effect-2 — 3D Perspective — effect-occurrence — index.html
+- postsicionate:index:entry-015:effect-3 — Hover Lift — effect-occurrence — index.html
+- postsicionate:index:entry-015:effect-4 — Alternating Rotation — effect-occurrence — index.html
+- postsicionate:index:entry-015:effect-5 — Image Zoom — effect-occurrence — index.html
+- postsicionate:index:entry-015:effect-6 — Glassmorphism Tag — effect-occurrence — index.html
+- postsicionate:index:entry-015:effect-7 — Reduced Motion — effect-occurrence — index.html

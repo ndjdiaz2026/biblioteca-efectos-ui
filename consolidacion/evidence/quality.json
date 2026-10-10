@@ -1,0 +1,1322 @@
+{
+  "tests": [
+    {
+      "demo": "demos/postsicionate--web-vip-01--J01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "J01 · Dos entradas para dos intenciones",
+      "bodyLength": 93,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--J02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "J02 · Destinos con imagen vinculada",
+      "bodyLength": 84,
+      "controls": 4,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--J03.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "J03 · Galería horizontal con ritmo alternado",
+      "bodyLength": 135,
+      "controls": 5,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--J04.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "J04 · Reseñas con procedencia y control",
+      "bodyLength": 169,
+      "controls": 2,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--K01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "K01 · Submenú contextual fuera de la cabecera",
+      "bodyLength": 273,
+      "controls": 4,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--K02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "K02 · Índice numerado para una página larga",
+      "bodyLength": 324,
+      "controls": 4,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--K03.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "K03 · Beneficios como capítulos visuales",
+      "bodyLength": 185,
+      "controls": 0,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--K04.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "K04 · CTA persistente con contacto humano",
+      "bodyLength": 214,
+      "controls": 5,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--B01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "B01 · Una colección, varias formas de entrar",
+      "bodyLength": 87,
+      "controls": 6,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--B02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "B02 · Descubrimiento por emoción deseada",
+      "bodyLength": 103,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--B03.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "B03 · Mega menú con rutas de descubrimiento",
+      "bodyLength": 32,
+      "controls": 6,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--B04.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "B04 · Tarjeta editorial con datos para decidir",
+      "bodyLength": 167,
+      "controls": 2,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--C01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "C01 · Portada cinematográfica con mensaje secuencial",
+      "bodyLength": 179,
+      "controls": 2,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--C02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "C02 · Mosaico de experiencias como navegación",
+      "bodyLength": 95,
+      "controls": 5,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--C03.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "C03 · Ritmo editorial y entrada al desplazarse",
+      "bodyLength": 263,
+      "controls": 1,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-01--C04.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "C04 · Prueba editorial próxima a la propuesta",
+      "bodyLength": 262,
+      "controls": 2,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--P01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "P01 · Mega menú con una selección editorial",
+      "bodyLength": 37,
+      "controls": 6,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--P02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "P02 · El calendario como puerta al catálogo",
+      "bodyLength": 120,
+      "controls": 12,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--P03.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "P03 · Tres especialidades bajo una misma promesa",
+      "bodyLength": 119,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--P04.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "P04 · Impacto con un camino hacia la evidencia",
+      "bodyLength": 122,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--W01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "W01 · Relato visual por capas al desplazarse",
+      "bodyLength": 233,
+      "controls": 1,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--W02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "W02 · La logística convertida en una ruta visual",
+      "bodyLength": 184,
+      "controls": 1,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--W03.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "W03 · Alojamientos con identidad y datos comparables",
+      "bodyLength": 170,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--W04.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "W04 · El proceso de compra explicado por etapas",
+      "bodyLength": 131,
+      "controls": 7,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--A01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "A01 · Experiencias agrupadas por la motivación del viaje",
+      "bodyLength": 280,
+      "controls": 5,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--A02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "A02 · La temporada cambia la explicación y el paisaje",
+      "bodyLength": 239,
+      "controls": 4,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--A03.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "A03 · Una guía para quien aún no sabe qué preguntar",
+      "bodyLength": 183,
+      "controls": 2,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--A04.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "A04 · Itinerario explicado con contexto, no sólo una foto",
+      "bodyLength": 199,
+      "controls": 1,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--L01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "L01 · Búsqueda con destino y fecha desde la portada",
+      "bodyLength": 216,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--L02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "L02 · Retomar la exploración sin volver a empezar",
+      "bodyLength": 204,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--L03.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "L03 · Un pasaporte visual para experiencias concretas",
+      "bodyLength": 162,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/postsicionate--web-vip-02--L04.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "L04 · La promesa de lujo traducida a inclusiones",
+      "bodyLength": 239,
+      "controls": 4,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/Demostración de Efectos de Inclinación en Tarjetas.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Efectos de Inclinación de Tarjetas - Punta Cana in Travel",
+      "bodyLength": 1154,
+      "controls": 4,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/Efecto movmiento en tarjetas.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Premium Caribbean Tourism Card Effects",
+      "bodyLength": 340,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/Estilos tarjetas dinamicas Caribe- movimientos.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Luxury Caribbean Resort Cards",
+      "bodyLength": 486,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/Magnetic cards.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Magnetic Tourism Card",
+      "bodyLength": 1326,
+      "controls": 1,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/Movimiento-King-Black.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Movimiento King Black",
+      "bodyLength": 12287,
+      "controls": 12,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/Propuesta A01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Black Party Boat Punta Cana | Build Your Celebration",
+      "bodyLength": 1435,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/Propuesta Landing 01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "failed",
+      "errors": [
+        "tailwind is not defined"
+      ],
+      "title": "Black Party Boat | The Premium Caribbean Escape",
+      "bodyLength": 2189,
+      "controls": 21,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/Propuesta Landing 02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "failed",
+      "errors": [
+        "tailwind is not defined"
+      ],
+      "title": "Black Party Boat | Exclusive Punta Cana Celebrations",
+      "bodyLength": 2458,
+      "controls": 15,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/Propuesta web Fiesta.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "failed",
+      "errors": [
+        "tailwind is not defined"
+      ],
+      "title": "Black Party Boat | Build Your Perfect Punta Cana Celebration",
+      "bodyLength": 2068,
+      "controls": 12,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/black_party_boat_punta_cana - 01.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "failed",
+      "errors": [
+        "tailwind is not defined"
+      ],
+      "title": "Black Party Boat | Premium Punta Cana Celebrations",
+      "bodyLength": 3050,
+      "controls": 22,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/black_party_boat_punta_cana - Propuesta 02.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "failed",
+      "errors": [
+        "tailwind is not defined"
+      ],
+      "title": "Black Party Boat Punta Cana | Premium Caribbean Celebrations",
+      "bodyLength": 3648,
+      "controls": 25,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/laboratorio-de-movimiento actualizado.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Laboratorio de Movimiento",
+      "bodyLength": 9191,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/laboratorio-de-movimiento.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Laboratorio de Movimiento",
+      "bodyLength": 6618,
+      "controls": 2,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/preview.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Premium Travel Cards Animation",
+      "bodyLength": 623,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    },
+    {
+      "demo": "demos/index/tarjetas_vivas.html",
+      "method": "Chromium headless / file URL / load smoke test",
+      "status": "passed",
+      "errors": [],
+      "title": "Experiencias en Movimiento",
+      "bodyLength": 581,
+      "controls": 3,
+      "localRefs": [],
+      "interaction": "not_exhaustively_tested"
+    }
+  ],
+  "limits": [
+    "Sin auditoría comercial",
+    "Sin pruebas CMS",
+    "Interacciones completas y auditoría manual de accesibilidad pendientes"
+  ],
+  "sourceIntegrity": true,
+  "interactions": [
+    {
+      "id": "postsicionate:web-vip-01:J01",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "INPUT",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:J02",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 3,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:J03",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:J04",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:K01",
+      "viewport": "1280x720 default",
+      "actions": [],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:K02",
+      "viewport": "1280x720 default",
+      "actions": [],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:K03",
+      "viewport": "1280x720 default",
+      "actions": [],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:K04",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "INPUT",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "SELECT",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 3,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 4,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:B01",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:B02",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:B03",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:B04",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "SUMMARY",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:C01",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:C02",
+      "viewport": "1280x720 default",
+      "actions": [],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:C03",
+      "viewport": "1280x720 default",
+      "actions": [],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-01:C04",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "SUMMARY",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:P01",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:P02",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 3,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 4,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 5,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 6,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 7,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 8,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 9,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 10,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 11,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:P03",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:P04",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "SUMMARY",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "SUMMARY",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "SUMMARY",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:W01",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:W02",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:W03",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:W04",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 3,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 4,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 5,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 6,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:A01",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 3,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 4,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:A02",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 3,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:A03",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:A04",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:L01",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "SELECT",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "SELECT",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:L02",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:L03",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "BUTTON",
+          "bodyChanged": false,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    },
+    {
+      "id": "postsicionate:web-vip-02:L04",
+      "viewport": "1280x720 default",
+      "actions": [
+        {
+          "index": 0,
+          "tag": "SUMMARY",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 1,
+          "tag": "SUMMARY",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 2,
+          "tag": "SUMMARY",
+          "bodyChanged": true,
+          "status": "executed"
+        },
+        {
+          "index": 3,
+          "tag": "SUMMARY",
+          "bodyChanged": true,
+          "status": "executed"
+        }
+      ],
+      "errors": [],
+      "status": "limited-smoke-pass"
+    }
+  ],
+  "presentation": {
+    "full": 171,
+    "filtered": 2,
+    "facet": 2,
+    "mobileOverflow": false
+  },
+  "catalogChecks": {
+    "uniqueIds": true,
+    "allRecordAndDemoPathsExist": true
+  }
+}

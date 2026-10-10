@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efectos de Inclinación de Tarjetas - Punta Cana in Travel</title>
+    <style>
+        /* Estilos Generales y Colores Base */
+        :root {
+            --color-naranja: #ff8c00;
+            --color-cian: #00ced1;
+            --color-fondo: #fbfbfb;
+            --color-texto: #333;
+            --color-sombra: rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        /* ==========================================================
+           Ejemplo 1: Tarjetas de Tour (Inclinación en Hover)
+           Replicando imágenes 01 y 01b.png
+           ========================================================== */
+        .seccion-tours {
+            margin-bottom: 80px;
+        }
+
+        .contenedor-tarjetas-tour {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .tarjeta-tour {
+            width: calc(33.33% - 13.33px);
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--color-sombra);
+            cursor: pointer;
+            /* Transición suave para todos los cambios */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+            border: 2px solid transparent; /* Preparar espacio para el borde en hover */
+        }
+
+        /* Estilos internos de la tarjeta de tour */
+        .tarjeta-tour .cabecera-imagen {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tarjeta-tour .cabecera-imagen::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            z-index: 1;
+        }
+
+        .tag {
+            font-size: 11px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: white;
+            z-index: 2;
+        }
+
+        .tag-best-seller { background-color: var(--color-naranja); align-self: flex-start; }
+        .tag-rating { background-color: white; color: black; align-self: flex-end; }
+
+        .titulo-tour {
+            font-size: 18px;
+            margin: 0;
+            color: white;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .contenido-tour {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .detalles-tour {
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .detalle { display: flex; align-items: center; gap: 5px; }
+
+        .footer-tour {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px dashed #ccc;
+            padding-top: 15px;
+        }
+
+        .precio { font-size: 20px; font-weight: bold; color: var(--color-naranja); }
+
+        .btn-detalles {
+            background-color: var(--color-naranja);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .btn-detalles.btn-cian { background-color: var(--color-cian); }
+
+        /* ==========================================================
+           EL EFECTO PRINCIPAL (Tours): Inclinación en Hover (alternando)
+           ========================================================== */
+        
+        /* En hover, todas las tarjetas tendrán un borde sutil */
+        .tarjeta-tour:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 2px solid rgba(255, 140, 0, 0.3); /* Borde naranja transparente */
+        }
+
+        /* Tarjeta central (even): Se inclina a la derecha */
+        .tarjeta-tour:nth-child(even):hover {
+            transform: rotate(2deg); /* Ángulo positivo */
+        }
+
+        /* Tarjetas laterales (odd): Se inclinan a la izquierda */
+        .tarjeta-tour:nth-child(odd):hover {
+            transform: rotate(-2deg); /* Ángulo negativo */
+        }
+
+
+        /* ==========================================================
+           Ejemplo 2: Bloque de Transfers (Se endereza en Hover)
+           Replicando imágenes 02 y 02B.png
+           ========================================================== */
+        .seccion-transfers {
+            margin-bottom: 80px;
+        }
+
+        .contenedor-transfers {
+            background-color: white;
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 5px 20px var(--color-sombra);
+        }
+
+        .contenido-transfers {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tag-transfers {
+            font-size: 12px;
+            font-weight: bold;
+            color: #666;
+            background-color: #f1f1f1;
+            padding: 5px 10px;
+            border-radius: 20px;
+            align-self: flex-start;
+        }
+
+        .titulo-transfers { font-size: 24px; margin: 0; color: #333; }
+
+        .btn-transfers {
+            background-color: var(--color-naranja);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        .contenedor-imagen-van {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* ==========================================================
+           EL EFECTO PRINCIPAL (Transfers): Imagen inclinada que se endereza
+           ========================================================== */
+        .imagen-van-inclinada {
+            max-width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
+
+            /* ESTADO NORMAL: Inclinada a la derecha por defecto */
+            transform: rotate(3deg);
+
+            /* Transición suave para todos los cambios */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        /* ESTADO HOVER: Al pasar el cursor, se endereza */
+        .imagen-van-inclinada:hover {
+            transform: rotate(0deg); /* Vuelve a 0 grados */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra más sutil */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <h1>Demostración de Efectos de Inclinación de Punta Cana in Travel</h1>
+
+        <!-- Ejemplo 1: Tarjetas de Tour que se inclinan en hover -->
+        <div class="seccion-tours">
+            <h2>Ejemplo 1: Tarjetas de Tour (Inclinación Alternada en Hover)</h2>
+            <p style="text-align:center;">Pasa el cursor sobre cada tarjeta para ver cómo se inclinan hacia lados opuestos (replicando 01b.png).</p>
+            <div class="contenedor-tarjetas-tour">
+                <!-- Tarjeta 1 (Rota a la Izquierda) -->
+                <div class="tarjeta-tour">
+                    <div class="cabecera-imagen" style="background-image: url('https://www.puntacanaintravel.com/wp-content/uploads/2026/08/364-more-days-to-wait-1024x768.jpg');">
+                        <span class="tag tag-best-seller">Best Seller</span>
+                        <span class="tag tag-rating">★ 4.9</span>
+                        <h3 class="titulo-tour">Excursión Isla Saona</h3>
+                    </div>
+                    <div class="contenido-tour">
+                        <p>Catamarán, piscinas naturales y almuerzo buffet en la isla más famosa de RD.</p>
+                        <div class="detalles-tour">
+                            <span class="detalle">🕒 Día Completo (10 hrs)</span>
+                            <span class="detalle">🍴 Almuerzo y Bebidas</span>
+                        </div>
+                        <div class="footer-tour">
+                            <span class="precio">$50</span>
+                            <button class="btn-detalles">Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 (Rota a la Derecha - Central) -->
+                <div class="tarjeta-tour">
+                    <div class="cabecera-imagen" style="background-image: url('https://www.puntacanaintravel.com/wp-content/uploads/2026/08/62697bd1c989d96a364ae102_Playa-Flamenco-Isla-Saona-VIP-con-Caribe-Activo_001-1024x682.jpg');">
+                        <span class="tag tag-rating">★ 5.0</span>
+                        <h3 class="titulo-tour">Isla Saona VIP 4 Playas</h3>
+                    </div>
+                    <div class="contenido-tour">
+                        <p>Esta es la versión de Isla Saona que recomiendo cuando alguien me dice "quiero..."</p>
+                        <div class="detalles-tour">
+                            <span class="detalle">🕒 Consultar duración</span>
+                            <span class="detalle">🚗 Consultar transporte</span>
+                        </div>
+                        <div class="footer-tour">
+                            <span class="precio">$80</span>
+                            <button class="btn-detalles btn-cian">Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 (Rota a la Izquierda) -->
+                <div class="tarjeta-tour">
+                    <div class="cabecera-imagen" style="background-image: url('https://www.puntacanaintravel.com/wp-content/uploads/2026/08/catamaran-fiesta-punta-cana-1024x682.avif');">
+                        <span class="tag tag-best-seller">🙋🏾 Guía turístico</span>
+                        <span class="tag tag-rating">★ 5.0</span>
+                        <h3 class="titulo-tour">Excursión Safari Punta Cana</h3>
+                    </div>
+                    <div class="contenido-tour">
+                        <p>Si solo conoces la playa de tu resort, te estás perdiendo la mitad de República Dominicana.</p>
+                        <div class="detalles-tour">
+                            <span class="detalle">🕒 8 Horas</span>
+                            <span class="detalle">🍴 Almuerzo bufé</span>
+                        </div>
+                        <div class="footer-tour">
+                            <span class="precio">$65</span>
+                            <button class="btn-detalles">Detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejemplo 2: Bloque de Transfers (Imagen inclinada que se endereza) -->
+        <div class="seccion-transfers">
+            <h2>Ejemplo 2: Bloque de Transfers (La imagen se endereza en Hover)</h2>
+            <p style="text-align:center;">La imagen de la van está inclinada inicialmente. Pasa el cursor sobre ella para enderezarla (replicando 02B.png).</p>
+            <div class="contenedor-transfers">
+                <div class="contenido-transfers">
+                    <span class="tag-transfers">VEHÍCULO 100% PRIVADO</span>
+                    <h3 class="titulo-transfers">¿Necesitas transporte desde el aeropuerto?</h3>
+                    <p>Reserva tu transfer privado aeropuerto ⇄ hotel en cómodos vehículos Hyundai H1 y ve el precio al instante, sin sorpresas.</p>
+                    <button class="btn-transfers">Ver Transfers →</button>
+                </div>
+                <div class="contenedor-imagen-van">
+                    <img src="https://www.puntacanaintravel.com/wp-content/uploads/2026/08/slider-transfer.png" alt="Hyundai H1 privado" class="imagen-van-inclinada">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

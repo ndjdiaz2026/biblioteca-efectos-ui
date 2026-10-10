@@ -1,0 +1,97 @@
+[
+  {
+    "file": "index.html",
+    "sha256": "5cb0bc09e70bfa6bf9b86259264ea9ae161823038c41373f34a42bd390397ed3",
+    "bytes": 105286
+  },
+  {
+    "file": "Web-VIP-01-biblioteca.html",
+    "sha256": "b534eec05fb465994e76d9aa29023e2b501a8f7bf1f7a883835e971ce59cf35e",
+    "bytes": 57564
+  },
+  {
+    "file": "Web-VIP-02-biblioteca.html",
+    "sha256": "139030adcf0a056cb4b8a1bdad5f83429af92c08e643fa3ff7877f5a6a3c7440",
+    "bytes": 59069
+  },
+  {
+    "file": "biblioteca_cache.json",
+    "sha256": "1508df15cd4e10cf957578208b22315573c178c45402b8c5056d0414c7cf5a1f",
+    "bytes": 13371
+  },
+  {
+    "file": "Demostración de Efectos de Inclinación en Tarjetas.html",
+    "sha256": "0f2924b78fcc3caeabf6545502c727c59d8eafd1870567085d892c0b581eb574",
+    "bytes": 12906
+  },
+  {
+    "file": "Efecto movmiento en tarjetas.html",
+    "sha256": "1ee76f1719ec1f09dc4534f88de86a45a9b0073cdcdf05fcf8bd662be3a665e6",
+    "bytes": 6014
+  },
+  {
+    "file": "Estilos tarjetas dinamicas Caribe- movimientos.html",
+    "sha256": "e34d61849530eef0f35e6bd9a7ecdc5cd71ecdc25e868c75952c38def14841f4",
+    "bytes": 6817
+  },
+  {
+    "file": "Magnetic cards.html",
+    "sha256": "e1c5d70b86837118f1623cc402443be713dea1c9a4e8970ed7f953696b6494ea",
+    "bytes": 9100
+  },
+  {
+    "file": "Movimiento-King-Black.html",
+    "sha256": "09158c57079e09824ade88e7fc130aabd1a782cdb3dac995b2d46b25592af78e",
+    "bytes": 47887
+  },
+  {
+    "file": "Propuesta A01.html",
+    "sha256": "8d960a988d44ab38d6028f7428df7b64cafe551d69ae2571019198fcc65375b7",
+    "bytes": 14611
+  },
+  {
+    "file": "Propuesta Landing 01.html",
+    "sha256": "68839a350b3422f50cbde61328811904d3ebe3e3e36784d3c94e980ef0749667",
+    "bytes": 30186
+  },
+  {
+    "file": "Propuesta Landing 02.html",
+    "sha256": "b0bbc687e60c372d22582ebd61ebff1c6dcb4bcfdefe74e58d7cbc1e47e2c50a",
+    "bytes": 33292
+  },
+  {
+    "file": "Propuesta web Fiesta.html",
+    "sha256": "bae91cc331f102b8dc136cc0bbc8b98e25b1a21061295979889188d404ae601f",
+    "bytes": 36277
+  },
+  {
+    "file": "black_party_boat_punta_cana - 01.html",
+    "sha256": "e85023970af29046dc14ba4ceda590042b7a90cec4f03027f3d1e532b4b80332",
+    "bytes": 37286
+  },
+  {
+    "file": "black_party_boat_punta_cana - Propuesta 02.html",
+    "sha256": "7081934f3dd62235d772bd68a9781875f46471818b41409f9a9d94c7fed94742",
+    "bytes": 39970
+  },
+  {
+    "file": "laboratorio-de-movimiento actualizado.html",
+    "sha256": "a1396dbdc9ee5c0fd653076948313dcf2dd5c172810fbad596f3def2a16ee7eb",
+    "bytes": 42719
+  },
+  {
+    "file": "laboratorio-de-movimiento.html",
+    "sha256": "1c2913e8550efd9075a8ef2be97eeb726f207e3ffb32600951e69a4614a42d10",
+    "bytes": 34088
+  },
+  {
+    "file": "preview.html",
+    "sha256": "6c58026a7473cad7afda5d8b4d79915c224bf17a3ead50ab84faf316a86beec5",
+    "bytes": 6667
+  },
+  {
+    "file": "tarjetas_vivas.html",
+    "sha256": "3de2d5c00bbe3bd0a5df078d3889725f7492ec4fde612714caba61394111a6a6",
+    "bytes": 13429
+  }
+]
